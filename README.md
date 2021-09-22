@@ -8,3 +8,6 @@ sites themselves. The aim of this product is to create a new way to discover mus
 to create user curated playlists for all to listen to. We wish to be able to bring together people of all 
 music tastes to create playlists that will give everyone something they like, so much so, that one day 
 someone might just say, "Put on a SoundSource playlist."
+
+Setting up backend(Springboot)
+A springboot project was created with Springboot Initializr incorporating Spring Web, Spring Data JPA, and H2 Database. From their a JPA Model was established consisting of classes for users, favorites, and suggested. Further entities, ids, and relationships were set up. 
