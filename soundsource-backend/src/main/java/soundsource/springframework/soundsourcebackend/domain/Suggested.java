@@ -1,9 +1,7 @@
 package soundsource.springframework.soundsourcebackend.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Suggested {
@@ -16,13 +14,19 @@ public class Suggested {
     private String playlistName;
     private String status;
 
+    @ManyToOne
+    @JoinTable(name = "user_suggested", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = true),
+            inverseJoinColumns = @JoinColumn(name = "suggested_id", referencedColumnName = "id", nullable = true))
+    private User user;
+
     public Suggested() {
     }
 
-    public Suggested(String songName, String playlistName, String status) {
+    public Suggested(String songName, String playlistName, String status,User user) {
         this.songName = songName;
         this.playlistName = playlistName;
         this.status = status;
+        this.user = user;
     }
 
     public Long getId() {
@@ -55,5 +59,29 @@ public class Suggested {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Suggested{" +
+                "id=" + id +
+                ", songName='" + songName + '\'' +
+                ", playlistName='" + playlistName + '\'' +
+                ", status='" + status + '\'' +
+                ", user=" + user +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Suggested suggested = (Suggested) o;
+        return Objects.equals(id, suggested.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

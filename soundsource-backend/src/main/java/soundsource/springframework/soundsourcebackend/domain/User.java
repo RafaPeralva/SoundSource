@@ -1,14 +1,12 @@
 package soundsource.springframework.soundsourcebackend.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
 public class User {
-
+    //generate id for each user
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -16,7 +14,13 @@ public class User {
     private String lastName;
     private String userName;
     private String email;
+
+    //establish one to many relationship between users and favorited
+    @OneToMany
     private Set<Favorited> favorite;
+
+    //establish one to many relationship between users and favorited
+    @OneToMany
     private Set<Suggested> suggest;
 
     public User() {
@@ -87,5 +91,29 @@ public class User {
         this.suggest = suggest;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                ", favorite=" + favorite +
+                ", suggest=" + suggest +
+                '}';
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
