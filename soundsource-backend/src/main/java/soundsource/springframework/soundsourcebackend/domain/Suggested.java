@@ -3,6 +3,7 @@ package soundsource.springframework.soundsourcebackend.domain;
 import javax.persistence.*;
 import java.util.Objects;
 
+//Set up entities for suggested to be stored as a table within the database
 @Entity
 public class Suggested {
 
