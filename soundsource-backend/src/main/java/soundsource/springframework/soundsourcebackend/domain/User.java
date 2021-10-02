@@ -4,9 +4,10 @@ import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
+//Set up entities for user to be stored as a table within the database
 @Entity
 public class User {
-    //generate id for each user
+    //generate id/private key for each user
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

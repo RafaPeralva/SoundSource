@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.util.Objects;
 
+//Set up entities for favorited to be stored as a table within the database
 @Entity
 public class Favorited {
 
