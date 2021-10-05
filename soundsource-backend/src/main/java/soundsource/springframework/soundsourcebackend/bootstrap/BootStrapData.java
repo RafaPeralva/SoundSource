@@ -10,13 +10,10 @@ import soundsource.springframework.soundsourcebackend.repositories.UserRepositor
 public class BootStrapData implements CommandLineRunner{
 
     private final UserRepository userRepository;
-    private final SuggestedRepository suggestedRepository;
-    private final FavoritedRepository favoritedRepository;
 
-    public BootStrapData(UserRepository userRepository, SuggestedRepository suggestedRepository, FavoritedRepository favoritedRepository) {
+
+    public BootStrapData(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.suggestedRepository = suggestedRepository;
-        this.favoritedRepository = favoritedRepository;
     }
 
     @Override

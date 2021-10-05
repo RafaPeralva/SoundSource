@@ -17,24 +17,15 @@ public class User {
     private String userName;
     private String email;
 
-    //establish one to many relationship between users and favorited
-    @OneToMany
-    private Set<Favorited> favorite;
-
-    //establish one to many relationship between users and favorited
-    @OneToMany
-    private Set<Suggested> suggest;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String userName, String email, Set<Favorited> favorite, Set<Suggested> suggest) {
+    public User(String firstName, String lastName, String userName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.email = email;
-        this.favorite = favorite;
-        this.suggest = suggest;
     }
 
     public Long getId() {
@@ -77,21 +68,7 @@ public class User {
         this.email = email;
     }
 
-    public Set<Favorited> getFavorite() {
-        return favorite;
-    }
 
-    public void setFavorite(Set<Favorited> favorite) {
-        this.favorite = favorite;
-    }
-
-    public Set<Suggested> getSuggest() {
-        return suggest;
-    }
-
-    public void setSuggest(Set<Suggested> suggest) {
-        this.suggest = suggest;
-    }
 
     @Override
     public String toString() {
@@ -101,8 +78,6 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
                 ", email='" + email + '\'' +
-                ", favorite=" + favorite +
-                ", suggest=" + suggest +
                 '}';
     }
 
