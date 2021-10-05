@@ -2,8 +2,6 @@ package soundsource.springframework.soundsourcebackend.bootstrap;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import soundsource.springframework.soundsourcebackend.repositories.FavoritedRepository;
-import soundsource.springframework.soundsourcebackend.repositories.SuggestedRepository;
 import soundsource.springframework.soundsourcebackend.repositories.UserRepository;
 
 
