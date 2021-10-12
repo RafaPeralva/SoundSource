@@ -3,6 +3,18 @@ import { MenuItems } from "./MenuItems";
 import { Button } from "../Button/Button";
 import "./Navbar.css";
 
+function btnClick() {
+  console.log("button");
+  const getLoginPage = () => {
+    console.log("button 2");
+    fetch("http:localhost:8080/api/login")
+      .then((response) => response.text())
+      .then((response) => {
+        window.location.replace(response);
+      });
+  };
+}
+
 class Navbar extends Component {
   state = { clicked: false };
 
@@ -30,7 +42,9 @@ class Navbar extends Component {
             );
           })}
         </ul>
-        <Button>Login</Button>
+        <Button className="loginbtn" onClick={btnClick}>
+          Login
+        </Button>
       </nav>
     );
   }
