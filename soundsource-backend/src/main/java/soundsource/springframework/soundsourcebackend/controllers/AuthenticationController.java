@@ -19,7 +19,7 @@ import java.util.concurrent.CompletionException;
 @RestController
 @RequestMapping("/api")
 public class AuthenticationController {
-    private static final URI redirectUri = SpotifyHttpManager.makeUri("http:localhost:8080/api/get-user-code/");
+    private static final URI redirectUri = SpotifyHttpManager.makeUri("http://localhost:8080/api/get-user-code/");
     private static String clientId = "d3e1683020674ab9bddebbb1f3b4c1df";
     private static String clientSecret = "c1a07f01646749eca7763697eb0a9764";
     private String code = "";
@@ -60,6 +60,8 @@ public class AuthenticationController {
             System.out.println("Error: " + e.getMessage());
         }
 
+        response.sendRedirect("http://localhost:3000");
         return spotifyApi.getAccessToken();
+
     }
 }

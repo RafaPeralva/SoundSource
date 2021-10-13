@@ -7,17 +7,8 @@
     <list default="true" id="20f48c4c-ed51-4e2f-afb1-a95b0dd5afc1" name="Changes" comment="Deleted unnecessary domains/repositories and added song domain/repository.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/SearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/SoundsourceBackendApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/bootstrap/BootStrapData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/controllers/AuthenticationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/controllers/SearchController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/domain/Song.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/domain/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/keys/Keys.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/repositories/SongRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/repositories/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/soundsource/springframework/soundsourcebackend/SoundsourceBackendApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,10 +29,18 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="main" />
+        <entry key="$PROJECT_DIR$/.." value="new-updates" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -97,7 +96,7 @@
       <updated>1632320321004</updated>
       <workItem from="1632320326040" duration="31730000" />
       <workItem from="1634065692412" duration="1653000" />
-      <workItem from="1634080922796" duration="1268000" />
+      <workItem from="1634080922796" duration="8640000" />
     </task>
     <task id="LOCAL-00001" summary="Set up database models">
       <created>1632325344967</created>
@@ -162,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633526385338</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Deleted unnecessary domains/repositories and added song domain/repository.">
+      <created>1634084315938</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1634084315938</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
