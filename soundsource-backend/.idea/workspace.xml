@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20f48c4c-ed51-4e2f-afb1-a95b0dd5afc1" name="Changes" comment="Deleted unnecessary domains/repositories and added song domain/repository.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/keys/Keys.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/SoundsourceBackendApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/bootstrap/BootStrapData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/controllers/AuthenticationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/controllers/SearchController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/domain/Song.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/domain/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/keys/Keys.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/repositories/SongRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/repositories/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/soundsource/springframework/soundsourcebackend/SoundsourceBackendApplicationTests.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,12 +33,12 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/main" />
+    <option name="BRANCH" value="feature/homepage" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="update-controllers" />
+        <entry key="$PROJECT_DIR$/.." value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -84,6 +96,8 @@
       <option name="presentableId" value="Default" />
       <updated>1632320321004</updated>
       <workItem from="1632320326040" duration="31730000" />
+      <workItem from="1634065692412" duration="1653000" />
+      <workItem from="1634080922796" duration="1268000" />
     </task>
     <task id="LOCAL-00001" summary="Set up database models">
       <created>1632325344967</created>
@@ -252,6 +266,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Set up database models" />
