@@ -24,7 +24,7 @@ public class AuthenticationController {
     private static String clientSecret = "c1a07f01646749eca7763697eb0a9764";
     private String code = "";
 
-    private static final SpotifyApi spotifyApi = new SpotifyApi.Builder()
+    static final SpotifyApi spotifyApi = new SpotifyApi.Builder()
             .setClientId(clientId)
             .setClientSecret(clientSecret)
             .setRedirectUri(redirectUri)
