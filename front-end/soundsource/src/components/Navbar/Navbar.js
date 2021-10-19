@@ -1,41 +1,16 @@
 import React, { Component } from "react";
 import { MenuItems } from "./MenuItems";
 import { Button } from "../Button/Button";
+import { SearchBar } from "../SearchBar/SearchBar";
 import "./Navbar.css";
 
-
-// async function btnClick() {
-//   const response = await fetch(
-//     'http://localhost:8080/api/login',
-//     { method: "GET" },
-//   );
-
-//   if (response.status === 200) {
-//     window.location.replace(response.text);
-//   } else {
-//     console.error(`Error: ${response.statusText}`);
-//   }
-// }
-
 const getSpotifyUserLogin = () => {
-    fetch("http://localhost:8080/api/login")
+  fetch("http://localhost:8080/api/login")
     .then((response) => response.text())
-    .then(response => {
+    .then((response) => {
       window.location.replace(response);
-    })
-  }
-
-// function btnClick() {
-//   console.log("button");
-//   const getLoginPage = () => {
-//     console.log("button 2");
-//     fetch("http://localhost:8081/api/login")
-//       .then((response) => response.text())
-//       .then((response) => {
-//         window.location.replace(response);
-//       });
-//   };
-// }
+    });
+};
 
 class Navbar extends Component {
   state = { clicked: false };
@@ -64,6 +39,7 @@ class Navbar extends Component {
             );
           })}
         </ul>
+        <SearchBar />
         <Button className="loginbtn" onClick={getSpotifyUserLogin}>
           Login
         </Button>
