@@ -1,0 +1,15 @@
+.searchWrapper {
+  margin-right: 10px;
+}
+.searchBar {
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  margin-right: 10px;
+}
+
+.searchBtn {
+  padding: 2.5px;
+}
