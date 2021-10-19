@@ -7,8 +7,7 @@
     <list default="true" id="20f48c4c-ed51-4e2f-afb1-a95b0dd5afc1" name="Changes" comment="Deleted unnecessary domains/repositories and added song domain/repository.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/SearchController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="new-updates" />
+        <entry key="$PROJECT_DIR$/.." value="finish-login" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -96,7 +95,8 @@
       <updated>1632320321004</updated>
       <workItem from="1632320326040" duration="31730000" />
       <workItem from="1634065692412" duration="1653000" />
-      <workItem from="1634080922796" duration="8640000" />
+      <workItem from="1634080922796" duration="13297000" />
+      <workItem from="1634588930706" duration="4604000" />
     </task>
     <task id="LOCAL-00001" summary="Set up database models">
       <created>1632325344967</created>
@@ -168,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634084315938</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Deleted unnecessary domains/repositories and added song domain/repository.">
+      <created>1634151521258</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1634151521258</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
