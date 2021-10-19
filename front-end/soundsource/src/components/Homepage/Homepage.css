@@ -1,3 +1,16 @@
 .homepage {
   color: white;
 }
+h3 {
+  padding-top: 5%;
+}
+ul {
+  list-style-type: none; /* Remove bullets */
+  font-size: 2em;
+  text-align: left;
+  margin-left: 28%;
+}
+.artist {
+  font-size: 0.6em;
+  text-align: left;
+}
