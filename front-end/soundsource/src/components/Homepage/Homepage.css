@@ -42,3 +42,17 @@ h3 {
   margin-right: 2%;
   background-color: transparent;
 }
+
+.search{
+  list-style-type: none;
+  font-size: 1.5em;
+  text-align: left;
+  margin-left: 30%;
+  line-height: 1em;
+}
+
+.searchSong:hover{
+  background-color: rgb(70, 70, 70);
+  cursor: pointer;
+  padding: .2em;
+}

@@ -60,10 +60,19 @@ export const Homepage = () => {
               </Row> */}
             </Col>
             <Col className="text-center">
-              here goes the suggested Playlists ...
-              <Row>
+            <ul className="search">
+                <li className="searchSong">Location<br />
+                <span className="playlistArtist">Khalid</span></li>
+                <li className="searchSong">Location<br />
+                <span className="playlistArtist">Playboi Carti</span></li>
+                <li className="searchSong">Sharing Locations<br />
+                <span className="playlistArtist">Meek Mill, Lil Durk, Lil Baby</span></li>
+                <li className="searchSong">Location<br />
+                <span className="playlistArtist">Dave,Burna Boy</span></li>
+              </ul>
+              {/*<Row>
                 <Col className="text-center">with new rows</Col>
-              </Row>
+              </Row>*/}
             </Col>
           </Row>
         </Container>
