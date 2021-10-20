@@ -39,7 +39,7 @@ class Navbar extends Component {
             );
           })}
         </ul>
-        <SearchBar />
+        {/* <SearchBar /> */}
         <Button className="loginbtn" onClick={getSpotifyUserLogin}>
           Login
         </Button>

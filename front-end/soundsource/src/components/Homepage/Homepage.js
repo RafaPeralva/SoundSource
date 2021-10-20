@@ -1,6 +1,7 @@
 import React from "react";
 import "./Homepage.css";
 import { Container, Row, Col, RowProps, ColProps } from "react-bootstrap";
+import { SearchBar } from "../SearchBar/SearchBar";
 
 export const Homepage = () => {
   function upvote() {
@@ -20,7 +21,7 @@ export const Homepage = () => {
               <h3>Suggested</h3>
             </Col>
             <Col className="text-center">
-              <h3>Search</h3>
+              <SearchBar />
             </Col>
           </Row>
           <Row>
