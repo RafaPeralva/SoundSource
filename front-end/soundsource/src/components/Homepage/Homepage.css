@@ -1,3 +1,58 @@
 .homepage {
   color: white;
 }
+
+h3 {
+  padding-top: 5%;
+  margin-right: 10%;
+}
+
+.section {
+  font-size: 1em;
+}
+
+.playlist {
+  list-style-type: none; /* Remove bullets */
+  font-size: 1.4em;
+  text-align: left;
+  margin-left: 23%;
+}
+
+.playlistArtist {
+  font-size: 0.6em;
+  text-align: left;
+}
+
+.suggested {
+  list-style-type: none;
+  font-size: 1.4em;
+  text-align: left;
+  margin-left: 23%;
+}
+
+.suggestedArtist {
+  font-size: 0.6em;
+  padding-left: 6%;
+  text-align: left;
+}
+
+.upvote {
+  cursor: pointer;
+  border: none;
+  margin-right: 2%;
+  background-color: transparent;
+}
+
+.search{
+  list-style-type: none;
+  font-size: 1.5em;
+  text-align: left;
+  margin-left: 30%;
+  line-height: 1em;
+}
+
+.searchSong:hover{
+  background-color: rgb(70, 70, 70);
+  cursor: pointer;
+  padding: .2em;
+}
