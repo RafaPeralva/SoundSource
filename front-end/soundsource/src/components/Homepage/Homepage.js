@@ -3,6 +3,9 @@ import "./Homepage.css";
 import { Container, Row, Col, RowProps, ColProps } from "react-bootstrap";
 
 export const Homepage = () => {
+  function upvote() {
+    console.log("Upvoted Song");
+  }
   return (
     <div className="homepage">
       <div className="homepage-body">
@@ -11,10 +14,10 @@ export const Homepage = () => {
             once backend is set up we will do it with a map function */}
           <Row>
             <Col className="text-center">
-              <h3>Suggested</h3>
+              <h3>SoundSource Playlist</h3>
             </Col>
             <Col className="text-center">
-              <h3>SoundSource Playlist</h3>
+              <h3>Suggested</h3>
             </Col>
             <Col className="text-center">
               <h3>Search</h3>
@@ -22,25 +25,39 @@ export const Homepage = () => {
           </Row>
           <Row>
             <Col className="text-center">
-              here goes the suggested songs ...
-              <Row>
-                <Col className="text-center">with new rows </Col>
-              </Row>
-            </Col>
-            <Col className="text-center">
-              <ul className="playlist">
+            <ul className="playlist">
                 <li>Bad Romance</li>
-                <li className="artist">Lady Gaga</li>
-                <li>Location</li>
-                <li className="artist">Khalid</li>
+                <li className="playlistArtist">Lady Gaga</li>
+                <li>Numb / Encore</li>
+                <li className="playlistArtist">JAY-Z, Linkin Park</li>
                 <li>Off The Grid</li>
-                <li className="artist">Kanye West</li>
+                <li className="playlistArtist">Kanye West</li>
                 <li>Way 2 Sexy</li>
-                <li className="artist">Drake, Future</li>
+                <li className="playlistArtist">Drake, Future</li>
               </ul>
-              <Row>
-                <Col className="text-center"> </Col>
-              </Row>
+              {/* <Row>
+                <Col className="text-center">with new rows </Col>
+              </Row> */}
+            </Col>
+
+            <Col className="text-center">
+            <ul className="suggested">
+                <li><button className = "upvote" onClick={upvote}>
+                  <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>Infinity (888)</li>
+                <li className="suggestedArtist">XXXTENTACION, Joey Bada$$</li>
+                <li><button className = "upvote" onClick={upvote}>
+                  <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>OKRA</li>
+                <li className="suggestedArtist">Tyler, The Creator</li>
+                <li><button className = "upvote" onClick={upvote}>
+                  <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>i n t e r l u d e</li>
+                <li className="suggestedArtist">J. Cole</li>
+                <li><button className = "upvote" onClick={upvote}>
+                  <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>Babydoll</li>
+                <li className="suggestedArtist">Dominic Fike</li>
+              </ul>
+              {/* <Row>
+                <Col className="text-center">with new rows </Col>
+              </Row> */}
             </Col>
             <Col className="text-center">
               here goes the suggested Playlists ...

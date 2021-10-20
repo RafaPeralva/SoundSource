@@ -1,16 +1,44 @@
 .homepage {
   color: white;
 }
+
 h3 {
   padding-top: 5%;
+  margin-right: 10%;
 }
-ul {
+
+.section {
+  font-size: 1em;
+}
+
+.playlist {
   list-style-type: none; /* Remove bullets */
-  font-size: 2em;
+  font-size: 1.4em;
   text-align: left;
-  margin-left: 28%;
+  margin-left: 23%;
 }
-.artist {
+
+.playlistArtist {
   font-size: 0.6em;
   text-align: left;
+}
+
+.suggested {
+  list-style-type: none;
+  font-size: 1.4em;
+  text-align: left;
+  margin-left: 23%;
+}
+
+.suggestedArtist {
+  font-size: 0.6em;
+  padding-left: 6%;
+  text-align: left;
+}
+
+.upvote {
+  cursor: pointer;
+  border: none;
+  margin-right: 2%;
+  background-color: transparent;
 }
