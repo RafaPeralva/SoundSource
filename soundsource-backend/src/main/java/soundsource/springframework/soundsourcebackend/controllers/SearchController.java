@@ -19,7 +19,6 @@ public class SearchController {
         final SearchTracksRequest searchTracksRequest = spotifyApi.searchTracks(q)
                 .q(q)
                 .limit(10)
-                .offset(5)
                 .build();
 
         try {
