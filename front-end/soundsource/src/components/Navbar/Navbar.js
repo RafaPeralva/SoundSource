@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { MenuItems } from "./MenuItems";
 import { Button } from "../Button/Button";
-import { SearchBar } from "../SearchBar/SearchBar";
 import "./Navbar.css";
 
 const getSpotifyUserLogin = () => {
