@@ -61,7 +61,7 @@ export const Homepage = () => {
               </Row> */}
             </Col>
             <Col className="text-center">
-            <ul className="search">
+            {/* <ul className="search">
                 <li className="searchSong">Location<br />
                 <span className="playlistArtist">Khalid</span></li>
                 <li className="searchSong">Location<br />
@@ -70,7 +70,8 @@ export const Homepage = () => {
                 <span className="playlistArtist">Meek Mill, Lil Durk, Lil Baby</span></li>
                 <li className="searchSong">Location<br />
                 <span className="playlistArtist">Dave,Burna Boy</span></li>
-              </ul>
+              </ul> */}
+              
               {/*<Row>
                 <Col className="text-center">with new rows</Col>
               </Row>*/}
