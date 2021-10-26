@@ -27,7 +27,7 @@ h3 {
   list-style-type: none;
   font-size: 1.4em;
   text-align: left;
-  margin-left: 23%;
+  margin-left: 0%;
 }
 
 .suggestedArtist {
@@ -43,7 +43,7 @@ h3 {
   background-color: transparent;
 }
 
-.search{
+.search {
   list-style-type: none;
   font-size: 1.5em;
   text-align: left;
@@ -51,8 +51,13 @@ h3 {
   line-height: 1em;
 }
 
-.searchSong:hover{
+.searchSong:hover {
   background-color: rgb(70, 70, 70);
   cursor: pointer;
   padding: .2em;
+}
+
+.counterNum {
+  padding-top: 10%;
+  margin-left: 100%;
 }
