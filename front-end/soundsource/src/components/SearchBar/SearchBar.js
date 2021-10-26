@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 
   function searchButton() {
 
-    const [searchResults,setsearchResults] = useState(null);
+    const [searchResults,setsearchResults] = useState(" ");
 
     useEffect(() => {
         fetch("http://localhost:8080/api/search?q=babydoll")

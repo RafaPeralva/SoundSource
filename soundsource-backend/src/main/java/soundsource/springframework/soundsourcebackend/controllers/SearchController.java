@@ -24,7 +24,7 @@ public class SearchController {
         try {
 
             final Paging<Track> trackPaging = searchTracksRequest.execute();
-
+            System.out.println("Success\n");
             // return top Tracks as JSON
             return trackPaging.getItems();
         } catch (Exception e) {
