@@ -10,7 +10,10 @@ export default function SearchResults(props){
             search.map((searchList) => {
               console.log(search);  
               return (
-              <li className="text-center" key={searchList.uri}>{"Song title: "}{searchList.name}{' Artist: '}{searchList.artists[0].name}</li>
+              <div className="text-center" key={searchList.uri}>
+              <li>{"Song title: "}{searchList.name}</li>
+              <p>{'Artist: '}{searchList.artists[0].name}</p>
+              </div>
               )
             })
           ) : (

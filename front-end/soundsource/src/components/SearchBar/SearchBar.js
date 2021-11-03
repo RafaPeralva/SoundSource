@@ -1,41 +1,43 @@
 import React from "react";
 import { Button } from "../Button/Button";
 import "./SearchBar.css";
+import { useState } from "react";
+import axios from "axios";
+import SearchResults from "../SearchResults/SearchResults";
 
-export class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchValue: "",
-    };
-  }
-  handleChange(e) {
-    this.setState({ searchValue: e.target.value });
-  }
+export default function SearchBar() {
+  const [search, setSearch] = useState([]);
 
-  render() {
-    return (
-      <div className="searchWrapper">
-        <form action="/" method="get">
-          <div className="searchBar">
-            <input
-              type="text"
-              id="navbar-search"
-              placeholder="Search..."
-              name="search"
-              className="searchInput"
-              onChange={this.handleChange.bind(this)}
-            />
-            {console.log(this.state.searchValue)}
+  const url = "http://localhost:8080/api/search?q=power";
 
-            <Button className="searchBtn" type="submit">
-              Search
-            </Button>
-          </div>
-        </form>
+  const handleGetSearch = () => {
+    axios
+      .get(url)
+      .then((response) => {
+        setSearch(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  return (
+    <div className="searchWrapper">
+      <div className="searchBar">
+        <div>
+          <input
+            type="text"
+            id="navbar-search"
+            placeholder="Search..."
+            name="search"
+            className="searchInput"
+          />
+          <Button className="searchBtn" type="submit" onClick={handleGetSearch}>
+            Search
+          </Button>
+        </div>
+        <SearchResults search={search} />
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default SearchBar;
