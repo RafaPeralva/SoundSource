@@ -1,7 +1,8 @@
 import React from "react";
 import "./Homepage.css";
 import { Container, Row, Col, RowProps, ColProps } from "react-bootstrap";
-import { SearchBar } from "../SearchBar/SearchBar";
+import {SearchBar} from "../SearchBar/SearchBar";
+// import SearchResults from "../SearchResults/SearchResults";
 
 const {useState} = React;
 
@@ -26,7 +27,7 @@ export const Homepage = () => {
               <h3>Suggested</h3>
             </Col>
             <Col className="text-center">
-              <SearchBar />
+              {/* <SearchBar /> */}
             </Col>
           </Row>
           <Row>
@@ -75,19 +76,8 @@ export const Homepage = () => {
               </Row> */}
             </Col>
             <Col className="text-center">
-            <ul className="search">
-                <li className="searchSong">Location<br />
-                <span className="playlistArtist">Khalid</span></li>
-                <li className="searchSong">Location<br />
-                <span className="playlistArtist">Playboi Carti</span></li>
-                <li className="searchSong">Sharing Locations<br />
-                <span className="playlistArtist">Meek Mill, Lil Durk, Lil Baby</span></li>
-                <li className="searchSong">Location<br />
-                <span className="playlistArtist">Dave,Burna Boy</span></li>
-              </ul>
-              {/*<Row>
-                <Col className="text-center">with new rows</Col>
-              </Row>*/}
+              <SearchBar />
+              {/* <SearchResults /> */}
             </Col>
           </Row>
         </Container>
