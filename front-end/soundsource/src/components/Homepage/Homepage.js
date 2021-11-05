@@ -1,8 +1,8 @@
 import React from "react";
 import "./Homepage.css";
 import { Container, Row, Col, RowProps, ColProps } from "react-bootstrap";
-import SearchBar from "../SearchBar/SearchBar";
-import SearchResults from "../SearchResults/SearchResults";
+import {SearchBar} from "../SearchBar/SearchBar";
+// import SearchResults from "../SearchResults/SearchResults";
 
 const {useState} = React;
 
@@ -77,7 +77,7 @@ export const Homepage = () => {
             </Col>
             <Col className="text-center">
               <SearchBar />
-              <SearchResults />
+              {/* <SearchResults /> */}
             </Col>
           </Row>
         </Container>
