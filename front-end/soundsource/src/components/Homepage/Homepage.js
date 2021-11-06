@@ -4,6 +4,7 @@ import { Container, Row, Col, RowProps, ColProps } from "react-bootstrap";
 import {SearchBar} from "../SearchBar/SearchBar";
 // import SearchResults from "../SearchResults/SearchResults";
 
+const {useEffect} = React;
 const {useState} = React;
 
 export const Homepage = () => {
@@ -12,6 +13,18 @@ export const Homepage = () => {
   const[songTwo, setSongTwo] = useState(0);
   const[songThree, setSongThree] = useState(0);
   const[songFour, setSongFour] = useState(0);
+
+  
+  const MINUTE_MS = 60000; // Every min
+  // const MINUTE_MS = 600000; // Every 10 min
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      console.log('Logs every minute');
+    }, MINUTE_MS);
+
+    return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
+  }, [])
 
   return (
     <div className="homepage">
