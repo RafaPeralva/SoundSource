@@ -4,7 +4,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.wrapper.spotify.exceptions.SpotifyWebApiException;
-import com.wrapper.spotify.requests.data.player.SkipUsersPlaybackToNextTrackRequest;
+import com.wrapper.spotify.model_objects.specification.Playlist;
+import com.wrapper.spotify.requests.data.playlists.CreatePlaylistRequest;
 
 import org.apache.hc.core5.http.ParseException;
 import java.io.IOException;
@@ -13,22 +14,23 @@ import static soundsource.springframework.soundsourcebackend.controllers.Authent
 
 @RestController
 @RequestMapping("/api")
-public class SkipController {
+public class CreatePlaylistController {
 
-    @GetMapping(value = "skip")
-    public static void skipSong() {
-        System.out.println("Skipping Song");
-        final SkipUsersPlaybackToNextTrackRequest skipUsersPlaybackToNextTrackRequest = spotifyApi
-                .skipUsersPlaybackToNextTrack()
-                .build();
+    @GetMapping(value = "createPlaylist")
+    public static String createPlaylist() {
+        final String userId = UserController.getUserId();
+        final String name = "General by Spotify SoundSource";
+
+        final CreatePlaylistRequest createPlaylistRequest = spotifyApi.createPlaylist(userId, name).build();
 
         try {
-            
-            final String string = skipUsersPlaybackToNextTrackRequest.execute();
+            final Playlist playlist = createPlaylistRequest.execute();
 
-            System.out.println("Skipping Song Completed: " + string);
+            System.out.println("Name: " + playlist.getName());
+            return playlist.getId();
         } catch (IOException | SpotifyWebApiException | ParseException e) {
             System.out.println("Error: " + e.getMessage());
-        }   
+            return "ERROR";
+        }
     }
 }

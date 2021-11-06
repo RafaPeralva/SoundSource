@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class PlayController {
 
     @GetMapping(value = "play")
-    public void playSong(String trackUri) {
-        if(trackUri == null)
-            trackUri = "spotify:track:7J2gyNghNTzl4EsLhXp01Q"; // Infinity (888) - XXXTENTACION ft. Joey Bada$$
+    public void playSong(String q) {
+        if(q == null)
+            q = "spotify:track:01iyCAUm8EvOFqVWYJ3dVX"; // Dancing Queen - Abba
 
         DeviceController.activateDevice();
 
         if(DeviceController.isActiveDevice()) {
             System.out.println("Play Passed");
-            QueueController.addItemToUsersPlaybackQueue_Sync(trackUri);
+            QueueController.addItemToUsersPlaybackQueue_Sync(q);
             SkipController.skipSong();
         } else {
             System.out.println("Play Failed");
-            playSong(trackUri);
+            playSong(q);
         }
     }
 }
