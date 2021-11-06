@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20f48c4c-ed51-4e2f-afb1-a95b0dd5afc1" name="Changes" comment="Deleted unnecessary domains/repositories and added song domain/repository.">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/soundsource/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/soundsource/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/soundsource/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/soundsource/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/soundsource/src/components/Homepage/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/soundsource/src/components/Homepage/Homepage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/repositories/PlaylistRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/PlayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/PlayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/QueueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/QueueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/SkipController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/SkipController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/controllers/SkipController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/controllers/SkipController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/bootstrap/BootStrapData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/bootstrap/BootStrapData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/SuggestedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/SuggestedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/domain/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/domain/Playlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/domain/Suggested.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/repositories/SongRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/repositories/SuggestedRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,29 +1,25 @@
 package soundsource.springframework.soundsourcebackend.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class Song {
+@Table(name = "playlist")
+public class Playlist {
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String trackName;
-    private String albumName;
     private String artistName;
 
-    public Song() {
+    public Playlist() {
     }
 
-    public Song(Long id, String trackName, String albumName, String artistName) {
+    public Playlist(Long id, String trackName, int upvoteCount, String artistName) {
         this.id = id;
         this.trackName = trackName;
-        this.albumName = albumName;
         this.artistName = artistName;
     }
 
@@ -43,14 +39,6 @@ public class Song {
         this.trackName = trackName;
     }
 
-    public String getAlbumName() {
-        return albumName;
-    }
-
-    public void setAlbumName(String albumName) {
-        this.albumName = albumName;
-    }
-
     public String getArtistName() {
         return artistName;
     }
@@ -61,10 +49,9 @@ public class Song {
 
     @Override
     public String toString() {
-        return "Song{" +
+        return "Playlist{" +
                 "id=" + id +
                 ", trackName='" + trackName + '\'' +
-                ", albumName='" + albumName + '\'' +
                 ", artistName='" + artistName + '\'' +
                 '}';
     }
@@ -73,8 +60,8 @@ public class Song {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Song song = (Song) o;
-        return Objects.equals(id, song.id);
+        Playlist playlist = (Playlist) o;
+        return Objects.equals(id, playlist.id);
     }
 
     @Override
