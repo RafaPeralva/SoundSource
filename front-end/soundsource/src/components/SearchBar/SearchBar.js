@@ -46,6 +46,22 @@ export class SearchBar extends React.Component {
     console.log("Song: " + searchList.name);
     console.log("Artist: " + searchList.artists[0].name);
     console.log("URI:" + searchList.uri);
+
+    var songInfo = {
+      name: searchList.artists[0].name,
+      song: searchList.name,
+      uri: searchList.uri,
+    };
+
+    console.log("song info: " + songInfo.name);
+
+    //set songInfo
+
+    // songInfo.name = searchList.artists[0].name;
+    // songInfo.song = searchList.name;
+    // songInfo.uri = searchList.uri;
+
+    //push to database
   };
 
   makeList = () => {
