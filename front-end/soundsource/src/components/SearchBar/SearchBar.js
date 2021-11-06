@@ -50,7 +50,7 @@ export class SearchBar extends React.Component {
     uri: "",
   };
 
-  handleAddClick = (searchList) => {
+  handleAddClick = (searchList, e) => {
     // console.log("Song: " + searchList.name);
     // console.log("Artist: " + searchList.artists[0].name);
     // console.log("URI:" + searchList.uri);
@@ -61,6 +61,34 @@ export class SearchBar extends React.Component {
     song.uri = searchList.uri;
 
     console.log("song info: " + song.name + " " + song.song + " " + song.uri);
+
+    e.preventDefault();
+    const { song } = this.state;
+
+    await fetch("/URL" + (song.name ? "/" + song.name : ""), {
+      method: song.name ? "PUT" : "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(song),
+    });
+    this.props.history.push("/URL");
+
+    //   async handleSubmit(event) {
+    //     event.preventDefault();
+    //     const {item} = this.state;
+
+    //     await fetch('/clients' + (item.id ? '/' + item.id : ''), {
+    //         method: (item.id) ? 'PUT' : 'POST',
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(item),
+    //     });
+    //     this.props.history.push('/clients');
+    // }
   };
 
   makeList = () => {
