@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../Button/Button";
 import "./SearchBar.css";
+
 import axios from "axios";
 
 export class SearchBar extends React.Component{

@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20f48c4c-ed51-4e2f-afb1-a95b0dd5afc1" name="Changes" comment="Deleted unnecessary domains/repositories and added song domain/repository.">
+      <change beforePath="$PROJECT_DIR$/../front-end/soundsource/src/components/SearchBar/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/soundsource/src/components/SearchBar/SearchBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,12 +74,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager">
-    <configuration name="SoundsourceBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="Soundsource Config" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="soundsource.springframework.soundsourcebackend.SoundsourceBackendApplication" />
       <module name="soundsource-backend" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="soundsource.springframework.soundsourcebackend.SoundsourceBackendApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -96,6 +101,7 @@
       <workItem from="1634080922796" duration="13297000" />
       <workItem from="1634588930706" duration="4604000" />
       <workItem from="1634750277687" duration="2527000" />
+      <workItem from="1635176217666" duration="3441000" />
     </task>
     <task id="LOCAL-00001" summary="Set up database models">
       <created>1632325344967</created>
@@ -174,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634151521258</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Deleted unnecessary domains/repositories and added song domain/repository.">
+      <created>1635279610116</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1635279610117</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
