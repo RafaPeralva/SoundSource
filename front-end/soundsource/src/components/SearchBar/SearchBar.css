@@ -15,3 +15,9 @@
 .searchBtn {
   padding: 2.5px;
 }
+
+.add-btn {
+  font-size: larger;
+  color: green;
+  text-decoration: none;
+}
