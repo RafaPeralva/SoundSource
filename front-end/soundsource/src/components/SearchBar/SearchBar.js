@@ -19,7 +19,7 @@ export class SearchBar extends React.Component {
   };
 
   handleSearchClick = async () => {
-    let songName = this.state.searchText; 
+    let songName = this.state.searchText;
     let linkToAPI = "http://localhost:8080/api/search?q=" + songName;
 
     try {
@@ -49,7 +49,7 @@ export class SearchBar extends React.Component {
     id: "",
   };
 
-  async handleAddClick = (searchList, e) => {
+  handleAddClick = (searchList, e) => {
     // console.log("Song: " + searchList.name);
     // console.log("Artist: " + searchList.artists[0].name);
     // console.log("URI:" + searchList.uri);
@@ -59,20 +59,23 @@ export class SearchBar extends React.Component {
     song.trackName = searchList.name;
     song.id = searchList.uri;
 
-    console.log("song info: " + song.artistName + " " + song.artistSong + " " + song.id);
+    console.log(
+      "song info: " + song.artistName + " " + song.artistSong + " " + song.id
+    );
 
     e.preventDefault();
     const { song } = this.state;
 
-    await fetch("/suggested"), {
-      method: 'POST',
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(song),
-    };
-    
+    fetch("/suggested"),
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(song),
+      };
+
     this.props.history.push("/URL");
 
     //   async handleSubmit(event) {
@@ -150,6 +153,3 @@ export class SearchBar extends React.Component {
 }
 
 export default SearchBar;
-
-
-
