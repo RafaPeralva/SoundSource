@@ -18,6 +18,7 @@ public class QueueController {
     @GetMapping(value = "queue")
     public static void addItemToUsersPlaybackQueue_Sync(String trackUri) {
         System.out.println("Queuing Song");
+
         if(trackUri == null)
             trackUri = "spotify:track:01iyCAUm8EvOFqVWYJ3dVX"; // Dancing Queen - Abba
 
