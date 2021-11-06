@@ -54,6 +54,7 @@ export class SearchBar extends React.Component {
     // console.log("Artist: " + searchList.artists[0].name);
     // console.log("URI:" + searchList.uri);
 
+    // var song = this.songInfo;
     var song = this.songInfo;
     song.artistName = searchList.artists[0].name;
     song.trackName = searchList.name;
@@ -64,7 +65,7 @@ export class SearchBar extends React.Component {
     );
 
     e.preventDefault();
-    const { song } = this.state;
+    song = this.state;
 
     fetch("/suggested"),
       {
