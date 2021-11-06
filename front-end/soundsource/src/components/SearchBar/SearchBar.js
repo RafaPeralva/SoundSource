@@ -25,6 +25,7 @@ export class SearchBar extends React.Component {
 
     try {
       let response = await axios.get(linkToAPI);
+
       //below will only execute if API response is sucessful
       //to get actual object from response you need to do
       //response.data
@@ -42,26 +43,24 @@ export class SearchBar extends React.Component {
     }
   };
 
+  //song obj for database
+  songInfo = {
+    name: "",
+    song: "",
+    uri: "",
+  };
+
   handleAddClick = (searchList) => {
-    console.log("Song: " + searchList.name);
-    console.log("Artist: " + searchList.artists[0].name);
-    console.log("URI:" + searchList.uri);
+    // console.log("Song: " + searchList.name);
+    // console.log("Artist: " + searchList.artists[0].name);
+    // console.log("URI:" + searchList.uri);
 
-    var songInfo = {
-      name: searchList.artists[0].name,
-      song: searchList.name,
-      uri: searchList.uri,
-    };
+    var song = this.songInfo;
+    song.name = searchList.artists[0].name;
+    song.song = searchList.name;
+    song.uri = searchList.uri;
 
-    console.log("song info: " + songInfo.name);
-
-    //set songInfo
-
-    // songInfo.name = searchList.artists[0].name;
-    // songInfo.song = searchList.name;
-    // songInfo.uri = searchList.uri;
-
-    //push to database
+    console.log("song info: " + song.name + " " + song.song + " " + song.uri);
   };
 
   makeList = () => {
