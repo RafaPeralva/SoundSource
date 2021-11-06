@@ -1,12 +1,18 @@
 import React from "react";
 import "./Homepage.css";
 import { Container, Row, Col, RowProps, ColProps } from "react-bootstrap";
-import { SearchBar } from "../SearchBar/SearchBar";
+import {SearchBar} from "../SearchBar/SearchBar";
+// import SearchResults from "../SearchResults/SearchResults";
+
+const {useState} = React;
 
 export const Homepage = () => {
-  function upvote() {
-    console.log("Upvoted Song");
-  }
+  
+  const[songOne, setSongOne] = useState(0);
+  const[songTwo, setSongTwo] = useState(0);
+  const[songThree, setSongThree] = useState(0);
+  const[songFour, setSongFour] = useState(0);
+
   return (
     <div className="homepage">
       <div className="homepage-body">
@@ -21,7 +27,7 @@ export const Homepage = () => {
               <h3>Suggested</h3>
             </Col>
             <Col className="text-center">
-              <SearchBar />
+              {/* <SearchBar /> */}
             </Col>
           </Row>
           <Row>
@@ -40,19 +46,28 @@ export const Homepage = () => {
                 <Col className="text-center">with new rows </Col>
               </Row> */}
             </Col>
+            
+            <Col className = "counter" xs = {1}>
+              <h4 className = "counterNum"> {songOne} </h4>
+              <h4 className = "counterNum"> {songTwo} </h4>
+              <h4 className = "counterNum"> {songThree} </h4>
+              <h4 className = "counterNum"> {songFour} </h4>
+            </Col>
 
             <Col className="text-center">
             <ul className="suggested">
-                <li><button className = "upvote" onClick={upvote}>
+
+                
+                <li><button className = "upvote" onClick={() => setSongOne(songOne + 1)}>
                   <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>Infinity (888)</li>
                 <li className="suggestedArtist">XXXTENTACION, Joey Bada$$</li>
-                <li><button className = "upvote" onClick={upvote}>
+                <li><button className = "upvote" onClick={() => setSongTwo(songTwo + 1)}>
                   <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>OKRA</li>
                 <li className="suggestedArtist">Tyler, The Creator</li>
-                <li><button className = "upvote" onClick={upvote}>
+                <li><button className = "upvote" onClick={() => setSongThree(songThree + 1)}>
                   <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>i n t e r l u d e</li>
                 <li className="suggestedArtist">J. Cole</li>
-                <li><button className = "upvote" onClick={upvote}>
+                <li><button className = "upvote" onClick={() => setSongFour(songFour + 1)}>
                   <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>Babydoll</li>
                 <li className="suggestedArtist">Dominic Fike</li>
               </ul>
@@ -61,20 +76,8 @@ export const Homepage = () => {
               </Row> */}
             </Col>
             <Col className="text-center">
-            {/* <ul className="search">
-                <li className="searchSong">Location<br />
-                <span className="playlistArtist">Khalid</span></li>
-                <li className="searchSong">Location<br />
-                <span className="playlistArtist">Playboi Carti</span></li>
-                <li className="searchSong">Sharing Locations<br />
-                <span className="playlistArtist">Meek Mill, Lil Durk, Lil Baby</span></li>
-                <li className="searchSong">Location<br />
-                <span className="playlistArtist">Dave,Burna Boy</span></li>
-              </ul> */}
-              
-              {/*<Row>
-                <Col className="text-center">with new rows</Col>
-              </Row>*/}
+              <SearchBar />
+              {/* <SearchResults /> */}
             </Col>
           </Row>
         </Container>
