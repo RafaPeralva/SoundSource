@@ -1,10 +1,12 @@
 .searchWrapper {
   margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .searchBar {
   display: flex;
   align-items: center;
-  flex-direction: column;
 }
 
 .searchInput {
@@ -14,4 +16,38 @@
 
 .searchBtn {
   padding: 2.5px;
+}
+p {
+  margin: 0px;
+}
+
+.results {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-break: auto;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.song {
+  font-size: large;
+}
+
+.artist {
+  margin-left: 21px;
+}
+
+.add-btn {
+  font-size: x-large;
+  text-align: left;
+  color: green;
+  line-height: 0px;
+  text-decoration: none;
+}
+
+.add-btn:a:active {
+  font-size: large;
+  line-height: 0.5;
+  text-decoration: none;
 }
