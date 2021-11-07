@@ -10,6 +10,7 @@ export class SearchBar extends React.Component {
     artistName: "",
     trackName: "",
     id: "",
+    upvoteCount: 0
   };
 
   constructor(props) {
@@ -51,42 +52,27 @@ export class SearchBar extends React.Component {
   };
 
   
-
-  async handleAddClick (searchList, e){
-
-    
-
-    // console.log(
-    //   "song info: " + song.artistName + " " + song.artistSong + " " + song.id
-    // );
-
-    // e.preventDefault();
-    
+  //takes in the data from the search
+  //sets the variables to the search data from the JSON
+  //makes a POST request with Search data to add to the suggested table in the database
+  handleAddClick (searchList){
     var song = this.songInfo;
 
     song.artistName = searchList.artists[0].name;
     song.trackName = searchList.name;
     song.id = searchList.id;
 
-    // e.preventDefault();
-
-    console.log(
-      "song info: " + song.artistName + " " + song.trackName + " " + song.id
-    );
-
-    fetch("http://localhost:8080/suggested", console.log("FETCH"), {
-      method: "POST",
-      headers: {
-        'Accept': "application/json",
-        "Content-Type": "application/json",
+    var url = 'http://localhost:8080/suggested';
+    fetch(url,{
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' 
       },
-      body: JSON.stringify({ song }),
+      body: JSON.stringify( song )
+    }).then((result)=>{
+      result.json().then((res)=>{
+        console.warn('res',res)
+      })
     })
-      .then((res) => res.json())
-      .then((data) => console.log("data " + data))
-      .catch((err) => console.log(err)),
-      // console.log("artist: " + artistName);
-      console.log("PUSH");
   }
 
   makeList = () => {
