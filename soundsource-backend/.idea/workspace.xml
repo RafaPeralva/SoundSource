@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20f48c4c-ed51-4e2f-afb1-a95b0dd5afc1" name="Changes" comment="Full controllers main">
-      <change beforePath="$PROJECT_DIR$/../front-end/soundsource/src/components/SearchBar/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/soundsource/src/components/SearchBar/SearchBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/SuggestedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/SuggestedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/domain/Suggested.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/domain/Suggested.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/repositories/SuggestedRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/repositories/SuggestedRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/SoundsourceBackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/SoundsourceBackendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/bootstrap/BootStrapData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/bootstrap/BootStrapData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/bootstrap/BootStrapData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/bootstrap/BootStrapData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/controllers/ExportPlaylistController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/controllers/ExportPlaylistController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/controllers/PlayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/controllers/PlayController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +82,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Soundsource Config">
     <configuration name="Soundsource Config" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="soundsource.springframework.soundsourcebackend.SoundsourceBackendApplication" />
       <module name="soundsource-backend" />
@@ -93,6 +90,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SoundsourceBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="soundsource-backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="soundsource.springframework.soundsourcebackend.SoundsourceBackendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Soundsource Config" />
+      <item itemvalue="Spring Boot.SoundsourceBackendApplication" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -200,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636237822092</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Full controllers main">
+      <created>1636309769119</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1636309769120</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
