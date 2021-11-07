@@ -2,6 +2,7 @@ import React from "react";
 import "./Homepage.css";
 import { Container, Row, Col, RowProps, ColProps } from "react-bootstrap";
 import {SearchBar} from "../SearchBar/SearchBar";
+import {Suggested} from "../Suggested/Suggested";
 // import SearchResults from "../SearchResults/SearchResults";
 
 const {useEffect} = React;
@@ -40,7 +41,6 @@ export const Homepage = () => {
               <h3>Suggested</h3>
             </Col>
             <Col className="text-center">
-              {/* <SearchBar /> */}
             </Col>
           </Row>
           <Row>
@@ -69,9 +69,9 @@ export const Homepage = () => {
 
             <Col className="text-center">
             <ul className="suggested">
-
+            <Suggested />
                 
-                <li><button className = "upvote" onClick={() => setSongOne(songOne + 1)}>
+                {/* <li><button className = "upvote" onClick={() => setSongOne(songOne + 1)}>
                   <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>Infinity (888)</li>
                 <li className="suggestedArtist">XXXTENTACION, Joey Bada$$</li>
                 <li><button className = "upvote" onClick={() => setSongTwo(songTwo + 1)}>
@@ -82,7 +82,7 @@ export const Homepage = () => {
                 <li className="suggestedArtist">J. Cole</li>
                 <li><button className = "upvote" onClick={() => setSongFour(songFour + 1)}>
                   <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>Babydoll</li>
-                <li className="suggestedArtist">Dominic Fike</li>
+                <li className="suggestedArtist">Dominic Fike</li> */}
               </ul>
               {/* <Row>
                 <Col className="text-center">with new rows </Col>

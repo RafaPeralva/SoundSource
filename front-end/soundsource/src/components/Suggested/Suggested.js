@@ -1,33 +1,36 @@
 import React, { Component } from "react";
 import "./Suggested.css";
 
-import axios from "axios";
+export class Suggested extends React.Component{
+  state = {
+    suggested: []
+  };
 
-export class Suggested extends React.component{
-    getSuggested = () => {
-        let linkToAPI = "http://localhost:8080/suggested";
-    
-        try {
-          let response = await axios.get(linkToAPI);
-          console.log(response.data);
-        } 
-        catch (error) {
-          if (error.response) {
-            /*
-             * The request was made and the server responded with a
-             * status code that falls out of the range of 2xx
-             */
-            console.log(error.response.data); //Not Found
-            console.log(error.response.status); //404
-            this.setState({ found: false });
-          }
-        }
+  async componentDidMount() {
+    const response = await fetch('http://localhost:8080/suggested');
+    const body = await response.json();
+    this.setState({suggested: body});
+  }
+
+  render() {
+    const {suggested} = this.state;
+      return (
+        <div className="text-center">
+          {suggested.map(suggest =>
+            <div key={suggest.id}>
+            <p>
+            {suggest.trackName}
+            {"  by "}
+            {suggest.artistName}
+          </p>
+        </div>
+        )}
+        </div>
+          
+      );
     }
-}
+  }
 
-window.onload = getSuggested() {
-    console.log("Success!");
-}
 
 
 export default Suggested;
