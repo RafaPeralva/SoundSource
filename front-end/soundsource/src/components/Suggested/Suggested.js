@@ -2,20 +2,6 @@ import React, { Component } from "react";
 import "./Suggested.css";
 
 export class Suggested extends React.Component {
-  
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     numOfVotes: 0,
-  //   };
-  // }
-  
-  // const[numOfVotes, upvotedSong] = useState(0);
-  
-  // upvoteSong = () => {
-  //   this.numOfVotes++;
-  // }
-  
   state = {
     suggested: []
   };
@@ -33,7 +19,7 @@ export class Suggested extends React.Component {
           {suggested.map(suggest =>
             <div key={suggest.id}>
             <p>
-            <h1> {this.numOfVotes} </h1>
+            <p> {suggest.upvoteCount} </p>
             <button className = "upvote" /*onClick={() => upvoteSong()}*/><img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>
             {suggest.trackName}
             {"  by "}
