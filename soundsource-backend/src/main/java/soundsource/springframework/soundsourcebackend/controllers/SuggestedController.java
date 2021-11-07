@@ -24,7 +24,7 @@ public class SuggestedController {
     }
 
     @GetMapping("/{id}")
-    public Suggested getSuggested(@PathVariable Long id) {
+    public Suggested getSuggested(@PathVariable String id) {
         return suggestedRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
@@ -35,7 +35,7 @@ public class SuggestedController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity updateSuggested(@PathVariable Long id, @RequestBody Suggested suggested) {
+    public ResponseEntity updateSuggested(@PathVariable String id, @RequestBody Suggested suggested) {
         Suggested currentSuggested = suggestedRepository.findById(id).orElseThrow(RuntimeException::new);
         currentSuggested.setTrackName(suggested.getTrackName());
         currentSuggested.setArtistName(suggested.getArtistName());
@@ -46,7 +46,7 @@ public class SuggestedController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteSuggested(@PathVariable Long id) {
+    public ResponseEntity deleteSuggested(@PathVariable String id) {
         suggestedRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }

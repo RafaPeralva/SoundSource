@@ -9,7 +9,7 @@ public class Suggested {
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 
     private String trackName;
     private String artistName;
@@ -18,18 +18,18 @@ public class Suggested {
     public Suggested() {
     }
 
-    public Suggested(Long id, String trackName, int upvoteCount, String artistName) {
+    public Suggested(String id, String trackName, int upvoteCount, String artistName) {
         this.id = id;
         this.trackName = trackName;
         this.upvoteCount = upvoteCount;
         this.artistName = artistName;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -9,11 +9,11 @@ import soundsource.springframework.soundsourcebackend.repositories.SuggestedRepo
 @Component
 public class BootStrapData implements CommandLineRunner{
 
-    private final SuggestedRepository userRepository;
+    private final SuggestedRepository suggestedRepository;
 
 
-    public BootStrapData(SuggestedRepository userRepository) {
-        this.userRepository = userRepository;
+    public BootStrapData(SuggestedRepository suggestedRepository) {
+        this.suggestedRepository = suggestedRepository;
     }
 
     @Override
