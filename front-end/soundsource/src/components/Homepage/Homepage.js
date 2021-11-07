@@ -60,12 +60,12 @@ export const Homepage = () => {
               </Row> */}
             </Col>
             
-            <Col className = "counter" xs = {1}>
+            {/* <Col className = "counter" xs = {1}>
               <h4 className = "counterNum"> {songOne} </h4>
               <h4 className = "counterNum"> {songTwo} </h4>
               <h4 className = "counterNum"> {songThree} </h4>
               <h4 className = "counterNum"> {songFour} </h4>
-            </Col>
+            </Col> */}
 
             <Col className="text-center">
             <ul className="suggested">
@@ -80,8 +80,7 @@ export const Homepage = () => {
                 <li><button className = "upvote" onClick={() => setSongThree(songThree + 1)}>
                   <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>i n t e r l u d e</li>
                 <li className="suggestedArtist">J. Cole</li>
-                <li><button className = "upvote" onClick={() => setSongFour(songFour + 1)}>
-                  <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>Babydoll</li>
+                <li><img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>Babydoll</li>
                 <li className="suggestedArtist">Dominic Fike</li> */}
               </ul>
               {/* <Row>
