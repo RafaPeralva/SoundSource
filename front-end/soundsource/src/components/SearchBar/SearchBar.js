@@ -5,11 +5,19 @@ import "./SearchBar.css";
 import axios from "axios";
 
 export class SearchBar extends React.Component {
+  //song obj for database
+  songInfo = {
+    artistName: "",
+    trackName: "",
+    id: "",
+  };
+
   constructor(props) {
     super(props);
     this.state = {
       apiData: [],
       searchText: "",
+      // song: this.songInfo,
       found: false,
     };
   }
@@ -42,65 +50,51 @@ export class SearchBar extends React.Component {
     }
   };
 
-  //song obj for database
-  songInfo = {
-    artistName: "",
-    trackName: "",
-    id: "",
-  };
+  
 
-  handleAddClick = (searchList, e) => {
-    // console.log("Song: " + searchList.name);
-    // console.log("Artist: " + searchList.artists[0].name);
-    // console.log("URI:" + searchList.uri);
+  async handleAddClick (searchList, e){
 
-    // var song = this.songInfo;
+    
+
+    // console.log(
+    //   "song info: " + song.artistName + " " + song.artistSong + " " + song.id
+    // );
+
+    // e.preventDefault();
+    
     var song = this.songInfo;
+
     song.artistName = searchList.artists[0].name;
     song.trackName = searchList.name;
-    song.id = searchList.uri;
+    song.id = searchList.id;
+
+    // e.preventDefault();
 
     console.log(
-      "song info: " + song.artistName + " " + song.artistSong + " " + song.id
+      "song info: " + song.artistName + " " + song.trackName + " " + song.id
     );
 
-    e.preventDefault();
-    song = this.state;
-
-    fetch("/suggested"),
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(song),
-      };
-
-    this.props.history.push("/URL");
-
-    //   async handleSubmit(event) {
-    //     event.preventDefault();
-    //     const {item} = this.state;
-
-    //     await fetch('/clients' + (item.id ? '/' + item.id : ''), {
-    //         method: (item.id) ? 'PUT' : 'POST',
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(item),
-    //     });
-    //     this.props.history.push('/clients');
-    // }
-  };
+    fetch("http://localhost:8080/suggested", console.log("FETCH"), {
+      method: "POST",
+      headers: {
+        'Accept': "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ song }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log("data " + data))
+      .catch((err) => console.log(err)),
+      // console.log("artist: " + artistName);
+      console.log("PUSH");
+  }
 
   makeList = () => {
     let search = this.state.apiData;
     let list = search.map((searchList) => {
       console.log(search);
       return (
-        <div className="text-center" key={searchList.uri}>
+        <div className="text-center" key={searchList.id}>
           <p>
             <a
               type="button"
