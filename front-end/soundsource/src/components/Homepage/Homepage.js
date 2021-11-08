@@ -35,9 +35,33 @@ export const Homepage = () => {
         }
         let linkToAPI = "http://localhost:8080/api/exportPlaylist?q=" + songString;
         axios.get(linkToAPI)
-        .then(response => {
-          console.log("success?");
-        })
+        .then(response => {})
+      }
+    })
+  }
+
+  function playPlaylist() {
+    console.log("fire");
+    axios.get('http://localhost:8080/suggested')
+    .then(response => {
+      if(response.data[0] != null) {
+        let count = 0;
+        let song = "";
+        for(var i in response.data)
+        {
+          song = "spotify:track:" + response.data[count].id;
+          console.log(song)
+          if(count == 0) {
+            let linkToAPI = "http://localhost:8080/api/play?q=" + song;
+            axios.get(linkToAPI)
+            .then(response => {})
+          } else {
+            let linkToAPI = "http://localhost:8080/api/queue?q=" + song;
+            axios.get(linkToAPI)
+            .then(response => {})
+          }
+          count++;
+        }
       }
     })
   }
@@ -53,7 +77,8 @@ export const Homepage = () => {
               <h3>SoundSource Playlist</h3>
             </Col>
             <Col className="text-center">
-              <h3>Suggested<button className = "exportButton" onClick = {exportPlaylist}><img src="/images/export.png" alt="Upvote Button" width = "40"/></button></h3>
+              <h3>Suggested<button className = "exportButton" onClick = {exportPlaylist}><img src="/images/export.png" alt="Export Button" width = "40"/></button> 
+                           <button className = "playButton" onClick = {playPlaylist}><img src="/images/play.png" alt="Play Button" width = "40"/></button></h3>
             </Col>
             <Col className="text-center">
               {" "}

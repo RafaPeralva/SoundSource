@@ -63,3 +63,11 @@ h3 {
     margin-left: 2%;
     padding-right: 1%;
 }
+
+.playButton {
+  cursor: pointer;
+  background-color: #15e24b;
+  border: none;
+  margin-right: 2%;
+  padding-right: 1%;
+}
