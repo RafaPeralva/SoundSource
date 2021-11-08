@@ -1,8 +1,8 @@
 import React from "react";
 import "./Homepage.css";
 import { Container, Row, Col, RowProps, ColProps } from "react-bootstrap";
-import {SearchBar} from "../SearchBar/SearchBar";
-import {Suggested} from "../Suggested/Suggested";
+import { SearchBar } from "../SearchBar/SearchBar";
+import { Suggested } from "../Suggested/Suggested";
 import axios from "axios";
 
 // import SearchResults from "../SearchResults/SearchResults";
@@ -10,7 +10,6 @@ import axios from "axios";
 const { useEffect } = React;
 
 export const Homepage = () => {
-
   const MINUTE_MS = 60000; // Every min
   // const MINUTE_MS = 600000; // Every 10 min
 
@@ -23,21 +22,19 @@ export const Homepage = () => {
   }, []);
 
   function exportPlaylist() {
-    axios.get('http://localhost:8080/suggested')
-    .then(response => {
-      if(response.data[0] != null) {
+    axios.get("http://localhost:8080/suggested").then((response) => {
+      if (response.data[0] != null) {
         let count = 0;
         let songString = [];
-        for(var i in response.data)
-        {
+        for (var i in response.data) {
           songString[count] = "spotify:track:" + response.data[count].id;
           count++;
         }
-        let linkToAPI = "http://localhost:8080/api/exportPlaylist?q=" + songString;
-        axios.get(linkToAPI)
-        .then(response => {})
+        let linkToAPI =
+          "http://localhost:8080/api/exportPlaylist?q=" + songString;
+        axios.get(linkToAPI).then((response) => {});
       }
-    })
+    });
   }
 
   function playPlaylist() {
@@ -71,8 +68,19 @@ export const Homepage = () => {
               <h3>SoundSource Playlist</h3>
             </Col>
             <Col className="text-center">
-              <h3>Suggested<button className = "exportButton" onClick = {exportPlaylist}><img src="/images/export.png" alt="Export Button" width = "40"/></button> 
-                           <button className = "playButton" onClick = {playPlaylist}><img src="/images/play.png" alt="Play Button" width = "40"/></button></h3>
+              <h3>
+                Suggested
+                <button className="exportButton" onClick={exportPlaylist}>
+                  <img
+                    src="/images/export.png"
+                    alt="Export Button"
+                    width="40"
+                  />
+                </button>
+                <button className="playButton" onClick={playPlaylist}>
+                  <img src="/images/play.png" alt="Play Button" width="40" />
+                </button>
+              </h3>
             </Col>
             <Col className="text-center">
               {" "}
@@ -93,8 +101,8 @@ export const Homepage = () => {
               </ul>
             </Col>
             <Col className="text-center">
-            <ul className="suggested">
-            <Suggested />
+              <ul className="suggested">
+                <Suggested />
               </ul>
             </Col>
             <Col className="text-center">

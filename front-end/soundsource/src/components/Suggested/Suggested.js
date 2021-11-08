@@ -41,6 +41,7 @@ export class Suggested extends React.Component {
         console.warn('res',res)
       })
     })
+    window.location.reload();
   }
 
   render() {

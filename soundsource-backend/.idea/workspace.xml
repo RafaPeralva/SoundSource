@@ -56,7 +56,7 @@
       <map>
         <entry key="JPA Inspector" value="true" />
         <entry key="JPA Palette" value="false" />
-        <entry key="JPA Structure" value="false" />
+        <entry key="JPA Structure" value="true" />
       </map>
     </option>
   </component>
