@@ -2,29 +2,69 @@ import React from "react";
 import "./Homepage.css";
 import { Container, Row, Col, RowProps, ColProps } from "react-bootstrap";
 import {SearchBar} from "../SearchBar/SearchBar";
+import {Suggested} from "../Suggested/Suggested";
+import axios from "axios";
+
 // import SearchResults from "../SearchResults/SearchResults";
 
-const {useEffect} = React;
-const {useState} = React;
+const { useEffect } = React;
 
 export const Homepage = () => {
-  
-  const[songOne, setSongOne] = useState(0);
-  const[songTwo, setSongTwo] = useState(0);
-  const[songThree, setSongThree] = useState(0);
-  const[songFour, setSongFour] = useState(0);
 
-  
   const MINUTE_MS = 60000; // Every min
   // const MINUTE_MS = 600000; // Every 10 min
 
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log('Logs every minute');
+      console.log("Logs every minute");
     }, MINUTE_MS);
 
     return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
-  }, [])
+  }, []);
+
+  function exportPlaylist() {
+    axios.get('http://localhost:8080/suggested')
+    .then(response => {
+      if(response.data[0] != null) {
+        let count = 0;
+        let songString = [];
+        for(var i in response.data)
+        {
+          songString[count] = "spotify:track:" + response.data[count].id;
+          count++;
+        }
+        let linkToAPI = "http://localhost:8080/api/exportPlaylist?q=" + songString;
+        axios.get(linkToAPI)
+        .then(response => {})
+      }
+    })
+  }
+
+  function playPlaylist() {
+    console.log("fire");
+    axios.get('http://localhost:8080/suggested')
+    .then(response => {
+      if(response.data[0] != null) {
+        let count = 0;
+        let song = "";
+        for(var i in response.data)
+        {
+          song = "spotify:track:" + response.data[count].id;
+          console.log(song)
+          if(count == 0) {
+            let linkToAPI = "http://localhost:8080/api/play?q=" + song;
+            axios.get(linkToAPI)
+            .then(response => {})
+          } else {
+            let linkToAPI = "http://localhost:8080/api/queue?q=" + song;
+            axios.get(linkToAPI)
+            .then(response => {})
+          }
+          count++;
+        }
+      }
+    })
+  }
 
   return (
     <div className="homepage">
@@ -37,15 +77,17 @@ export const Homepage = () => {
               <h3>SoundSource Playlist</h3>
             </Col>
             <Col className="text-center">
-              <h3>Suggested</h3>
+              <h3>Suggested<button className = "exportButton" onClick = {exportPlaylist}><img src="/images/export.png" alt="Export Button" width = "40"/></button> 
+                           <button className = "playButton" onClick = {playPlaylist}><img src="/images/play.png" alt="Play Button" width = "40"/></button></h3>
             </Col>
             <Col className="text-center">
-              {/* <SearchBar /> */}
+              {" "}
+              <h3>Search Songs:</h3>
             </Col>
           </Row>
           <Row>
             <Col className="text-center">
-            <ul className="playlist">
+              <ul className="playlist">
                 <li>Bad Romance</li>
                 <li className="playlistArtist">Lady Gaga</li>
                 <li>Numb / Encore</li>
@@ -55,42 +97,14 @@ export const Homepage = () => {
                 <li>Way 2 Sexy</li>
                 <li className="playlistArtist">Drake, Future</li>
               </ul>
-              {/* <Row>
-                <Col className="text-center">with new rows </Col>
-              </Row> */}
             </Col>
-            
-            <Col className = "counter" xs = {1}>
-              <h4 className = "counterNum"> {songOne} </h4>
-              <h4 className = "counterNum"> {songTwo} </h4>
-              <h4 className = "counterNum"> {songThree} </h4>
-              <h4 className = "counterNum"> {songFour} </h4>
-            </Col>
-
             <Col className="text-center">
             <ul className="suggested">
-
-                
-                <li><button className = "upvote" onClick={() => setSongOne(songOne + 1)}>
-                  <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>Infinity (888)</li>
-                <li className="suggestedArtist">XXXTENTACION, Joey Bada$$</li>
-                <li><button className = "upvote" onClick={() => setSongTwo(songTwo + 1)}>
-                  <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>OKRA</li>
-                <li className="suggestedArtist">Tyler, The Creator</li>
-                <li><button className = "upvote" onClick={() => setSongThree(songThree + 1)}>
-                  <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>i n t e r l u d e</li>
-                <li className="suggestedArtist">J. Cole</li>
-                <li><button className = "upvote" onClick={() => setSongFour(songFour + 1)}>
-                  <img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>Babydoll</li>
-                <li className="suggestedArtist">Dominic Fike</li>
+            <Suggested />
               </ul>
-              {/* <Row>
-                <Col className="text-center">with new rows </Col>
-              </Row> */}
             </Col>
             <Col className="text-center">
               <SearchBar />
-              {/* <SearchResults /> */}
             </Col>
           </Row>
         </Container>

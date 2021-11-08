@@ -36,13 +36,6 @@ h3 {
   text-align: left;
 }
 
-.upvote {
-  cursor: pointer;
-  border: none;
-  margin-right: 2%;
-  background-color: transparent;
-}
-
 .search {
   list-style-type: none;
   font-size: 1.5em;
@@ -60,4 +53,21 @@ h3 {
 .counterNum {
   padding-top: 10%;
   margin-left: 100%;
+}
+
+.exportButton {
+    cursor: pointer;
+    background-color: #15e24b;
+    border: none;
+    margin-right: 2%;
+    margin-left: 2%;
+    padding-right: 1%;
+}
+
+.playButton {
+  cursor: pointer;
+  background-color: #15e24b;
+  border: none;
+  margin-right: 2%;
+  padding-right: 1%;
 }

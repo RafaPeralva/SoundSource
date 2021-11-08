@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20f48c4c-ed51-4e2f-afb1-a95b0dd5afc1" name="Changes" comment="Full controllers main">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/config/WebSecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="main" />
+        <entry key="$PROJECT_DIR$/.." value="populate-suggested" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -112,8 +111,7 @@
       <workItem from="1634588930706" duration="4604000" />
       <workItem from="1634750277687" duration="2527000" />
       <workItem from="1635176217666" duration="3441000" />
-      <workItem from="1636322707453" duration="998000" />
-      <workItem from="1636332648973" duration="373000" />
+      <workItem from="1636322707453" duration="997000" />
     </task>
     <task id="LOCAL-00001" summary="Set up database models">
       <created>1632325344967</created>
@@ -220,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636313288101</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Deleted unnecessary domains/repositories and added song domain/repository.">
+      <created>1636347693458</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1636347693458</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,8 +349,8 @@
     <MESSAGE value="Added hashcode function, tostring, and established one to many relationships for models" />
     <MESSAGE value="Created Repositories" />
     <MESSAGE value="made bootstrap and added comments" />
-    <MESSAGE value="Deleted unnecessary domains/repositories and added song domain/repository." />
     <MESSAGE value="Full controllers main" />
-    <option name="LAST_COMMIT_MESSAGE" value="Full controllers main" />
+    <MESSAGE value="Deleted unnecessary domains/repositories and added song domain/repository." />
+    <option name="LAST_COMMIT_MESSAGE" value="Deleted unnecessary domains/repositories and added song domain/repository." />
   </component>
 </project>
