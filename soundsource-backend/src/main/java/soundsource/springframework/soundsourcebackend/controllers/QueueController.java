@@ -1,5 +1,6 @@
 package soundsource.springframework.soundsourcebackend.controllers;
 
+import com.wrapper.spotify.model_objects.miscellaneous.Device;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
