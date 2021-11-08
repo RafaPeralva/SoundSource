@@ -5,3 +5,16 @@
     margin-right: 2%;
     margin-left: 2%;
 }
+
+.suggested{
+    list-style-type: none;
+    font-size: 1.2em;
+    text-align: left;
+    margin-left: 0%;
+    line-height: .8em;
+}
+
+span{
+    font-size: .7em;
+    padding-left: 10%;
+}
