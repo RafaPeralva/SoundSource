@@ -1,0 +1,78 @@
+import "./Playlist.css";
+
+
+export class Suggested extends React.Component {
+
+    async componentDidMount() {
+        const response = await fetch('http://localhost:8080/suggested');
+        const body = await response.json();
+        this.setState({suggested: body});
+      }
+
+    const MINUTE_MS = 60000; // Every min
+  // const MINUTE_MS = 600000; // Every 10 min
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      axios.get("http://localhost:8080/suggested").then((response) => {
+
+          if(response.data[0] != null) {
+
+            console.log(response.data);
+            
+            let firstTrack = "";
+            let firstId = "";
+
+            let secondTrack = "";
+            let secondId = "";
+
+            let thirdTrack = "";
+            let thirdId = "";
+
+            response.data.sort(function(a, b){
+              return a.upvoteCount - b.upvoteCount;
+            })
+            
+            if(response.data[response.data.length - 1] != null) {
+              firstTrack = response.data[response.data.length - 1].trackName;
+              firstId = response.data[response.data.length - 1].id;
+            }
+
+            if(response.data[response.data.length - 2] != null) {
+              secondTrack = response.data[response.data.length - 2].trackName;
+              secondId = response.data[response.data.length - 2].id;
+            }
+
+            if(response.data[response.data.length - 3] != null) {
+              thirdTrack = response.data[response.data.length - 3].trackName;
+              thirdId = response.data[response.data.length - 3].id;
+            }
+            
+            console.log("First Voted Song: " + firstTrack + " - " + firstId);
+            console.log("Second Voted Song: " + secondTrack + " - " + secondId);
+            console.log("Third Voted Song: " + thirdTrack + " - " + thirdId);
+
+            songOne = response.data[response.data.length -1];
+
+            var url = "http://localhost:8080/playlist";
+            fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(songOne),
+            }).then((result) => {
+            result.json().then((res) => {
+            console.warn("res", res);
+            });
+            });
+            window.location.reload();
+
+        }
+
+      })
+    }, 20000);
+
+    return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
+  }, []);
+
+
+}

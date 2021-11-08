@@ -2,6 +2,7 @@ package soundsource.springframework.soundsourcebackend.bootstrap;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import soundsource.springframework.soundsourcebackend.repositories.PlaylistRepository;
 import soundsource.springframework.soundsourcebackend.repositories.SuggestedRepository;
 
 
@@ -10,10 +11,12 @@ import soundsource.springframework.soundsourcebackend.repositories.SuggestedRepo
 public class BootStrapData implements CommandLineRunner{
 
     private final SuggestedRepository suggestedRepository;
+    private final PlaylistRepository playlistRepository;
 
 
-    public BootStrapData(SuggestedRepository suggestedRepository) {
+    public BootStrapData(SuggestedRepository suggestedRepository, PlaylistRepository playlistRepository) {
         this.suggestedRepository = suggestedRepository;
+        this.playlistRepository = playlistRepository;
     }
 
     @Override
