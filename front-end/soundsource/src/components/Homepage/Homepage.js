@@ -3,6 +3,7 @@ import "./Homepage.css";
 import { Container, Row, Col, RowProps, ColProps } from "react-bootstrap";
 import {SearchBar} from "../SearchBar/SearchBar";
 import {Suggested} from "../Suggested/Suggested";
+import axios from "axios";
 
 // import SearchResults from "../SearchResults/SearchResults";
 
@@ -21,6 +22,26 @@ export const Homepage = () => {
     return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
   }, []);
 
+  function exportPlaylist() {
+    axios.get('http://localhost:8080/suggested')
+    .then(response => {
+      if(response.data[0] != null) {
+        let count = 0;
+        let songString = [];
+        for(var i in response.data)
+        {
+          songString[count] = "spotify:track:" + response.data[count].id;
+          count++;
+        }
+        let linkToAPI = "http://localhost:8080/api/exportPlaylist?q=" + songString;
+        axios.get(linkToAPI)
+        .then(response => {
+          console.log("success?");
+        })
+      }
+    })
+  }
+
   return (
     <div className="homepage">
       <div className="homepage-body">
@@ -32,7 +53,7 @@ export const Homepage = () => {
               <h3>SoundSource Playlist</h3>
             </Col>
             <Col className="text-center">
-              <h3>Suggested</h3>
+              <h3>Suggested<button className = "exportButton" onClick = {exportPlaylist}><img src="/images/export.png" alt="Upvote Button" width = "40"/></button></h3>
             </Col>
             <Col className="text-center">
               {" "}
