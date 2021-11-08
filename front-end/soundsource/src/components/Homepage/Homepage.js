@@ -38,26 +38,24 @@ export const Homepage = () => {
   }
 
   function playPlaylist() {
-    console.log("fire");
-    axios.get("http://localhost:8080/suggested").then((response) => {
-      if (response.data[0] != null) {
+    axios.get('http://localhost:8080/suggested')
+    .then(response => {
+      if(response.data[0] != null) {
         let count = 0;
-        let song = "";
-        for (var i in response.data) {
-          song = "spotify:track:" + response.data[count].id;
-          console.log(song);
-          if (count === 0) {
-            let linkToAPI = "http://localhost:8080/api/play?q=" + song;
-            axios.get(linkToAPI).then((response) => {});
-          } else {
-            let linkToAPI = "http://localhost:8080/api/queue?q=" + song;
-            axios.get(linkToAPI).then((response) => {});
-          }
+        let songString = [];
+        for(var i in response.data)
+        {
+          songString[count] = "spotify:track:" + response.data[count].id;
           count++;
         }
+        let linkToAPI = "http://localhost:8080/api/play?q=" + songString;
+        axios.get(linkToAPI)
+        .then(response => {})
       }
-    });
+    })
   }
+
+
 
   return (
     <div className="homepage">
