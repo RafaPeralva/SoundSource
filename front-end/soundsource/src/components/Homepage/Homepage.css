@@ -47,7 +47,7 @@ h3 {
 .searchSong:hover {
   background-color: rgb(70, 70, 70);
   cursor: pointer;
-  padding: .2em;
+  padding: 0.2em;
 }
 
 .counterNum {
@@ -56,18 +56,25 @@ h3 {
 }
 
 .exportButton {
-    cursor: pointer;
-    background-color: #15e24b;
-    border: none;
-    margin-right: 2%;
-    margin-left: 2%;
-    padding-right: 1%;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  margin-right: 2%;
+  margin-left: 2%;
+  padding-right: 1%;
 }
 
 .playButton {
   cursor: pointer;
-  background-color: #15e24b;
+  background-color: transparent;
   border: none;
   margin-right: 2%;
   padding-right: 1%;
+}
+
+.suggested-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

@@ -70,17 +70,17 @@ export const Homepage = () => {
               <h3>SoundSource Playlist</h3>
             </Col>
             <Col className="text-center">
-              <h3>
+              <h3 className="suggested-btn">
                 Suggested
                 <button className="exportButton" onClick={exportPlaylist}>
                   <img
                     src="/images/export.png"
                     alt="Export Button"
-                    width="40"
+                    width="30px"
                   />
                 </button>
                 <button className="playButton" onClick={playPlaylist}>
-                  <img src="/images/play.png" alt="Play Button" width="40" />
+                  <img src="/images/play.png" alt="Play Button" width="30px" />
                 </button>
               </h3>
             </Col>

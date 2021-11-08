@@ -16,6 +16,7 @@
 .searchBtn {
   padding: 2.5px;
 }
+
 p {
   margin: 0px;
   margin-left: 0px;
@@ -43,7 +44,7 @@ p {
 .add-btn {
   font-size: x-large;
   text-align: left;
-  color: green;
+  color: #15e24b;
   line-height: 0px;
   text-decoration: none;
 }
