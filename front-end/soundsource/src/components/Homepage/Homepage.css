@@ -54,3 +54,12 @@ h3 {
   padding-top: 10%;
   margin-left: 100%;
 }
+
+.exportButton {
+    cursor: pointer;
+    background-color: #15e24b;
+    border: none;
+    margin-right: 2%;
+    margin-left: 2%;
+    padding-right: 1%;
+}
