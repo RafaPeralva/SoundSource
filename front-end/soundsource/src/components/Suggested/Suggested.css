@@ -1,21 +1,34 @@
 .upvote {
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    margin-right: 2%;
-    margin-left: 2%;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  margin-right: 2%;
+  margin-left: 2%;
 }
 
-.suggested{
-    list-style-type: none;
-    font-size: 1.2em;
-    text-align: left;
-    margin-left: 0%;
-    line-height: .8em;
-    padding-left: 16%;
+.suggested {
+  display: flex;
+  flex-direction: column;
 }
 
-span{
-    font-size: .7em;
-    padding-left: 10%;
+.suggested-song {
+  font-size: large;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 0px;
+}
+
+.suggested-artist {
+  font-size: medium;
+  margin-left: 47px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+
+.upvote {
+  display: flex;
+  flex-direction: row;
+  font-size: x-large;
+  align-items: baseline;
 }
