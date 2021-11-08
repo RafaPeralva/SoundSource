@@ -74,6 +74,9 @@ Terminal may also be used.
 16. Frontend runs on `localhost:3000` and backend on `http://localhost:8080/`.
 
 17. To login and use our app it is **highly** recommended that you use our spotify credentials:
+
     > user: spotifysoundsource@gmail.com
     >
     > pass: ssCS499!
+
+18. Spotify application **must** be open in a device and signed in to same account!
