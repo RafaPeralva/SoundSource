@@ -16,14 +16,14 @@ import static soundsource.springframework.soundsourcebackend.controllers.Authent
 public class QueueController {
 
     @GetMapping(value = "queue")
-    public static void addItemToUsersPlaybackQueue_Sync(String trackUri) {
+    public static void addItemToUsersPlaybackQueue_Sync(String q) {
         System.out.println("Queuing Song");
 
-        if(trackUri == null)
-            trackUri = "spotify:track:01iyCAUm8EvOFqVWYJ3dVX"; // Dancing Queen - Abba
+        if(q == null)
+            q = "spotify:track:01iyCAUm8EvOFqVWYJ3dVX"; // Dancing Queen - Abba
 
         final AddItemToUsersPlaybackQueueRequest addItemToUsersPlaybackQueueRequest = spotifyApi
-                .addItemToUsersPlaybackQueue(trackUri)
+                .addItemToUsersPlaybackQueue(q)
                 .build();
 
         try {
