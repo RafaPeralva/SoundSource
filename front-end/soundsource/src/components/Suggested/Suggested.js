@@ -19,7 +19,7 @@ export class Suggested extends React.Component {
           {suggested.map(suggest =>
             <div key={suggest.id}>
             <p>
-            <p> {suggest.upvoteCount} </p>
+            {suggest.upvoteCount}
             <button className = "upvote" /*onClick={() => upvoteSong()}*/><img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>
             {suggest.trackName}
             {"  by "}
