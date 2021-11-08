@@ -79,4 +79,4 @@ Terminal may also be used.
     >
     > pass: ssCS499!
 
-18. Spotify application **must** be open in a device and signed in to same account
+18. Spotify application **must** be open in a device and signed in to same account!
