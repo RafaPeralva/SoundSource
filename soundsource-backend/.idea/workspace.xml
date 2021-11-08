@@ -4,12 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20f48c4c-ed51-4e2f-afb1-a95b0dd5afc1" name="Changes" comment="Deleted unnecessary domains/repositories and added song domain/repository.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/CreatePlaylistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/controllers/CreatePlaylistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/controllers/AuthenticationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/controllers/AuthenticationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/controllers/CreatePlaylistController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/soundsource/springframework/soundsourcebackend/controllers/CreatePlaylistController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +75,11 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="soundsource.springframework.soundsourcebackend.config" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Soundsource Config">
     <configuration name="Soundsource Config" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="soundsource.springframework.soundsourcebackend.SoundsourceBackendApplication" />
@@ -98,6 +97,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Soundsource Config" />
+      <item itemvalue="Spring Boot.SoundsourceBackendApplication" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
