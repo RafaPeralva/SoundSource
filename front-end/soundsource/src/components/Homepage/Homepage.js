@@ -38,24 +38,19 @@ export const Homepage = () => {
   }
 
   function playPlaylist() {
-    axios.get('http://localhost:8080/suggested')
-    .then(response => {
-      if(response.data[0] != null) {
+    axios.get("http://localhost:8080/suggested").then((response) => {
+      if (response.data[0] != null) {
         let count = 0;
         let songString = [];
-        for(var i in response.data)
-        {
+        for (var i in response.data) {
           songString[count] = "spotify:track:" + response.data[count].id;
           count++;
         }
         let linkToAPI = "http://localhost:8080/api/play?q=" + songString;
-        axios.get(linkToAPI)
-        .then(response => {})
+        axios.get(linkToAPI).then((response) => {});
       }
-    })
+    });
   }
-
-
 
   return (
     <div className="homepage">
@@ -89,16 +84,18 @@ export const Homepage = () => {
           </Row>
           <Row>
             <Col className="text-center">
-              <ul className="playlist">
-                <li>Bad Romance</li>
-                <li className="playlistArtist">Lady Gaga</li>
-                <li>Numb / Encore</li>
-                <li className="playlistArtist">JAY-Z, Linkin Park</li>
-                <li>Off The Grid</li>
-                <li className="playlistArtist">Kanye West</li>
-                <li>Way 2 Sexy</li>
-                <li className="playlistArtist">Drake, Future</li>
-              </ul>
+              <div className="playlist">
+                <ul className="playlistList">
+                  <li className="playlist-song">Bad Romance</li>
+                  <li className="playlistArtist">by Lady Gaga</li>
+                  <li className="playlist-song">Numb / Encore</li>
+                  <li className="playlistArtist">by JAY-Z, Linkin Park</li>
+                  <li className="playlist-song">Off The Grid</li>
+                  <li className="playlistArtist">by Kanye West</li>
+                  <li className="playlist-song">Way 2 Sexy</li>
+                  <li className="playlistArtist">by Drake, Future</li>
+                </ul>
+              </div>
             </Col>
             <Col className="text-center">
               <ul className="suggested">
