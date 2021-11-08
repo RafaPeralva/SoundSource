@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="20f48c4c-ed51-4e2f-afb1-a95b0dd5afc1" name="Changes" comment="Deleted unnecessary domains/repositories and added song domain/repository.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/config/WebSecurityConfig.java" afterDir="false" />
     </list>
@@ -51,7 +52,7 @@
       <map>
         <entry key="JPA Inspector" value="true" />
         <entry key="JPA Palette" value="false" />
-        <entry key="JPA Structure" value="false" />
+        <entry key="JPA Structure" value="true" />
       </map>
     </option>
   </component>
