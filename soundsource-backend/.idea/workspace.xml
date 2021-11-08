@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20f48c4c-ed51-4e2f-afb1-a95b0dd5afc1" name="Changes" comment="Full controllers main">
-      <change beforePath="$PROJECT_DIR$/../front-end/soundsource/src/components/Homepage/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/soundsource/src/components/Homepage/Homepage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/soundsource/src/components/Suggested/Suggested.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/soundsource/src/components/Suggested/Suggested.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soundsource/springframework/soundsourcebackend/config/WebSecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +79,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="Application.Soundsource Config">
+  <component name="RunManager" selected="Spring Boot.SoundsourceBackendApplication">
     <configuration name="Soundsource Config" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="soundsource.springframework.soundsourcebackend.SoundsourceBackendApplication" />
       <module name="soundsource-backend" />
