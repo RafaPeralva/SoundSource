@@ -31,12 +31,12 @@ Terminal may also be used.
 
 5. You may also need to install SDK by going to File > Project Structure > Project SDK, we recommend version 17
 
-6. Run backend
+6. Run backend(Green play button in top next to configuration)
 
 7. If any problems arise you may need to unlink and relink maven project:
 
    1. Right click pom.xml file > maven > unlink maven projects
-   2. Right click pom.xml and create maven project
+   2. Right click pom.xml and link maven project
 
 8. Project may be run from terminal by using command `mvn spring-boot:run` while on **soundsource-backend** folder
 
