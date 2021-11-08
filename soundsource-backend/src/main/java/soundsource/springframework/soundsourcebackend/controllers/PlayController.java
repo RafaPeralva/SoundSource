@@ -10,19 +10,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class PlayController {
 
     @GetMapping(value = "play")
-    public void playSong(String q) {
+    public void playSong(String[] q) {
         if(q == null)
-            q = "spotify:track:01iyCAUm8EvOFqVWYJ3dVX"; // Dancing Queen - Abba
+            q = new String[]{"spotify:track:01iyCAUm8EvOFqVWYJ3dVX"};
 
         DeviceController.activateDevice();
+        while(!DeviceController.isActiveDevice()){
+        }
 
-        if(DeviceController.isActiveDevice()) {
-            System.out.println("Play Passed");
-            QueueController.addItemToUsersPlaybackQueue_Sync(q);
-            SkipController.skipSong();
-        } else {
-            System.out.println("Play Failed");
-            playSong(q);
+        for(int i = 0; i < q.length; i++) {
+            if(i == 0) {
+                QueueController.addItemToUsersPlaybackQueue_Sync(q[i]);
+                SkipController.skipSong();
+            } else {
+                QueueController.addItemToUsersPlaybackQueue_Sync(q[i]);
+            }
         }
     }
+
+
 }
