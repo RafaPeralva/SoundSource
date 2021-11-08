@@ -10,7 +10,7 @@ export class SearchBar extends React.Component {
     artistName: "",
     trackName: "",
     id: "",
-    upvoteCount: 0
+    upvoteCount: 0,
   };
 
   constructor(props) {
@@ -51,28 +51,26 @@ export class SearchBar extends React.Component {
     }
   };
 
-  
   //takes in the data from the search
   //sets the variables to the search data from the JSON
   //makes a POST request with Search data to add to the suggested table in the database
-  handleAddClick (searchList){
+  handleAddClick(searchList) {
     var song = this.songInfo;
 
     song.artistName = searchList.artists[0].name;
     song.trackName = searchList.name;
     song.id = searchList.id;
 
-    var url = 'http://localhost:8080/suggested';
-    fetch(url,{
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' 
-      },
-      body: JSON.stringify( song )
-    }).then((result)=>{
-      result.json().then((res)=>{
-        console.warn('res',res)
-      })
-    })
+    var url = "http://localhost:8080/suggested";
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(song),
+    }).then((result) => {
+      result.json().then((res) => {
+        console.warn("res", res);
+      });
+    });
   }
 
   makeList = () => {
@@ -80,8 +78,8 @@ export class SearchBar extends React.Component {
     let list = search.map((searchList) => {
       console.log(search);
       return (
-        <div className="text-center" key={searchList.id}>
-          <p>
+        <div className="results" key={searchList.id}>
+          <p className="song">
             <a
               type="button"
               className="add-btn"
@@ -90,6 +88,8 @@ export class SearchBar extends React.Component {
               {"+"}
             </a>
             {" " + searchList.name}
+          </p>
+          <p className="artist">
             {"  by "}
             {searchList.artists[0].name}
           </p>
@@ -103,7 +103,6 @@ export class SearchBar extends React.Component {
     return (
       <div className="searchWrapper">
         <div className="searchBar">
-          <h3>Search Songs:</h3>
           <input
             type="text"
             id="navbar-search"

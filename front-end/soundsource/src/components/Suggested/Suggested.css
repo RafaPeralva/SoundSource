@@ -1,0 +1,21 @@
+.upvote {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+.suggested{
+    list-style-type: none;
+    font-size: 1.2em;
+    text-align: left;
+    margin-left: 0%;
+    line-height: .8em;
+    padding-left: 16%;
+}
+
+span{
+    font-size: .7em;
+    padding-left: 10%;
+}
