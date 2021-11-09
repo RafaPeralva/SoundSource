@@ -1,64 +1,17 @@
 import React from "react";
 import "./Homepage.css";
-import { Container, Row, Col, RowProps, ColProps } from "react-bootstrap";
+import { Container, Row, Col} from "react-bootstrap";
 import { SearchBar } from "../SearchBar/SearchBar";
 import { Suggested } from "../Suggested/Suggested";
 import axios from "axios";
+import PlaylistDisplay from "../Playlist/PlaylistDisplay";
+import Playlist from "../Playlist/Playlist";
 
 // import SearchResults from "../SearchResults/SearchResults";
 
-const { useEffect } = React;
+// const { useEffect } = React;
 
 export const Homepage = () => {
-  const MINUTE_MS = 60000; // Every min
-  // const MINUTE_MS = 600000; // Every 10 min
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      axios.get("http://localhost:8080/suggested").then((response) => {
-
-          if(response.data[0] != null) {
-
-            console.log(response.data);
-            
-            let firstTrack = "";
-            let firstId = "";
-
-            let secondTrack = "";
-            let secondId = "";
-
-            let thirdTrack = "";
-            let thirdId = "";
-
-            response.data.sort(function(a, b){
-              return a.upvoteCount - b.upvoteCount;
-            })
-            
-            if(response.data[response.data.length - 1] != null) {
-              firstTrack = response.data[response.data.length - 1].trackName;
-              firstId = response.data[response.data.length - 1].id;
-            }
-
-            if(response.data[response.data.length - 2] != null) {
-              secondTrack = response.data[response.data.length - 2].trackName;
-              secondId = response.data[response.data.length - 2].id;
-            }
-
-            if(response.data[response.data.length - 3] != null) {
-              thirdTrack = response.data[response.data.length - 3].trackName;
-              thirdId = response.data[response.data.length - 3].id;
-            }
-            
-            console.log("First Voted Song: " + firstTrack + " - " + firstId);
-            console.log("Second Voted Song: " + secondTrack + " - " + secondId);
-            console.log("Third Voted Song: " + thirdTrack + " - " + thirdId);
-        }
-
-      })
-    }, 20000);
-
-    return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
-  }, []);
 
   function exportPlaylist() {
     axios.get("http://localhost:8080/suggested").then((response) => {
@@ -128,7 +81,9 @@ export const Homepage = () => {
           </Row>
           <Row>
             <Col className="text-center">
-              <ul className="playlist">
+              <PlaylistDisplay />
+              <Playlist />
+              {/* <ul className="playlist">
                 <li>Bad Romance</li>
                 <li className="playlistArtist">Lady Gaga</li>
                 <li>Numb / Encore</li>
@@ -137,7 +92,7 @@ export const Homepage = () => {
                 <li className="playlistArtist">Kanye West</li>
                 <li>Way 2 Sexy</li>
                 <li className="playlistArtist">Drake, Future</li>
-              </ul>
+              </ul> */}
             </Col>
             <Col className="text-center">
               <ul className="suggested">

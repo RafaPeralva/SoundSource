@@ -17,7 +17,7 @@ public class Playlist {
     public Playlist() {
     }
 
-    public Playlist(String id, String trackName, int upvoteCount, String artistName) {
+    public Playlist(String id, String trackName, String artistName) {
         this.id = id;
         this.trackName = trackName;
         this.artistName = artistName;
