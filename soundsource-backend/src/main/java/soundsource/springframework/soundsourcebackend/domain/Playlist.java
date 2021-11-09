@@ -9,7 +9,7 @@ public class Playlist {
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 
     private String trackName;
     private String artistName;
@@ -17,17 +17,17 @@ public class Playlist {
     public Playlist() {
     }
 
-    public Playlist(Long id, String trackName, int upvoteCount, String artistName) {
+    public Playlist(String id, String trackName, String artistName) {
         this.id = id;
         this.trackName = trackName;
         this.artistName = artistName;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

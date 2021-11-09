@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Suggested.css";
 
-export class Suggested extends React.Component {
+export class Suggested extends Component {
   state = {
     suggested: [],
     trackIds: "",
@@ -30,16 +30,18 @@ export class Suggested extends React.Component {
 
     console.log(song.upvoteCount);
 
-    var url = "http://localhost:8080/suggested" + "/" + song.id;
-    fetch(url, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(song),
-    }).then((result) => {
-      result.json().then((res) => {
-        console.warn("res", res);
-      });
-    });
+
+    var url = 'http://localhost:8080/suggested/' + song.id;
+    fetch(url,{
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' 
+      },
+      body: JSON.stringify( song )
+    }).then((result)=>{
+      result.json().then((res)=>{
+        console.warn('res',res)
+      })
+    })
     window.location.reload();
   }
 
