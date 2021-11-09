@@ -4,23 +4,23 @@ import "./Suggested.css";
 export class Suggested extends Component {
   state = {
     suggested: [],
-    trackIds: ""
+    trackIds: "",
   };
 
   songInfo = {
     artistName: "",
     trackName: "",
     id: "",
-    upvoteCount: 0
+    upvoteCount: 0,
   };
 
   async componentDidMount() {
-    const response = await fetch('http://localhost:8080/suggested');
+    const response = await fetch("http://localhost:8080/suggested");
     const body = await response.json();
-    this.setState({suggested: body});
+    this.setState({ suggested: body });
   }
 
-  handleIncrementUpvote (suggest){
+  handleIncrementUpvote(suggest) {
     var song = this.songInfo;
 
     song.artistName = suggest.artistName;
@@ -29,6 +29,7 @@ export class Suggested extends Component {
     song.upvoteCount = suggest.upvoteCount + 1;
 
     console.log(song.upvoteCount);
+
 
     var url = 'http://localhost:8080/suggested/' + song.id;
     fetch(url,{
@@ -45,25 +46,33 @@ export class Suggested extends Component {
   }
 
   render() {
-    const {suggested} = this.state;
-      return (
-        <div className="suggested">
-          {suggested.map(suggest =>
-            <div key={suggest.id}>
-          <p>
-            {suggest.upvoteCount}
-            <button className = "upvote" onClick={() => this.handleIncrementUpvote(suggest)}><img src="/images/upvote.png" alt="Upvote Button" width = "20"/></button>
-            {suggest.trackName}<br></br>
-            <span>{suggest.artistName}</span>
-          </p>
-        </div>
-        )}
-        </div>
-          
-      );
-    }
+    const { suggested } = this.state;
+    return (
+      <div className="suggested">
+        {suggested.map((suggest) => (
+          <div key={suggest.id}>
+            <p className="suggested-song">
+              <div className="upvote">
+                {suggest.upvoteCount}
+                <button
+                  className="upvote"
+                  onClick={() => this.handleIncrementUpvote(suggest)}
+                >
+                  <img
+                    src="/images/upvote.png"
+                    alt="Upvote Button"
+                    width="20"
+                  />
+                </button>
+              </div>
+              {suggest.trackName}
+            </p>
+            <p className="suggested-artist"> by {suggest.artistName}</p>
+          </div>
+        ))}
+      </div>
+    );
   }
-
-
+}
 
 export default Suggested;

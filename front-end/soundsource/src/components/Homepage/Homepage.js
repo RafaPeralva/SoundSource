@@ -30,24 +30,19 @@ export const Homepage = () => {
   }
 
   function playPlaylist() {
-    axios.get('http://localhost:8080/suggested')
-    .then(response => {
-      if(response.data[0] != null) {
+    axios.get("http://localhost:8080/suggested").then((response) => {
+      if (response.data[0] != null) {
         let count = 0;
         let songString = [];
-        for(var i in response.data)
-        {
+        for (var i in response.data) {
           songString[count] = "spotify:track:" + response.data[count].id;
           count++;
         }
         let linkToAPI = "http://localhost:8080/api/play?q=" + songString;
-        axios.get(linkToAPI)
-        .then(response => {})
+        axios.get(linkToAPI).then((response) => {});
       }
-    })
+    });
   }
-
-
 
   return (
     <div className="homepage">
@@ -60,17 +55,17 @@ export const Homepage = () => {
               <h3>SoundSource Playlist</h3>
             </Col>
             <Col className="text-center">
-              <h3>
+              <h3 className="suggested-btn">
                 Suggested
                 <button className="exportButton" onClick={exportPlaylist}>
                   <img
                     src="/images/export.png"
                     alt="Export Button"
-                    width="40"
+                    width="30px"
                   />
                 </button>
                 <button className="playButton" onClick={playPlaylist}>
-                  <img src="/images/play.png" alt="Play Button" width="40" />
+                  <img src="/images/play.png" alt="Play Button" width="30px" />
                 </button>
               </h3>
             </Col>
