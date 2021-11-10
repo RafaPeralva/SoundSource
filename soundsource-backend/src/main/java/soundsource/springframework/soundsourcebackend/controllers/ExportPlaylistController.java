@@ -21,8 +21,27 @@ public class ExportPlaylistController {
         if(q == null)
             q = new String[]{"spotify:track:01iyCAUm8EvOFqVWYJ3dVX"};
 
-        final String playlistId = CreatePlaylistController.createPlaylist();
+        final String playlistId = CreatePlaylistController.createPlaylist("playlist");
 
+        final AddItemsToPlaylistRequest addItemsToPlaylistRequest = spotifyApi
+                .addItemsToPlaylist(playlistId, q)
+                .build();
+
+        try {
+            final SnapshotResult snapshotResult = addItemsToPlaylistRequest.execute();
+
+            System.out.println("Snapshot ID: " + snapshotResult.getSnapshotId());
+        } catch (IOException | SpotifyWebApiException | ParseException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    @GetMapping(value = "exportSuggested")
+    public static void exportingSuggested(String[] q) {
+        if(q == null)
+            q = new String[]{"spotify:track:01iyCAUm8EvOFqVWYJ3dVX"};
+
+        final String playlistId = CreatePlaylistController.createPlaylist("suggested");
 
         final AddItemsToPlaylistRequest addItemsToPlaylistRequest = spotifyApi
                 .addItemsToPlaylist(playlistId, q)
