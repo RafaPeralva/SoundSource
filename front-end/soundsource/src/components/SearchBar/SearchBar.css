@@ -54,3 +54,10 @@ p {
   line-height: 0.5;
   text-decoration: none;
 }
+
+.songSearchList {
+  height: 400px;
+  overflow-y: scroll;
+  scrollbar-color: pink red;
+  scrollbar-arrow-color: #15e24b;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Homepage.css";
-import { Container, Row, Col} from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { SearchBar } from "../SearchBar/SearchBar";
 import { Suggested } from "../Suggested/Suggested";
 import axios from "axios";
@@ -12,7 +12,6 @@ import Playlist from "../Playlist/Playlist";
 // const { useEffect } = React;
 
 export const Homepage = () => {
-
   function exportPlaylist() {
     axios.get("http://localhost:8080/playlist").then((response) => {
       if (response.data[0] != null) {
@@ -79,12 +78,11 @@ export const Homepage = () => {
     <div className="homepage">
       <div className="homepage-body">
         <Container fluid>
-          {/* for now cols and rows are manually generated
-            once backend is set up we will do it with a map function */}
           <Row>
             <Col className="text-center">
-              <h3>SoundSource Playlist
-              <button className="exportButton" onClick={exportPlaylist}>
+              <h3>
+                SoundSource Playlist
+                <button className="exportButton" onClick={exportPlaylist}>
                   <img
                     src="/images/export.png"
                     alt="Export Button"
@@ -94,7 +92,7 @@ export const Homepage = () => {
                 <button className="playButton" onClick={playPlaylist}>
                   <img src="/images/play.png" alt="Play Button" width="30px" />
                 </button>
-                </h3>
+              </h3>
             </Col>
             <Col className="text-center">
               <h3 className="suggested-btn">
@@ -120,16 +118,6 @@ export const Homepage = () => {
             <Col className="text-center">
               <PlaylistDisplay />
               <Playlist />
-              {/* <ul className="playlist">
-                <li>Bad Romance</li>
-                <li className="playlistArtist">Lady Gaga</li>
-                <li>Numb / Encore</li>
-                <li className="playlistArtist">JAY-Z, Linkin Park</li>
-                <li>Off The Grid</li>
-                <li className="playlistArtist">Kanye West</li>
-                <li>Way 2 Sexy</li>
-                <li className="playlistArtist">Drake, Future</li>
-              </ul> */}
             </Col>
             <Col className="text-center">
               <ul className="suggested">
