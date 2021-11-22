@@ -45,6 +45,15 @@ export class Suggested extends Component {
     window.location.reload();
   }
 
+  checkUpvoted(suggest)
+  {
+    var song = this.songInfo;
+
+    song.trackName = suggest.trackName;
+
+    console.log(song.trackName + ' has loaded');
+  }
+
   render() {
     const { suggested } = this.state;
     return (
@@ -53,6 +62,7 @@ export class Suggested extends Component {
           <div key={suggest.id}>
             <p className="suggested-song">
               <div className="upvote">
+                {this.checkUpvoted.call(this, suggest)}
                 {suggest.upvoteCount}
                 <button
                   className="upvote"
