@@ -78,6 +78,8 @@ export const Homepage = () => {
     <div className="homepage">
       <div className="homepage-body">
         <Container fluid>
+          {/* for now cols and rows are manually generated
+            once backend is set up we will do it with a map function */}
           <Row>
             <Col className="text-center">
               <h3>
@@ -118,6 +120,16 @@ export const Homepage = () => {
             <Col className="text-center">
               <PlaylistDisplay />
               <Playlist />
+              {/* <ul className="playlist">
+                <li>Bad Romance</li>
+                <li className="playlistArtist">Lady Gaga</li>
+                <li>Numb / Encore</li>
+                <li className="playlistArtist">JAY-Z, Linkin Park</li>
+                <li>Off The Grid</li>
+                <li className="playlistArtist">Kanye West</li>
+                <li>Way 2 Sexy</li>
+                <li className="playlistArtist">Drake, Future</li>
+              </ul> */}
             </Col>
             <Col className="text-center">
               <ul className="suggested">

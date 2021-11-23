@@ -11,7 +11,7 @@ const getSpotifyUserLogin = () => {
     });
 };
 
-class Navbar extends Component {
+export class Navbar extends Component {
   state = { clicked: false };
 
   handleClick = () => {
@@ -47,4 +47,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+// export default Navbar;
