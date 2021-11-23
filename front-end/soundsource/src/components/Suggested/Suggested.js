@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Suggested.css";
-import { UpvoteButton } from "../UpvoteButton/UpvoteButton";
 
 export class Suggested extends Component {
   state = {
@@ -53,9 +52,7 @@ export class Suggested extends Component {
             <p className="suggested-song">
               <div className="upvote">
                 {suggest.upvoteCount}
-                <UpvoteButton>upvote test</UpvoteButton>
-                {/* <UpvoteButton> button tes</UpvoteButton> */}
-                {/* <button
+                <button
                   className="upvote"
                   onClick={() => this.handleIncrementUpvote(suggest)}
                 >
@@ -64,7 +61,7 @@ export class Suggested extends Component {
                     alt="Upvote Button"
                     width="20"
                   />
-                </button> */}
+                </button>
               </div>
               {suggest.trackName}
             </p>

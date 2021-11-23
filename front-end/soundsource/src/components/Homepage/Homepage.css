@@ -95,3 +95,12 @@ h3 {
 .homepageSearch {
   margin: 10px;
 }
+
+.homepageRow {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.homepageCol {
+  width: 260px;
+}
