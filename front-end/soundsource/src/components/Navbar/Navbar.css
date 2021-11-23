@@ -1,16 +1,18 @@
 .NavbarItems {
-  background: linear-gradient(90deg, rgb(19, 184, 74) 0%, rgb(5, 219, 41) 100%);
-  height: 80px;
+  background-color: black;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
   font-size: 1.2rem;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(19, 184, 74);
 }
 
 .navbar-logo {
-  color: black;
+  color: rgb(19, 184, 74);
   justify-self: start;
-  margin-left: 20 px;
+  margin-left: 10px;
   cursor: pointer;
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Suggested.css";
+import { UpvoteButton } from "../UpvoteButton/UpvoteButton";
 
 export class Suggested extends Component {
   state = {
@@ -30,18 +31,16 @@ export class Suggested extends Component {
 
     console.log(song.upvoteCount);
 
-
-    var url = 'http://localhost:8080/suggested/' + song.id;
-    fetch(url,{
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' 
-      },
-      body: JSON.stringify( song )
-    }).then((result)=>{
-      result.json().then((res)=>{
-        console.warn('res',res)
-      })
-    })
+    var url = "http://localhost:8080/suggested/" + song.id;
+    fetch(url, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(song),
+    }).then((result) => {
+      result.json().then((res) => {
+        console.warn("res", res);
+      });
+    });
     window.location.reload();
   }
 
@@ -54,7 +53,9 @@ export class Suggested extends Component {
             <p className="suggested-song">
               <div className="upvote">
                 {suggest.upvoteCount}
-                <button
+                <UpvoteButton>upvote test</UpvoteButton>
+                {/* <UpvoteButton> button tes</UpvoteButton> */}
+                {/* <button
                   className="upvote"
                   onClick={() => this.handleIncrementUpvote(suggest)}
                 >
@@ -63,7 +64,7 @@ export class Suggested extends Component {
                     alt="Upvote Button"
                     width="20"
                   />
-                </button>
+                </button> */}
               </div>
               {suggest.trackName}
             </p>

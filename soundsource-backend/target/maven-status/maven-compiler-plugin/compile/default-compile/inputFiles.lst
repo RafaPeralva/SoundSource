@@ -7,7 +7,6 @@
 /Users/rafaelaperalva/Desktop/Fall '21/CSCI 499/project/SoundSource/soundsource-backend/src/main/java/soundsource/springframework/soundsourcebackend/controllers/CreatePlaylistController.java
 /Users/rafaelaperalva/Desktop/Fall '21/CSCI 499/project/SoundSource/soundsource-backend/src/main/java/soundsource/springframework/soundsourcebackend/controllers/UserController.java
 /Users/rafaelaperalva/Desktop/Fall '21/CSCI 499/project/SoundSource/soundsource-backend/src/main/java/soundsource/springframework/soundsourcebackend/repositories/SuggestedRepository.java
-/Users/rafaelaperalva/Desktop/Fall '21/CSCI 499/project/SoundSource/soundsource-backend/src/main/java/soundsource/springframework/soundsourcebackend/controllers/PreviousController.java
 /Users/rafaelaperalva/Desktop/Fall '21/CSCI 499/project/SoundSource/soundsource-backend/src/main/java/soundsource/springframework/soundsourcebackend/controllers/QueueController.java
 /Users/rafaelaperalva/Desktop/Fall '21/CSCI 499/project/SoundSource/soundsource-backend/src/main/java/soundsource/springframework/soundsourcebackend/controllers/PlaylistController.java
 /Users/rafaelaperalva/Desktop/Fall '21/CSCI 499/project/SoundSource/soundsource-backend/src/main/java/soundsource/springframework/soundsourcebackend/controllers/TransferController.java
