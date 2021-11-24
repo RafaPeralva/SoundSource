@@ -47,6 +47,7 @@ export const Playlist = () => {
                 console.log("Third Voted Song: " + thirdTrack + " - " + thirdId);
 
                 let songOne = response.data[response.data.length -1];
+                let songOneID = response.data[response.data.length -1].id;
 
             var url = "http://localhost:8080/playlist";
             fetch(url, {
@@ -58,11 +59,18 @@ export const Playlist = () => {
             console.warn("res", res);
             });
             });
+
+            fetch('http://localhost:8080/suggested/' + songOneID, {
+              method: 'DELETE',
+            })
+            .then(res => res.text()) // or res.json()
+            .then(res => console.log(res))
+
             window.location.reload();
             }
     
           })
-        }, 20000);
+        }, 6000000);
     
         return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
       }, []);
