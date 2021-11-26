@@ -11,7 +11,7 @@ const getSpotifyUserLogin = () => {
     });
 };
 
-class Navbar extends Component {
+export class Navbar extends Component {
   state = { clicked: false };
 
   handleClick = () => {
@@ -21,7 +21,11 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="NavbarItems">
-        <h1 className="navbar-logo">SoundSource</h1>
+        <img src="/images/wave.png" alt="note" className="wave" />
+        <a href="/" className="navbar-logo">
+          SoundSource
+        </a>
+
         <div className="menu-icon" onClick={this.handleClick}>
           <i
             className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
@@ -38,13 +42,23 @@ class Navbar extends Component {
             );
           })}
         </ul>
-        {/* <SearchBar /> */}
-        <Button className="loginbtn" onClick={getSpotifyUserLogin}>
-          Login
-        </Button>
+        {/* <div className="navMenu"> */}
+        <div className="navLinkDiv">
+          <a className="navLink suggestSearchLink" href="/">
+            Search+Suggest
+          </a>
+          <a className="navLink" href="/playlists">
+            Playlists
+          </a>
+        </div>
+        <div className="navButton">
+          <Button className="loginbtn" onClick={getSpotifyUserLogin}>
+            Login
+          </Button>
+        </div>
       </nav>
     );
   }
 }
 
-export default Navbar;
+// export default Navbar;

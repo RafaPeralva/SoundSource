@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import "./Suggested.css";
-
-// const upvoteImg = "/images/upvote.png";
-
 export class Suggested extends Component {
   state = {
     suggested: [],
@@ -17,7 +14,7 @@ export class Suggested extends Component {
   };
 
   upvoteImages = {
-    displayImg: ""
+    displayImg: "",
   };
 
   async componentDidMount() {
@@ -37,35 +34,31 @@ export class Suggested extends Component {
     // this if else parameter would change to check if the user has already upvoted it
     // if upvoted, dont upvote
     // else, upvote the song and store the song to the user's upvote array of trackuris
-    if(song.upvoteCount > 1)
-    {
-      console.log(song.trackName + " has already been upvoted")
+    if (song.upvoteCount > 1) {
+      console.log(song.trackName + " has already been upvoted");
     } else {
-      console.log(song.trackName + " will now be upvoted")
+      console.log(song.trackName + " will now be upvoted");
     }
-
 
     // the upvote code below will go in the if else statement, for now users are still able to upvote multiple times for testing
 
-    var url = 'http://localhost:8080/suggested/' + song.id;
-    fetch(url,{
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' 
-      },
-      body: JSON.stringify( song )
-    }).then((result)=>{
-      result.json().then((res)=>{
-        console.warn('res',res)
-      })
-    })
+    var url = "http://localhost:8080/suggested/" + song.id;
+    fetch(url, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(song),
+    }).then((result) => {
+      result.json().then((res) => {
+        console.warn("res", res);
+      });
+    });
 
     //console.log(song.upvoteCount);
 
     window.location.reload();
   }
 
-  checkUpvoted(suggest)
-  {
+  checkUpvoted(suggest) {
     // checks if song has been stored, if it was, then it was upvoted already
     // if upvoted display upvoted image, else display regular image
     // this function gets called on each row call with the song info
@@ -81,14 +74,11 @@ export class Suggested extends Component {
     this.getImageName(song.upvoteCount > 0);
   }
 
-  getImageName(isupvoted)
-  {
+  getImageName(isupvoted) {
     var image = this.upvoteImages;
-    
-    if(isupvoted)
-      image.displayImg = "/images/upvote.png"; 
-    else
-      image.displayImg = "/images/upvoted.png"; 
+
+    if (isupvoted) image.displayImg = "/images/upvote.png";
+    else image.displayImg = "/images/upvoted.png";
   }
 
   render() {
@@ -106,7 +96,7 @@ export class Suggested extends Component {
                   onClick={() => this.handleIncrementUpvote(suggest)}
                 >
                   <img
-                    src = {this.upvoteImages.displayImg}
+                    src={this.upvoteImages.displayImg}
                     alt="Upvote Button"
                     width="20"
                   />

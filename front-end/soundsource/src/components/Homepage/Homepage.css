@@ -1,5 +1,7 @@
 .homepage {
+  background-color: black;
   color: white;
+  /* color: black; */
 }
 
 h3 {
@@ -11,28 +13,14 @@ h3 {
   font-size: 1em;
 }
 
-.playlist {
-  text-align: left;
-  margin-left: 23%;
-}
-
-.playlistList {
-  list-style-type: none; /* Remove bullets */
-}
-
-.playlistArtist {
-  font-size: medium;
-  margin-left: 15px;
-  margin-top: 0px;
-  margin-bottom: 15px;
-}
-.playlist-song {
-  font: x-large;
+.suggestedSongs {
+  height: 600px;
+  overflow-y: scroll;
 }
 
 .suggested {
   list-style-type: none;
-  font-size: 1.4em;
+  font-size: 1.5em;
   text-align: left;
   margin-left: 0%;
 }
@@ -84,4 +72,19 @@ h3 {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.homepageSearch {
+  margin: 10px;
+}
+
+.homepageRow {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.homepageCol {
+  width: 50%;
+  margin-left: 100px;
+  margin-right: 100px;
 }

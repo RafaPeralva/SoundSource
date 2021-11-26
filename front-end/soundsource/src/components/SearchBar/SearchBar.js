@@ -122,7 +122,7 @@ export class SearchBar extends React.Component {
           </Button>
         </div>
         {this.state.found ? (
-          <div>
+          <div className="searchSongs">
             <ul>{this.makeList()}</ul>
           </div>
         ) : (

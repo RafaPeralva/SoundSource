@@ -1,6 +1,6 @@
 import React from "react";
 import "./Homepage.css";
-import { Container, Row, Col} from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { SearchBar } from "../SearchBar/SearchBar";
 import { Suggested } from "../Suggested/Suggested";
 import axios from "axios";
@@ -12,38 +12,6 @@ import Playlist from "../Playlist/Playlist";
 // const { useEffect } = React;
 
 export const Homepage = () => {
-
-  function exportPlaylist() {
-    axios.get("http://localhost:8080/playlist").then((response) => {
-      if (response.data[0] != null) {
-        let count = 0;
-        let songString = [];
-        for (var i in response.data) {
-          songString[count] = "spotify:track:" + response.data[count].id;
-          count++;
-        }
-        let linkToAPI =
-          "http://localhost:8080/api/exportPlaylist?q=" + songString;
-        axios.get(linkToAPI).then((response) => {});
-      }
-    });
-  }
-
-  function playPlaylist() {
-    axios.get("http://localhost:8080/playlist").then((response) => {
-      if (response.data[0] != null) {
-        let count = 0;
-        let songString = [];
-        for (var i in response.data) {
-          songString[count] = "spotify:track:" + response.data[count].id;
-          count++;
-        }
-        let linkToAPI = "http://localhost:8080/api/play?q=" + songString;
-        axios.get(linkToAPI).then((response) => {});
-      }
-    });
-  }
-
   function exportSuggested() {
     axios.get("http://localhost:8080/suggested").then((response) => {
       if (response.data[0] != null) {
@@ -74,70 +42,40 @@ export const Homepage = () => {
       }
     });
   }
-
   return (
     <div className="homepage">
       <div className="homepage-body">
         <Container fluid>
-          {/* for now cols and rows are manually generated
-            once backend is set up we will do it with a map function */}
-          <Row>
-            <Col className="text-center">
-              <h3>SoundSource Playlist
-              <button className="exportButton" onClick={exportPlaylist}>
-                  <img
-                    src="/images/export.png"
-                    alt="Export Button"
-                    width="30px"
-                  />
-                </button>
-                <button className="playButton" onClick={playPlaylist}>
-                  <img src="/images/play.png" alt="Play Button" width="30px" />
-                </button>
-                </h3>
-            </Col>
-            <Col className="text-center">
-              <h3 className="suggested-btn">
-                Suggested
-                <button className="exportButton" onClick={exportSuggested}>
-                  <img
-                    src="/images/export.png"
-                    alt="Export Button"
-                    width="30px"
-                  />
-                </button>
-                <button className="playButton" onClick={playSuggested}>
-                  <img src="/images/play.png" alt="Play Button" width="30px" />
-                </button>
-              </h3>
-            </Col>
-            <Col className="text-center">
-              {" "}
-              <h3>Search Songs:</h3>
-            </Col>
-          </Row>
-          <Row>
-            <Col className="text-center">
-              <PlaylistDisplay />
-              <Playlist />
-              {/* <ul className="playlist">
-                <li>Bad Romance</li>
-                <li className="playlistArtist">Lady Gaga</li>
-                <li>Numb / Encore</li>
-                <li className="playlistArtist">JAY-Z, Linkin Park</li>
-                <li>Off The Grid</li>
-                <li className="playlistArtist">Kanye West</li>
-                <li>Way 2 Sexy</li>
-                <li className="playlistArtist">Drake, Future</li>
-              </ul> */}
-            </Col>
-            <Col className="text-center">
-              <ul className="suggested">
-                <Suggested />
-              </ul>
-            </Col>
-            <Col className="text-center">
+          <Row className="homepageRow">
+            <Col className="homepageCol">
+              <Row className="title">
+                <h3>Suggest:</h3>
+              </Row>
               <SearchBar />
+            </Col>
+            <Col className="homepageCol">
+              <Row className="title">
+                <h3 className="suggested-btn">
+                  Vote
+                  <button className="exportButton" onClick={exportSuggested}>
+                    <img
+                      src="/images/export.png"
+                      alt="Export Button"
+                      width="30px"
+                    />
+                  </button>
+                  <button className="playButton" onClick={playSuggested}>
+                    <img
+                      src="/images/play.png"
+                      alt="Play Button"
+                      width="30px"
+                    />
+                  </button>
+                </h3>
+              </Row>
+              <Row>
+                <Suggested />
+              </Row>
             </Col>
           </Row>
         </Container>

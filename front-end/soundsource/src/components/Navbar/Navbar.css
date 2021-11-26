@@ -1,22 +1,68 @@
 .NavbarItems {
-  background: linear-gradient(90deg, rgb(19, 184, 74) 0%, rgb(5, 219, 41) 100%);
-  height: 80px;
+  background-color: black;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
   font-size: 1.2rem;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(19, 184, 74);
 }
 
 .navbar-logo {
-  color: black;
+  color: rgb(19, 184, 74);
   justify-self: start;
-  margin-left: 20 px;
+  /* margin-left: 100px; */
   cursor: pointer;
+  font-family: cursive;
+  font-size: xx-large;
+  text-decoration: none;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.navbar-logo:hover {
+  color: darkolivegreen;
+}
+
+.navButton {
+  margin-right: 10px;
+}
+
+.wave {
+  width: 100px;
+  margin-left: 10px;
+}
+.navLinkDiv {
+  margin: 20px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.navLink {
+  color: rgb(19, 184, 74);
+  text-decoration: none;
+  font-family: cursive;
+  font-size: large;
+  font-weight: 700;
+}
+
+.suggestSearchLink {
+  display: flex;
+  margin-right: 10px;
+}
+
+.navLink:hover {
+  color: darkolivegreen;
 }
 
 .fa-react {
   margin-left: 0.5rem;
   font-size: 1.6rem;
+}
+
+.navMenu {
+  margin-left: 20px;
 }
 
 .nav-menu {

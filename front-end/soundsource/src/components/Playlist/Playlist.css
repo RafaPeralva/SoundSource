@@ -1,0 +1,22 @@
+.playlistArtist {
+  font-size: medium;
+  margin-left: 47px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+.playlistSong {
+  font-size: large;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 0px;
+}
+
+.playlistList {
+  margin-left: -65px;
+}
+
+.musicNote {
+  width: 20px;
+  margin-right: 10px;
+}
