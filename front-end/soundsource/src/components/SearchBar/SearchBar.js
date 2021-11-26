@@ -18,7 +18,6 @@ export class SearchBar extends React.Component {
     this.state = {
       apiData: [],
       searchText: "",
-      // song: this.songInfo,
       found: false,
     };
   }
@@ -48,6 +47,12 @@ export class SearchBar extends React.Component {
         console.log(error.response.status); //404
         this.setState({ found: false });
       }
+    }
+  };
+
+  handleEnter = (e) => {
+    if (e.charCode === 13) {
+      this.handleSearchClick();
     }
   };
 
@@ -112,6 +117,7 @@ export class SearchBar extends React.Component {
             placeholder="Search..."
             name="search"
             className="searchInput"
+            onKeyPress={this.handleEnter}
           />
           <Button
             className="searchBtn"
