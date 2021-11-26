@@ -39,7 +39,7 @@ export const Playlist = () => {
           console.log("Second Voted Song: " + secondTrack + " - " + secondId);
           console.log("Third Voted Song: " + thirdTrack + " - " + thirdId);
 
-          let songOne = response.data[response.data.length - 1];
+          songOne = response.data[response.data.length - 1];
 
           var url = "http://localhost:8080/playlist";
           fetch(url, {
