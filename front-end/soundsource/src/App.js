@@ -24,6 +24,7 @@ import {
   Route,
 } from "react-router-dom";
 import { Homepage } from "./components/Homepage/Homepage";
+import { PlaylistsPage } from "./components/PlaylistsPage/PlaylistsPage";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route path="/" element={<Homepage />} />
+        <Route path="/playlists" element={<PlaylistsPage />} />
       </Switch>
     </div>
   );

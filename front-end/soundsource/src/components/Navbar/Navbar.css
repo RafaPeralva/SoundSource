@@ -12,13 +12,57 @@
 .navbar-logo {
   color: rgb(19, 184, 74);
   justify-self: start;
-  margin-left: 10px;
+  /* margin-left: 100px; */
   cursor: pointer;
+  font-family: cursive;
+  font-size: xx-large;
+  text-decoration: none;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.navbar-logo:hover {
+  color: darkolivegreen;
+}
+
+.navButton {
+  margin-right: 10px;
+}
+
+.wave {
+  width: 100px;
+  margin-left: 10px;
+}
+.navLinkDiv {
+  margin: 20px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.navLink {
+  color: rgb(19, 184, 74);
+  text-decoration: none;
+  font-family: cursive;
+  font-size: large;
+  font-weight: 700;
+}
+
+.suggestSearchLink {
+  display: flex;
+  margin-right: 10px;
+}
+
+.navLink:hover {
+  color: darkolivegreen;
 }
 
 .fa-react {
   margin-left: 0.5rem;
   font-size: 1.6rem;
+}
+
+.navMenu {
+  margin-left: 20px;
 }
 
 .nav-menu {

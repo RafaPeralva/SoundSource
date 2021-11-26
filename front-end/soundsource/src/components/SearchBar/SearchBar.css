@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* margin-left: 50px; */
+  margin-left: 130px;
   margin-top: 15px;
 }
 .searchBar {
@@ -38,6 +38,7 @@ p {
   line-break: auto;
   flex-direction: column;
   align-items: flex-start;
+  margin-left: -36px;
 }
 
 .song {
@@ -56,17 +57,20 @@ p {
   color: #15e24b;
   line-height: 0px;
   text-decoration: none;
+  cursor: pointer;
 }
 
-.add-btn:a:active {
-  font-size: large;
-  line-height: 0.5;
+.add-btn:hover {
+  font-size: x-large;
+  text-align: left;
+  color: #15e24b;
+  line-height: 0px;
   text-decoration: none;
+  cursor: pointer;
+  color: darkolivegreen;
 }
 
 .songSearchList {
   height: 400px;
   overflow-y: scroll;
-  scrollbar-color: pink red;
-  scrollbar-arrow-color: #15e24b;
 }

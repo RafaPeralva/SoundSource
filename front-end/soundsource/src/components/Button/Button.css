@@ -16,8 +16,8 @@
 .btns:hover {
   padding: 8px 20px;
   transition: all 0.3s ease-out;
-  background: #313a33;
-  color: #016b06;
+  background: darkolivegreen;
+  color: black;
   transition: 250ms;
 }
 

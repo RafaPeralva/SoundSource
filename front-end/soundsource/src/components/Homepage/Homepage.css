@@ -13,27 +13,9 @@ h3 {
   font-size: 1em;
 }
 
-.playlist {
-  text-align: left;
-  margin-left: 23%;
-}
-
-.playlistList {
-  list-style-type: none; /* Remove bullets */
-}
 .suggestedSongs {
   height: 600px;
   overflow-y: scroll;
-}
-
-.playlistArtist {
-  font-size: medium;
-  margin-left: 15px;
-  margin-top: 0px;
-  margin-bottom: 15px;
-}
-.playlist-song {
-  font: x-large;
 }
 
 .suggested {
@@ -102,5 +84,7 @@ h3 {
 }
 
 .homepageCol {
-  width: 260px;
+  width: 50%;
+  margin-left: 100px;
+  margin-right: 100px;
 }

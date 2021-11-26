@@ -48,15 +48,36 @@ export const Homepage = () => {
         <Container fluid>
           <Row className="homepageRow">
             <Col className="homepageCol">
-              <h3>Suggest Songs:</h3>
+              <Row className="title">
+                <h3>Suggest:</h3>
+              </Row>
               <SearchBar />
             </Col>
             <Col className="homepageCol">
-              <h3>Vote</h3>
-              <Suggested />
+              <Row className="title">
+                <h3 className="suggested-btn">
+                  Vote
+                  <button className="exportButton" onClick={exportSuggested}>
+                    <img
+                      src="/images/export.png"
+                      alt="Export Button"
+                      width="30px"
+                    />
+                  </button>
+                  <button className="playButton" onClick={playSuggested}>
+                    <img
+                      src="/images/play.png"
+                      alt="Play Button"
+                      width="30px"
+                    />
+                  </button>
+                </h3>
+              </Row>
+              <Row>
+                <Suggested />
+              </Row>
             </Col>
           </Row>
-          <Row>row</Row>
         </Container>
       </div>
     </div>
