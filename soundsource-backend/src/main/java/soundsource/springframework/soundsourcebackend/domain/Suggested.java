@@ -11,6 +11,7 @@ public class Suggested {
 //    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
+    private String playlistName;
     private String trackName;
     private String artistName;
     private int upvoteCount;
@@ -18,8 +19,9 @@ public class Suggested {
     public Suggested() {
     }
 
-    public Suggested(String id, String trackName, int upvoteCount, String artistName) {
+    public Suggested(String id, String trackName, int upvoteCount, String artistName, String playlistName) {
         this.id = id;
+        this.playlistName = playlistName;
         this.trackName = trackName;
         this.upvoteCount = upvoteCount;
         this.artistName = artistName;
@@ -55,6 +57,14 @@ public class Suggested {
 
     public void setArtistName(String artistName) {
         this.artistName = artistName;
+    }
+
+    public String getPlaylistName() {
+        return playlistName;
+    }
+
+    public void setPlaylistName(String playlistName) {
+        this.playlistName = playlistName;
     }
 
     @Override

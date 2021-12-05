@@ -11,14 +11,16 @@ public class Playlist {
 //    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
+    private String playlistName;
     private String trackName;
     private String artistName;
 
     public Playlist() {
     }
 
-    public Playlist(String id, String trackName, String artistName) {
+    public Playlist(String id, String trackName, String artistName, String playlistName) {
         this.id = id;
+        this.playlistName = playlistName;
         this.trackName = trackName;
         this.artistName = artistName;
     }
@@ -45,6 +47,14 @@ public class Playlist {
 
     public void setArtistName(String artistName) {
         this.artistName = artistName;
+    }
+
+    public String getPlaylistName() {
+        return playlistName;
+    }
+
+    public void setPlaylistName(String playlistName) {
+        this.playlistName = playlistName;
     }
 
     @Override
