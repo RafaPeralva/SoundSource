@@ -2,9 +2,7 @@ package soundsource.springframework.soundsourcebackend.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import soundsource.springframework.soundsourcebackend.domain.Suggested;
 import soundsource.springframework.soundsourcebackend.domain.User;
-import soundsource.springframework.soundsourcebackend.repositories.SuggestedRepository;
 import soundsource.springframework.soundsourcebackend.repositories.UserRepository;
 
 import java.net.URI;
@@ -39,8 +37,7 @@ public class UserInfoController {
     @PutMapping("/{id}")
     public ResponseEntity updateUser(@PathVariable String id, @RequestBody User user) {
         User currentUser = userRepository.findById(id).orElseThrow(RuntimeException::new);
-        currentUser.setLikedSongName(user.getLikedSongName());
-        currentUser.setLikedSongArtist(user.getLikedSongArtist());
+        currentUser.setSongURI(user.getSongURI());
         currentUser.setPlaylistName(user.getPlaylistName());
         currentUser = userRepository.save(user);
 

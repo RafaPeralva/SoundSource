@@ -1,7 +1,6 @@
 package soundsource.springframework.soundsourcebackend.domain;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "user")
@@ -10,17 +9,15 @@ public class User {
     @Id
     private String UserId;
 
-    private String likedSongName;
-    private String likedSongArtist;
+    private String songURI;
     private String playlistName;
 
     public User() {
     }
 
-    public User(String userId, String likedSongName, String likedSongArtist, String playlistName) {
+    public User(String userId, String songURI, String playlistName) {
         UserId = userId;
-        this.likedSongName = likedSongName;
-        this.likedSongArtist = likedSongArtist;
+        this.songURI = songURI;
         this.playlistName = playlistName;
     }
 
@@ -32,20 +29,12 @@ public class User {
         UserId = userId;
     }
 
-    public String getLikedSongName() {
-        return likedSongName;
+    public String getSongURI() {
+        return songURI;
     }
 
-    public void setLikedSongName(String likedSongName) {
-        this.likedSongName = likedSongName;
-    }
-
-    public String getLikedSongArtist() {
-        return likedSongArtist;
-    }
-
-    public void setLikedSongArtist(String likedSongArtist) {
-        this.likedSongArtist = likedSongArtist;
+    public void setSongURI(String songURI) {
+        this.songURI = songURI;
     }
 
     public String getPlaylistName() {
