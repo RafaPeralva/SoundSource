@@ -37,6 +37,7 @@ public class UserInfoController {
     @PutMapping("/{id}")
     public ResponseEntity updateUser(@PathVariable String id, @RequestBody User user) {
         User currentUser = userRepository.findById(id).orElseThrow(RuntimeException::new);
+        currentUser.setUserId(user.getUserId());
         currentUser.setSongURI(user.getSongURI());
         currentUser.setPlaylistName(user.getPlaylistName());
         currentUser = userRepository.save(user);
