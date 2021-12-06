@@ -11,10 +11,17 @@ export class Suggested extends Component {
     trackName: "",
     id: "",
     upvoteCount: 0,
+    playlistName: "Top100"
   };
 
   upvoteImages = {
     displayImg: "",
+  };
+
+  userData = {
+    id: "",
+    playlistName: "",
+    songURI: "",
   };
 
   async componentDidMount() {
@@ -29,33 +36,55 @@ export class Suggested extends Component {
     song.artistName = suggest.artistName;
     song.trackName = suggest.trackName;
     song.id = suggest.id;
-    song.upvoteCount = suggest.upvoteCount + 1;
+    song.upvoteCount = suggest.upvoteCount;
 
     // this if else parameter would change to check if the user has already upvoted it
     // if upvoted, dont upvote
     // else, upvote the song and store the song to the user's upvote array of trackuris
-    if (song.upvoteCount > 1) {
-      console.log(song.trackName + " has already been upvoted");
-    } else {
+
+    console.log(song.upvoteCount);
+
+    if(song.upvoteCount == 0)
+    {
       console.log(song.trackName + " will now be upvoted");
-    }
 
-    // the upvote code below will go in the if else statement, for now users are still able to upvote multiple times for testing
-
-    var url = "http://localhost:8080/suggested/" + song.id;
-    fetch(url, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(song),
-    }).then((result) => {
-      result.json().then((res) => {
-        console.warn("res", res);
+      // Increments the upvote by 1
+      song.upvoteCount = song.upvoteCount + 1;
+  
+      // Stores updated upvote count in Suggested DB
+      var url = "http://localhost:8080/suggested/" + song.id;
+      fetch(url, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(song),
+      }).then((result) => {
+        result.json().then((res) => {
+          console.warn("suggested - res", res);
+        });
       });
-    });
 
-    //console.log(song.upvoteCount);
+      // Store upvoted song in general playlist for this user
+      var user = this.userData;
+      user.id = "8974124";
+      user.playlistName = "general";
+      user.songURI = song.id;
 
-    window.location.reload();
+      var url = "http://localhost:8080/user";
+      fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      }).then((result) => {
+        result.json().then((res) => {
+          console.warn("user - res", res);
+        });
+      });
+
+      // Reload site
+      window.location.reload();
+    } else {
+      console.log(song.trackName + " has already been upvoted");
+    }
   }
 
   checkUpvoted(suggest) {
