@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    private String UserId;
+    private String id;
 
     private String songURI;
     private String playlistName;
@@ -15,18 +15,18 @@ public class User {
     public User() {
     }
 
-    public User(String userId, String songURI, String playlistName) {
-        UserId = userId;
+    public User(String id, String songURI, String playlistName) {
+        this.id = id;
         this.songURI = songURI;
         this.playlistName = playlistName;
     }
 
-    public String getUserId() {
-        return UserId;
+    public String getId() {
+        return id;
     }
 
-    public void setUserId(String userId) {
-        UserId = userId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getSongURI() {
