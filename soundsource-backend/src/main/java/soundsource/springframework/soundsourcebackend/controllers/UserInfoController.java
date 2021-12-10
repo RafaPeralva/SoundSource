@@ -24,7 +24,7 @@ public class UserInfoController {
     }
 
     @GetMapping("/{id}")
-    public User getUser(@PathVariable String id) {
+    public User getUser(@PathVariable Long id) {
         return userRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
@@ -35,8 +35,9 @@ public class UserInfoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity updateUser(@PathVariable String id, @RequestBody User user) {
+    public ResponseEntity updateUser(@PathVariable Long id, @RequestBody User user) {
         User currentUser = userRepository.findById(id).orElseThrow(RuntimeException::new);
+        currentUser.setUserID(user.getUserID());
         currentUser.setSongURI(user.getSongURI());
         currentUser.setPlaylistName(user.getPlaylistName());
         currentUser = userRepository.save(user);
@@ -45,7 +46,7 @@ public class UserInfoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteSuggested(@PathVariable String id) {
+    public ResponseEntity deleteSuggested(@PathVariable Long id) {
         userRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }

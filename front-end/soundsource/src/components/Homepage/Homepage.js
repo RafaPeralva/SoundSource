@@ -18,7 +18,7 @@ export const Homepage = () => {
         let count = 0;
         let songString = [];
         for (var i in response.data) {
-          songString[count] = "spotify:track:" + response.data[count].id;
+          songString[count] = "spotify:track:" + response.data[count].songURI;
           count++;
         }
         let linkToAPI =
@@ -34,7 +34,7 @@ export const Homepage = () => {
         let count = 0;
         let songString = [];
         for (var i in response.data) {
-          songString[count] = "spotify:track:" + response.data[count].id;
+          songString[count] = "spotify:track:" + response.data[count].songURI;
           count++;
         }
         let linkToAPI = "http://localhost:8080/api/play?q=" + songString;

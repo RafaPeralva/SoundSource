@@ -24,7 +24,7 @@ public class PlaylistController {
     }
 
     @GetMapping("/{id}")
-    public Playlist getPlaylist(@PathVariable String id) {
+    public Playlist getPlaylist(@PathVariable Long id) {
         return playlistRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
@@ -35,8 +35,9 @@ public class PlaylistController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity updatePlaylist(@PathVariable String id, @RequestBody Playlist playlist) {
+    public ResponseEntity updatePlaylist(@PathVariable Long id, @RequestBody Playlist playlist) {
         Playlist currentPlaylist = playlistRepository.findById(id).orElseThrow(RuntimeException::new);
+        currentPlaylist.setTrackURI(playlist.getTrackURI());
         currentPlaylist.setTrackName(playlist.getTrackName());
         currentPlaylist.setArtistName(playlist.getArtistName());
         currentPlaylist = playlistRepository.save(playlist);
@@ -45,7 +46,7 @@ public class PlaylistController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deletePlaylist(@PathVariable String id) {
+    public ResponseEntity deletePlaylist(@PathVariable Long id) {
         playlistRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }

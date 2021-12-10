@@ -9,7 +9,7 @@ export class SearchBar extends React.Component {
   songInfo = {
     artistName: "",
     trackName: "",
-    id: "",
+    songURI: "",
     upvoteCount: 0,
   };
 
@@ -64,7 +64,7 @@ export class SearchBar extends React.Component {
 
     song.artistName = searchList.artists[0].name;
     song.trackName = searchList.name;
-    song.id = searchList.id;
+    song.songURI = searchList.id;
 
     var url = "http://localhost:8080/suggested";
     fetch(url, {

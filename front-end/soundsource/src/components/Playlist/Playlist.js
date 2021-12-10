@@ -24,15 +24,15 @@ export const Playlist = () => {
 
           if (response.data[response.data.length - 1] != null) {
             firstTrack = response.data[response.data.length - 1].trackName;
-            firstId = response.data[response.data.length - 1].id;
+            firstId = response.data[response.data.length - 1].trackURI;
           }
 
           let songOne = response.data[response.data.length - 1];
-          let songOneID = response.data[response.data.length - 1].id;
+          let songOneID = response.data[response.data.length - 1].trackURI;
 
           if (response.data[response.data.length - 3] != null) {
             thirdTrack = response.data[response.data.length - 3].trackName;
-            thirdId = response.data[response.data.length - 3].id;
+            thirdId = response.data[response.data.length - 3].trackURI;
           }
 
           console.log("First Voted Song: " + firstTrack + " - " + firstId);

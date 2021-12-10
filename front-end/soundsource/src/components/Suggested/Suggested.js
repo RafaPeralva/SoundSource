@@ -11,7 +11,7 @@ export class Suggested extends Component {
   songInfo = {
     artistName: "",
     trackName: "",
-    id: "",
+    songURI: "",
     upvoteCount: 0,
     playlistName: "Top100"
   };
@@ -21,7 +21,7 @@ export class Suggested extends Component {
   };
 
   userData = {
-    id: "",
+    UserID: "",
     playlistName: "",
     songURI: ""
   };
@@ -33,7 +33,7 @@ export class Suggested extends Component {
 
     const userIdResponse = await fetch("http://localhost:8080/api/userId");
     const userIdBody = await userIdResponse.json();
-    this.userData.id = userIdBody;
+    this.userData.UserID = userIdBody;
 
     const upvoteResponse = await fetch("http://localhost:8080/user");
     const upvoteBody = await upvoteResponse.json();
@@ -45,7 +45,7 @@ export class Suggested extends Component {
 
     song.artistName = suggest.artistName;
     song.trackName = suggest.trackName;
-    song.id = suggest.id;
+    song.songURI = suggest.songURI;
     song.upvoteCount = suggest.upvoteCount;
 
     // this if else parameter would change to check if the user has already upvoted it
@@ -56,15 +56,15 @@ export class Suggested extends Component {
 
     // Store upvoted song in general playlist for this user
     var user = this.userData;
-    user.id = "99999999";
+    user.UserID = "99999999";
     user.playlistName = "general";
-    user.songURI = song.id;
+    user.songURI = song.songURI;
 
     // get user id and check if upvoted already
     let linkToAPI = "http://localhost:8080/api/userId";
     axios.get(linkToAPI).then((response) => {
-      user.id = response.data;
-      console.log("ID: " + user.id);
+      user.UserID = response.data;
+      console.log("ID: " + user.UserID);
 
       let linkToAPI = "http://localhost:8080/user";
       axios.get(linkToAPI).then((response) => {
@@ -72,7 +72,7 @@ export class Suggested extends Component {
           let found = false;
           for(var i in response.data)
           {
-            if(response.data[i].songURI == user.songURI && response.data[i].id == user.id)
+            if(response.data[i].songURI == user.songURI && response.data[i].UserID == user.UserID)
             {
               found = true;
             }
@@ -99,7 +99,7 @@ export class Suggested extends Component {
     song.upvoteCount = song.upvoteCount + 1;
 
     // Stores updated upvote count in Suggested DB
-    var url = "http://localhost:8080/suggested/" + song.id;
+    var url = "http://localhost:8080/suggested/" + song.songURI;
     fetch(url, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -127,7 +127,7 @@ export class Suggested extends Component {
   // this function gets called on each row call with the song info
   checkUpvoted(suggest, upvoted) {
     var song = this.songInfo;
-    song.id = suggest.id;
+    song.songURI = suggest.songURI;
 
     if(upvoted && upvoted.length != 0)
     {
@@ -136,7 +136,7 @@ export class Suggested extends Component {
       let found = false;
       for(var i in upvotedData)
       {
-        if(upvotedData[i].songURI == song.id && upvotedData[i].id == this.userData.id)
+        if(upvotedData[i].songURI == song.songURI && upvotedData[i].UserID == this.userData.UserID)
         {
           found = true;
         }
@@ -168,7 +168,7 @@ export class Suggested extends Component {
     return (
       <div className="suggested">
         {suggested.map((suggest) => (
-          <div key={suggest.id}>
+          <div key={suggest.songURI}>
             <p className="suggested-song">
               <div className="upvote">
                 {this.checkUpvoted.call(this, suggest, upvoted)}
