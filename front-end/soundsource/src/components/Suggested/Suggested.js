@@ -9,11 +9,12 @@ export class Suggested extends Component {
   };
 
   songInfo = {
+    id: 1,
     artistName: "",
     trackName: "",
-    songURI: "",
+    trackURI: "",
     upvoteCount: 0,
-    playlistName: "Top100"
+    playlistName: ""
   };
 
   upvoteImages = {
@@ -43,28 +44,31 @@ export class Suggested extends Component {
   handleIncrementUpvote(suggest) {
     var song = this.songInfo;
 
+    song.id = suggest.id;
     song.artistName = suggest.artistName;
     song.trackName = suggest.trackName;
-    song.songURI = suggest.songURI;
+    song.trackURI = suggest.trackURI;
     song.upvoteCount = suggest.upvoteCount;
+    song.playlistName = suggest.playlistName;
+
+    // console.log(song.artistName + ": " + song.trackName + " has " + song.upvoteCount + " upvotes");
+    // console.log("Song Data: " + song.playlistName + " - id: " + song.id + " - URI: " + song.trackURI);
 
     // this if else parameter would change to check if the user has already upvoted it
     // if upvoted, dont upvote
     // else, upvote the song and store the song to the user's upvote array of trackuris
 
-    console.log(song.upvoteCount);
-
     // Store upvoted song in general playlist for this user
     var user = this.userData;
-    user.UserID = "99999999";
-    user.playlistName = "general";
-    user.songURI = song.songURI;
+    user.userID = "99999999";
+    user.playlistName = song.playlistName;
+    user.songURI = song.trackURI;
 
     // get user id and check if upvoted already
     let linkToAPI = "http://localhost:8080/api/userId";
     axios.get(linkToAPI).then((response) => {
-      user.UserID = response.data;
-      console.log("ID: " + user.UserID);
+      user.userID = response.data;
+      console.log("ID: " + user.userID);
 
       let linkToAPI = "http://localhost:8080/user";
       axios.get(linkToAPI).then((response) => {
@@ -78,9 +82,7 @@ export class Suggested extends Component {
             }
           }
 
-          if(found)
-          {
-          } else {
+          if(!found) {
             this.upvoteSong(song, user);
           }
         } else {
@@ -98,28 +100,31 @@ export class Suggested extends Component {
 
     song.upvoteCount = song.upvoteCount + 1;
 
-    // Stores updated upvote count in Suggested DB
-    var url = "http://localhost:8080/suggested/" + song.songURI;
-    fetch(url, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(song),
-    }).then((result) => {
-      result.json().then((res) => {
-        console.warn("suggested - res", res);
-      });
-    });
+    console.log(song.artistName + ": " + song.trackName + " has " + song.upvoteCount + " upvotes");
+    console.log("Song Data: " + song.playlistName + " - id: " + song.id + " - URI: " + song.trackURI);
 
-    var url = "http://localhost:8080/user";
-    fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
-    }).then((result) => {
-      result.json().then((res) => {
-        console.warn("user - res", res);
-      });
-    });
+    // // Stores updated upvote count in Suggested DB
+    // var url = "http://localhost:8080/suggested/" + 1;
+    // fetch(url, {
+    //   method: "PUT",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(song),
+    // }).then((result) => {
+    //   result.json().then((res) => {
+    //     console.warn("suggested - res", res);
+    //   });
+    // });
+
+    // var url = "http://localhost:8080/user";
+    // fetch(url, {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(user),
+    // }).then((result) => {
+    //   result.json().then((res) => {
+    //     console.warn("user - res", res);
+    //   });
+    // });
   }
 
   // checks if song has been stored, if it was, then it was upvoted already
@@ -127,7 +132,7 @@ export class Suggested extends Component {
   // this function gets called on each row call with the song info
   checkUpvoted(suggest, upvoted) {
     var song = this.songInfo;
-    song.songURI = suggest.songURI;
+    song.trackURI = suggest.trackURI;
 
     if(upvoted && upvoted.length != 0)
     {
@@ -136,7 +141,7 @@ export class Suggested extends Component {
       let found = false;
       for(var i in upvotedData)
       {
-        if(upvotedData[i].songURI == song.songURI && upvotedData[i].UserID == this.userData.UserID)
+        if(upvotedData[i].songURI == song.trackURI && upvotedData[i].UserID == this.userData.UserID)
         {
           found = true;
         }
