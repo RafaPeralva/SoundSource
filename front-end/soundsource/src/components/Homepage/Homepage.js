@@ -38,7 +38,7 @@ export const Homepage = () => {
       }
     });
   }
-  
+
   export const PlaylistsPage = () => {
     function exportPlaylist() {
       axios.get("http://localhost:8080/playlist").then((response) => {
@@ -55,21 +55,22 @@ export const Homepage = () => {
         }
       });
     }
-  
-    function playPlaylist() {
-      axios.get("http://localhost:8080/playlist").then((response) => {
-        if (response.data[0] != null) {
-          let count = 0;
-          let songString = [];
-          for (var i in response.data) {
-            songString[count] = "spotify:track:" + response.data[count].id;
-            count++;
-          }
-          let linkToAPI = "http://localhost:8080/api/play?q=" + songString;
-          axios.get(linkToAPI).then((response) => {});
+  };
+
+  function playPlaylist() {
+    axios.get("http://localhost:8080/playlist").then((response) => {
+      if (response.data[0] != null) {
+        let count = 0;
+        let songString = [];
+        for (var i in response.data) {
+          songString[count] = "spotify:track:" + response.data[count].id;
+          count++;
         }
-      });
-    }
+        let linkToAPI = "http://localhost:8080/api/play?q=" + songString;
+        axios.get(linkToAPI).then((response) => {});
+      }
+    });
+  }
   return (
     <div className="homepage">
       <div className="homepage-body">
