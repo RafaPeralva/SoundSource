@@ -6,11 +6,6 @@ import { Suggested } from "../Suggested/Suggested";
 import axios from "axios";
 import PlaylistDisplay from "../Playlist/PlaylistDisplay";
 import Playlist from "../Playlist/Playlist";
-
-// import SearchResults from "../SearchResults/SearchResults";
-
-// const { useEffect } = React;
-
 export const Homepage = () => {
   function exportSuggested() {
     axios.get("http://localhost:8080/suggested").then((response) => {
