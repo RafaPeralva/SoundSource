@@ -82,6 +82,7 @@ h3 {
 .homepageRow {
   display: flex;
   justify-content: space-evenly;
+  margin-left: 50px;
 }
 
 .homepageCol {
