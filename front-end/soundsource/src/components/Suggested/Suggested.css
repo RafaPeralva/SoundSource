@@ -35,3 +35,22 @@
   font-size: x-large;
   align-items: baseline;
 }
+
+/* Customized Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #494949;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(18, 167, 37);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(17, 112, 4);
+}
