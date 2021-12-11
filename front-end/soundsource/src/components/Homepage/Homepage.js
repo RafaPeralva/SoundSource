@@ -38,24 +38,21 @@ export const Homepage = () => {
       }
     });
   }
-
-  export const PlaylistsPage = () => {
-    function exportPlaylist() {
-      axios.get("http://localhost:8080/playlist").then((response) => {
-        if (response.data[0] != null) {
-          let count = 0;
-          let songString = [];
-          for (var i in response.data) {
-            songString[count] = "spotify:track:" + response.data[count].id;
-            count++;
-          }
-          let linkToAPI =
-            "http://localhost:8080/api/exportPlaylist?q=" + songString;
-          axios.get(linkToAPI).then((response) => {});
+  function exportPlaylist() {
+    axios.get("http://localhost:8080/playlist").then((response) => {
+      if (response.data[0] != null) {
+        let count = 0;
+        let songString = [];
+        for (var i in response.data) {
+          songString[count] = "spotify:track:" + response.data[count].id;
+          count++;
         }
-      });
-    }
-  };
+        let linkToAPI =
+          "http://localhost:8080/api/exportPlaylist?q=" + songString;
+        axios.get(linkToAPI).then((response) => {});
+      }
+    });
+  }
 
   function playPlaylist() {
     axios.get("http://localhost:8080/playlist").then((response) => {
@@ -108,7 +105,23 @@ export const Homepage = () => {
             </Col>
             <Col className="homepageCol">
               <Row className="title">
-                <h3>Playlist:</h3>
+                <h3>
+                  Playlist:{" "}
+                  <button className="exportButton" onClick={exportPlaylist}>
+                    <img
+                      src="/images/export.png"
+                      alt="Export Button"
+                      width="30px"
+                    />
+                  </button>
+                  <button className="playButton" onClick={playPlaylist}>
+                    <img
+                      src="/images/play.png"
+                      alt="Play Button"
+                      width="30px"
+                    />
+                  </button>
+                </h3>
               </Row>
               <SearchBar />
             </Col>
