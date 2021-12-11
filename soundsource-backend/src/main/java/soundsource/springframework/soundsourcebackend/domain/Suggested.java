@@ -8,9 +8,10 @@ import java.util.Objects;
 public class Suggested {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
+    private String trackURI;
     private String playlistName;
     private String trackName;
     private String artistName;
@@ -19,19 +20,28 @@ public class Suggested {
     public Suggested() {
     }
 
-    public Suggested(String id, String trackName, int upvoteCount, String artistName, String playlistName) {
+    public Suggested(Long id, String trackName, int upvoteCount, String artistName, String playlistName, String trackURI) {
         this.id = id;
         this.playlistName = playlistName;
         this.trackName = trackName;
         this.upvoteCount = upvoteCount;
         this.artistName = artistName;
+        this.trackURI = trackURI;
     }
 
-    public String getId() {
+    public String getTrackURI() {
+        return trackURI;
+    }
+
+    public void setTrackURI(String trackURI) {
+        this.trackURI = trackURI;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

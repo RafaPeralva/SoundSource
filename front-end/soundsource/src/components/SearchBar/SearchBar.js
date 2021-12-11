@@ -9,7 +9,8 @@ export class SearchBar extends React.Component {
   songInfo = {
     artistName: "",
     trackName: "",
-    id: "",
+    trackURI: "",
+    playlistName: "",
     upvoteCount: 0,
   };
 
@@ -64,25 +65,37 @@ export class SearchBar extends React.Component {
 
     song.artistName = searchList.artists[0].name;
     song.trackName = searchList.name;
-    song.id = searchList.id;
+    song.trackURI = searchList.id;
+    song.playlistName = "GENERAL";
 
-    var url = "http://localhost:8080/suggested";
-    fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(song),
-    }).then((result) => {
-      result.json().then((res) => {
-        console.warn("res", res);
-      });
-    });
-    window.location.reload();
+    let linkToAPI = "http://localhost:8080/suggested";
+    axios.get(linkToAPI).then((response) => {
+      var found = false;
+      for(var i in response.data) {
+        if(response.data[i].trackURI == song.trackURI && response.data[i].playlistName == song.playlistName) {
+          found = true;
+        }
+      }
+      if(!found) {
+        var url = "http://localhost:8080/suggested";
+        fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(song),
+        }).then((result) => {
+          result.json().then((res) => {
+            console.warn("res", res);
+          });
+        });
+      }
+      window.location.reload();
+    }); 
   }
 
   makeList = () => {
     let search = this.state.apiData;
     let list = search.map((searchList) => {
-      console.log(search);
+      // console.log(search);
       return (
         <div className="results" key={searchList.id}>
           <p className="song">

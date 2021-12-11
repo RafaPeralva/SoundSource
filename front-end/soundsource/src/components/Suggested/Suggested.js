@@ -1,124 +1,182 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "./Suggested.css";
+
 export class Suggested extends Component {
   state = {
     suggested: [],
-    trackIds: "",
+    trackIds: ""
   };
 
   songInfo = {
+    id: 1,
     artistName: "",
     trackName: "",
-    id: "",
+    trackURI: "",
     upvoteCount: 0,
-    playlistName: "Top100"
+    playlistName: ""
   };
 
   upvoteImages = {
-    displayImg: "",
+    displayImg: ""
   };
 
   userData = {
-    id: "",
+    userID: "",
     playlistName: "",
-    songURI: "",
+    songURI: ""
   };
 
   async componentDidMount() {
     const response = await fetch("http://localhost:8080/suggested");
     const body = await response.json();
     this.setState({ suggested: body });
+
+    const userIdResponse = await fetch("http://localhost:8080/api/userId");
+    const userIdBody = await userIdResponse.json();
+    this.userData.userID = userIdBody;
+
+    const upvoteResponse = await fetch("http://localhost:8080/user");
+    const upvoteBody = await upvoteResponse.json();
+    this.setState({ upvoted: upvoteBody});
   }
 
   handleIncrementUpvote(suggest) {
     var song = this.songInfo;
 
+    song.id = suggest.id;
     song.artistName = suggest.artistName;
     song.trackName = suggest.trackName;
-    song.id = suggest.id;
+    song.trackURI = suggest.trackURI;
     song.upvoteCount = suggest.upvoteCount;
+    song.playlistName = suggest.playlistName;
+
+    // console.log(song.artistName + ": " + song.trackName + " has " + song.upvoteCount + " upvotes");
+    // console.log("Song Data: " + song.playlistName + " - id: " + song.id + " - URI: " + song.trackURI);
 
     // this if else parameter would change to check if the user has already upvoted it
     // if upvoted, dont upvote
     // else, upvote the song and store the song to the user's upvote array of trackuris
 
-    console.log(song.upvoteCount);
+    // Store upvoted song in general playlist for this user
+    var user = this.userData;
+    user.userID = "99999999";
+    user.playlistName = song.playlistName;
+    user.songURI = song.trackURI;
 
-    if(song.upvoteCount == 0)
-    {
-      console.log(song.trackName + " will now be upvoted");
+    // get user id and check if upvoted already
+    let linkToAPI = "http://localhost:8080/api/userId";
+    axios.get(linkToAPI).then((response) => {
+      user.userID = response.data;
+      // console.log("ID: " + user.userID);
 
-      // Increments the upvote by 1
-      song.upvoteCount = song.upvoteCount + 1;
-  
-      // Stores updated upvote count in Suggested DB
-      var url = "http://localhost:8080/suggested/" + song.id;
-      fetch(url, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(song),
-      }).then((result) => {
-        result.json().then((res) => {
-          console.warn("suggested - res", res);
-        });
+      let linkToAPI = "http://localhost:8080/user";
+      axios.get(linkToAPI).then((response) => {
+        if(response.data[0] != null) {
+          let found = false;
+          for(var i in response.data)
+          {
+            if(response.data[i].songURI == user.songURI && response.data[i].userID == user.userID)
+            {
+              found = true;
+            }
+          }
+
+          if(!found) {
+            this.upvoteSong(song, user);
+          }
+        } else {
+          this.upvoteSong(song, user);
+        }
+        
+        // Reload site
+        window.location.reload();
       });
-
-      // Store upvoted song in general playlist for this user
-      var user = this.userData;
-      user.id = "8974124";
-      user.playlistName = "general";
-      user.songURI = song.id;
-
-      var url = "http://localhost:8080/user";
-      fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user),
-      }).then((result) => {
-        result.json().then((res) => {
-          console.warn("user - res", res);
-        });
-      });
-
-      // Reload site
-      window.location.reload();
-    } else {
-      console.log(song.trackName + " has already been upvoted");
-    }
+    });
   }
 
-  checkUpvoted(suggest) {
-    // checks if song has been stored, if it was, then it was upvoted already
-    // if upvoted display upvoted image, else display regular image
-    // this function gets called on each row call with the song info
+  upvoteSong(song, user)
+  {
 
+    song.upvoteCount = song.upvoteCount + 1;
+
+    // console.log(song.artistName + ": " + song.trackName + " has " + song.upvoteCount + " upvotes");
+    // console.log("Song Data: " + song.playlistName + " - id: " + song.id + " - URI: " + song.trackURI);
+
+    // Stores updated upvote count in Suggested DB
+    var url = "http://localhost:8080/suggested/" + song.id;
+    fetch(url, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(song),
+    }).then((result) => {
+      result.json().then((res) => {
+        console.warn("suggested - res", res);
+      });
+    });
+
+    var url = "http://localhost:8080/user";
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    }).then((result) => {
+      result.json().then((res) => {
+        console.warn("user - res", res);
+      });
+    });
+  }
+
+  // checks if song has been stored, if it was, then it was upvoted already
+  // if upvoted display upvoted image, else display regular image
+  // this function gets called on each row call with the song info
+  checkUpvoted(suggest, upvoted) {
     var song = this.songInfo;
+    song.trackURI = suggest.trackURI;
 
-    song.trackName = suggest.trackName;
-    song.upvoteCount = suggest.upvoteCount;
+    if(upvoted && upvoted.length != 0)
+    {
+      let upvotedData = upvoted;
 
-    // console.log(song.trackName + ' has loaded');
+      let found = false;
+      for(var i in upvotedData)
+      {
+        if(upvotedData[i].songURI == song.trackURI && upvotedData[i].userID == this.userData.userID)
+        {
+          found = true;
+        }
+      }
 
-    // changes image depending on true or false return
-    this.getImageName(song.upvoteCount > 0);
+      if(found) {
+        this.getImageName(true);  
+      } else {
+        this.getImageName(false);  
+      }
+    } else {
+      this.getImageName(false); 
+    }
   }
 
   getImageName(isupvoted) {
     var image = this.upvoteImages;
 
-    if (isupvoted) image.displayImg = "/images/upvote.png";
-    else image.displayImg = "/images/upvoted.png";
+    if (isupvoted) {
+      image.displayImg = "/images/upvote.png";
+    } else {
+      image.displayImg = "/images/upvoted.png";
+    }
   }
 
   render() {
     const { suggested } = this.state;
+    const { upvoted } = this.state;
     return (
       <div className="suggested">
         {suggested.map((suggest) => (
-          <div key={suggest.id}>
+          <div key={suggest.songURI}>
             <p className="suggested-song">
               <div className="upvote">
-                {this.checkUpvoted.call(this, suggest)}
+                {this.checkUpvoted.call(this, suggest, upvoted)}
                 {suggest.upvoteCount}
                 <button
                   className="upvote"

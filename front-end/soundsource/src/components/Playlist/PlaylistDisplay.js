@@ -17,7 +17,7 @@ export class PlaylistDisplay extends Component {
     return (
       <div className="playlistList">
         {playlist.map((play) => (
-          <div key={play.id}>
+          <div key={play.songURI}>
             <p>
               <div className="playlistSong">
                 {" "}

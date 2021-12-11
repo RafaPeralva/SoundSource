@@ -7,25 +7,36 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
+    private String UserID;
     private String songURI;
     private String playlistName;
 
     public User() {
     }
 
-    public User(String id, String songURI, String playlistName) {
+    public User(Long id, String songURI, String playlistName, String UserID) {
         this.id = id;
         this.songURI = songURI;
         this.playlistName = playlistName;
+        this.UserID = UserID;
     }
 
-    public String getId() {
+    public String getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(String userID) {
+        UserID = userID;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
