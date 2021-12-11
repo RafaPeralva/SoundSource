@@ -72,8 +72,8 @@ export class Suggested extends Component {
           let found = false;
           for (var i in response.data) {
             if (
-              response.data[i].songURI == user.songURI &&
-              response.data[i].userID == user.userID
+              response.data[i].songURI === user.songURI &&
+              response.data[i].userID === user.userID
             ) {
               found = true;
             }
@@ -132,8 +132,8 @@ export class Suggested extends Component {
       let found = false;
       for (var i in upvotedData) {
         if (
-          upvotedData[i].songURI == song.trackURI &&
-          upvotedData[i].userID == this.userData.userID
+          upvotedData[i].songURI === song.trackURI &&
+          upvotedData[i].userID === this.userData.userID
         ) {
           found = true;
         }
