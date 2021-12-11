@@ -68,12 +68,11 @@ export class Suggested extends Component {
     let linkToAPI = "http://localhost:8080/api/userId";
     axios.get(linkToAPI).then((response) => {
       user.userID = response.data;
-      console.log("ID: " + user.userID);
+      // console.log("ID: " + user.userID);
 
       let linkToAPI = "http://localhost:8080/user";
       axios.get(linkToAPI).then((response) => {
         if(response.data[0] != null) {
-          console.log(response.data[0]);
           let found = false;
           for(var i in response.data)
           {

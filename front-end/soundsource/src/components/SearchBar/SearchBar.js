@@ -70,7 +70,6 @@ export class SearchBar extends React.Component {
 
     let linkToAPI = "http://localhost:8080/suggested";
     axios.get(linkToAPI).then((response) => {
-      console.log(response.data);
       var found = false;
       for(var i in response.data) {
         if(response.data[i].trackURI == song.trackURI && response.data[i].playlistName == song.playlistName) {
@@ -96,7 +95,7 @@ export class SearchBar extends React.Component {
   makeList = () => {
     let search = this.state.apiData;
     let list = search.map((searchList) => {
-      console.log(search);
+      // console.log(search);
       return (
         <div className="results" key={searchList.id}>
           <p className="song">
