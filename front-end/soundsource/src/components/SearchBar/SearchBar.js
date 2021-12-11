@@ -68,7 +68,7 @@ export class SearchBar extends React.Component {
     song.trackURI = searchList.id;
     song.playlistName = "GENERAL";
 
-    let linkToAPI = "http://localhost:8080/suggested";
+    let linkToAPI = "http://localhost:8080/playlist";
     axios.get(linkToAPI).then((response) => {
       var found = false;
       for (var i in response.data) {
@@ -78,20 +78,35 @@ export class SearchBar extends React.Component {
         ) {
           found = true;
         }
-      }
-      if (!found) {
-        var url = "http://localhost:8080/suggested";
-        fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(song),
-        }).then((result) => {
-          result.json().then((res) => {
-            console.warn("res", res);
+        if(!found) {
+          let linkToAPI = "http://localhost:8080/suggested";
+          axios.get(linkToAPI).then((response) => {
+            var found = false;
+            for (var i in response.data) {
+              if (
+                response.data[i].trackURI === song.trackURI &&
+                response.data[i].playlistName === song.playlistName
+              ) {
+                found = true;
+              }
+            }
+            if (!found) {
+              var url = "http://localhost:8080/suggested";
+              fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(song),
+              }).then((result) => {
+                result.json().then((res) => {
+                  console.warn("res", res);
+                });
+              });
+              window.location.reload();
+            }
+            
           });
-        });
+        }
       }
-      window.location.reload();
     });
   }
 
