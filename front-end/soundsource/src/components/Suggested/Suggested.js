@@ -22,7 +22,7 @@ export class Suggested extends Component {
   };
 
   userData = {
-    UserID: "",
+    userID: "",
     playlistName: "",
     songURI: ""
   };
@@ -34,7 +34,7 @@ export class Suggested extends Component {
 
     const userIdResponse = await fetch("http://localhost:8080/api/userId");
     const userIdBody = await userIdResponse.json();
-    this.userData.UserID = userIdBody;
+    this.userData.userID = userIdBody;
 
     const upvoteResponse = await fetch("http://localhost:8080/user");
     const upvoteBody = await upvoteResponse.json();
@@ -73,10 +73,11 @@ export class Suggested extends Component {
       let linkToAPI = "http://localhost:8080/user";
       axios.get(linkToAPI).then((response) => {
         if(response.data[0] != null) {
+          console.log(response.data[0]);
           let found = false;
           for(var i in response.data)
           {
-            if(response.data[i].songURI == user.songURI && response.data[i].UserID == user.UserID)
+            if(response.data[i].songURI == user.songURI && response.data[i].userID == user.userID)
             {
               found = true;
             }
@@ -100,31 +101,31 @@ export class Suggested extends Component {
 
     song.upvoteCount = song.upvoteCount + 1;
 
-    console.log(song.artistName + ": " + song.trackName + " has " + song.upvoteCount + " upvotes");
-    console.log("Song Data: " + song.playlistName + " - id: " + song.id + " - URI: " + song.trackURI);
+    // console.log(song.artistName + ": " + song.trackName + " has " + song.upvoteCount + " upvotes");
+    // console.log("Song Data: " + song.playlistName + " - id: " + song.id + " - URI: " + song.trackURI);
 
-    // // Stores updated upvote count in Suggested DB
-    // var url = "http://localhost:8080/suggested/" + 1;
-    // fetch(url, {
-    //   method: "PUT",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(song),
-    // }).then((result) => {
-    //   result.json().then((res) => {
-    //     console.warn("suggested - res", res);
-    //   });
-    // });
+    // Stores updated upvote count in Suggested DB
+    var url = "http://localhost:8080/suggested/" + song.id;
+    fetch(url, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(song),
+    }).then((result) => {
+      result.json().then((res) => {
+        console.warn("suggested - res", res);
+      });
+    });
 
-    // var url = "http://localhost:8080/user";
-    // fetch(url, {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(user),
-    // }).then((result) => {
-    //   result.json().then((res) => {
-    //     console.warn("user - res", res);
-    //   });
-    // });
+    var url = "http://localhost:8080/user";
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    }).then((result) => {
+      result.json().then((res) => {
+        console.warn("user - res", res);
+      });
+    });
   }
 
   // checks if song has been stored, if it was, then it was upvoted already
@@ -141,7 +142,7 @@ export class Suggested extends Component {
       let found = false;
       for(var i in upvotedData)
       {
-        if(upvotedData[i].songURI == song.trackURI && upvotedData[i].UserID == this.userData.UserID)
+        if(upvotedData[i].songURI == song.trackURI && upvotedData[i].userID == this.userData.userID)
         {
           found = true;
         }
