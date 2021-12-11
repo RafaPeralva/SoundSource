@@ -5,7 +5,7 @@ import "./Suggested.css";
 export class Suggested extends Component {
   state = {
     suggested: [],
-    trackIds: ""
+    trackIds: "",
   };
 
   songInfo = {
@@ -14,17 +14,17 @@ export class Suggested extends Component {
     trackName: "",
     trackURI: "",
     upvoteCount: 0,
-    playlistName: ""
+    playlistName: "",
   };
 
   upvoteImages = {
-    displayImg: ""
+    displayImg: "",
   };
 
   userData = {
     userID: "",
     playlistName: "",
-    songURI: ""
+    songURI: "",
   };
 
   async componentDidMount() {
@@ -38,7 +38,7 @@ export class Suggested extends Component {
 
     const upvoteResponse = await fetch("http://localhost:8080/user");
     const upvoteBody = await upvoteResponse.json();
-    this.setState({ upvoted: upvoteBody});
+    this.setState({ upvoted: upvoteBody });
   }
 
   handleIncrementUpvote(suggest) {
@@ -50,9 +50,6 @@ export class Suggested extends Component {
     song.trackURI = suggest.trackURI;
     song.upvoteCount = suggest.upvoteCount;
     song.playlistName = suggest.playlistName;
-
-    // console.log(song.artistName + ": " + song.trackName + " has " + song.upvoteCount + " upvotes");
-    // console.log("Song Data: " + song.playlistName + " - id: " + song.id + " - URI: " + song.trackURI);
 
     // this if else parameter would change to check if the user has already upvoted it
     // if upvoted, dont upvote
@@ -68,40 +65,35 @@ export class Suggested extends Component {
     let linkToAPI = "http://localhost:8080/api/userId";
     axios.get(linkToAPI).then((response) => {
       user.userID = response.data;
-      // console.log("ID: " + user.userID);
 
       let linkToAPI = "http://localhost:8080/user";
       axios.get(linkToAPI).then((response) => {
-        if(response.data[0] != null) {
+        if (response.data[0] != null) {
           let found = false;
-          for(var i in response.data)
-          {
-            if(response.data[i].songURI == user.songURI && response.data[i].userID == user.userID)
-            {
+          for (var i in response.data) {
+            if (
+              response.data[i].songURI == user.songURI &&
+              response.data[i].userID == user.userID
+            ) {
               found = true;
             }
           }
 
-          if(!found) {
+          if (!found) {
             this.upvoteSong(song, user);
           }
         } else {
           this.upvoteSong(song, user);
         }
-        
+
         // Reload site
         window.location.reload();
       });
     });
   }
 
-  upvoteSong(song, user)
-  {
-
+  upvoteSong(song, user) {
     song.upvoteCount = song.upvoteCount + 1;
-
-    // console.log(song.artistName + ": " + song.trackName + " has " + song.upvoteCount + " upvotes");
-    // console.log("Song Data: " + song.playlistName + " - id: " + song.id + " - URI: " + song.trackURI);
 
     // Stores updated upvote count in Suggested DB
     var url = "http://localhost:8080/suggested/" + song.id;
@@ -134,26 +126,26 @@ export class Suggested extends Component {
     var song = this.songInfo;
     song.trackURI = suggest.trackURI;
 
-    if(upvoted && upvoted.length != 0)
-    {
+    if (upvoted && upvoted.length != 0) {
       let upvotedData = upvoted;
 
       let found = false;
-      for(var i in upvotedData)
-      {
-        if(upvotedData[i].songURI == song.trackURI && upvotedData[i].userID == this.userData.userID)
-        {
+      for (var i in upvotedData) {
+        if (
+          upvotedData[i].songURI == song.trackURI &&
+          upvotedData[i].userID == this.userData.userID
+        ) {
           found = true;
         }
       }
 
-      if(found) {
-        this.getImageName(true);  
+      if (found) {
+        this.getImageName(true);
       } else {
-        this.getImageName(false);  
+        this.getImageName(false);
       }
     } else {
-      this.getImageName(false); 
+      this.getImageName(false);
     }
   }
 

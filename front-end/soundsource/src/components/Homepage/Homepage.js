@@ -123,7 +123,8 @@ export const Homepage = () => {
                   </button>
                 </h3>
               </Row>
-              <SearchBar />
+              <PlaylistDisplay />
+              <Playlist />
             </Col>
           </Row>
         </Container>
