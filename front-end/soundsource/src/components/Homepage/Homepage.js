@@ -106,7 +106,7 @@ export const Homepage = () => {
             <Col className="homepageCol">
               <Row className="title">
                 <h3>
-                  Playlist:{" "}
+                  Playlist:
                   <button className="exportButton" onClick={exportPlaylist}>
                     <img
                       src="/images/export.png"
@@ -123,8 +123,10 @@ export const Homepage = () => {
                   </button>
                 </h3>
               </Row>
-              <PlaylistDisplay />
-              <Playlist />
+              <Row>
+                <PlaylistDisplay />
+                <Playlist />
+              </Row>
             </Col>
           </Row>
         </Container>
