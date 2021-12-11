@@ -7,6 +7,7 @@
 h3 {
   padding-top: 5%;
   margin-right: 10%;
+  display: flex;
 }
 
 .section {
@@ -81,10 +82,30 @@ h3 {
 .homepageRow {
   display: flex;
   justify-content: space-evenly;
+  margin-left: 50px;
 }
 
 .homepageCol {
-  width: 50%;
-  margin-left: 100px;
-  margin-right: 100px;
+  /* margin-left: 10px;
+  margin-right: 100px; */
+}
+
+.playlists {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  margin-top: -20px;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  font-family: cursive;
+  color: rgb(19, 184, 74);
+}
+
+.playlistDisplay {
+  display: flex;
 }

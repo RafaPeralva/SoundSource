@@ -71,12 +71,15 @@ export class SearchBar extends React.Component {
     let linkToAPI = "http://localhost:8080/suggested";
     axios.get(linkToAPI).then((response) => {
       var found = false;
-      for(var i in response.data) {
-        if(response.data[i].trackURI == song.trackURI && response.data[i].playlistName == song.playlistName) {
+      for (var i in response.data) {
+        if (
+          response.data[i].trackURI === song.trackURI &&
+          response.data[i].playlistName === song.playlistName
+        ) {
           found = true;
         }
       }
-      if(!found) {
+      if (!found) {
         var url = "http://localhost:8080/suggested";
         fetch(url, {
           method: "POST",
@@ -89,7 +92,7 @@ export class SearchBar extends React.Component {
         });
       }
       window.location.reload();
-    }); 
+    });
   }
 
   makeList = () => {
