@@ -77,6 +77,12 @@ export const Homepage = () => {
                 <Suggested />
               </Row>
             </Col>
+            <Col className="homepageCol">
+              <Row className="title">
+                <h3>Playlist:</h3>
+              </Row>
+              <SearchBar />
+            </Col>
           </Row>
         </Container>
       </div>
