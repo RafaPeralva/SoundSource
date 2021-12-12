@@ -74,18 +74,24 @@ export class SearchBar extends React.Component {
       console.log(response.data);
       var found = false;
       console.log("is false: " + false);
-      if(response.data[0] != null) {
+      if (response.data[0] != null) {
         for (var i in response.data) {
-          if (response.data[i].trackURI === song.trackURI && response.data[i].playlistName === song.playlistName) {
+          if (
+            response.data[i].trackURI === song.trackURI &&
+            response.data[i].playlistName === song.playlistName
+          ) {
             found = true;
           }
         }
-        if(!found) {
+        if (!found) {
           let linkToAPI = "http://localhost:8080/suggested";
           axios.get(linkToAPI).then((response) => {
             var found = false;
             for (var i in response.data) {
-              if (response.data[i].trackURI === song.trackURI && response.data[i].playlistName === song.playlistName) {
+              if (
+                response.data[i].trackURI === song.trackURI &&
+                response.data[i].playlistName === song.playlistName
+              ) {
                 found = true;
               }
             }
@@ -109,7 +115,10 @@ export class SearchBar extends React.Component {
         axios.get(linkToAPI).then((response) => {
           var found = false;
           for (var i in response.data) {
-            if (response.data[i].trackURI === song.trackURI && response.data[i].playlistName === song.playlistName) {
+            if (
+              response.data[i].trackURI === song.trackURI &&
+              response.data[i].playlistName === song.playlistName
+            ) {
               found = true;
             }
           }
