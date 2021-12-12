@@ -37,11 +37,6 @@
   border-color: #15e24b;
   padding: 3px;
 }
-
-.dropdown select::selection {
-  background-color: greenyellow;
-}
-
 .searchBtn {
   padding: 2.5px;
 }
