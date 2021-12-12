@@ -38,16 +38,16 @@
 
 /* Customized Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #494949;
+  background: #5e5b5b;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(18, 167, 37);
+  background: rgb(1, 66, 10);
   border-radius: 10px;
 }
 
