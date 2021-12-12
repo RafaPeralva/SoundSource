@@ -1,6 +1,7 @@
 .homepage {
   background-color: black;
   color: white;
+  /* color: black; */
 }
 
 h3 {
@@ -82,18 +83,4 @@ h3 {
 
 .playlistDisplay {
   display: flex;
-}
-
-::-webkit-scrollbar-track {
-  background: #5e5b5b;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgb(1, 66, 10);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(17, 112, 4);
 }

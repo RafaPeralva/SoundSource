@@ -8,7 +8,7 @@ import PlaylistDisplay from "../Playlist/PlaylistDisplay";
 import Playlist from "../Playlist/Playlist";
 
 export const Homepage = () => {
-    function exportSuggested() {
+  function exportSuggested() {
     axios.get("http://localhost:8080/suggested").then((response) => {
       if (response.data[0] != null) {
         let count = 0;
@@ -136,7 +136,7 @@ export const Homepage = () => {
             <Col className="homepageCol">
               <Row className="title">
                 <h3>
-                  Playlist:
+                  Playlist
                   <button className="exportButton" onClick={exportPlaylist}>
                     <img
                       src="/images/export.png"
