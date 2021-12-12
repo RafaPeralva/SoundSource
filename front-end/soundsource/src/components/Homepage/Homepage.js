@@ -138,7 +138,7 @@ export const Homepage = () => {
                 </h3>
               </Row>
               <Row>
-                <PlaylistDisplay />
+                <PlaylistDisplay playlistName={playlistName}/>
                 <Playlist />
               </Row>
             </Col>
