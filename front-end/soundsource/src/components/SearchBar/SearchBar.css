@@ -28,6 +28,7 @@ p {
 .searchSongs {
   height: 550px;
   overflow-y: scroll;
+  width: 80%;
 }
 .results {
   display: flex;
