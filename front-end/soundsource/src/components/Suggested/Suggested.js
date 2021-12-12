@@ -155,39 +155,51 @@ export class Suggested extends Component {
 
   getImageName(isupvoted) {
     var image = this.upvoteImages;
+    image.displayImg = isupvoted ? '/images/upvote.png' : '/images/upvoted.png';
+  }
 
-    if (isupvoted) {
-      image.displayImg = "/images/upvote.png";
-    } else {
-      image.displayImg = "/images/upvoted.png";
-    }
+  getPlaylistName(suggest) {
+    console.log(suggest.playlistName);
+    let same = true;
+    suggest.playlistName === this.props.playlistName ? same = true : same = false;
+
+    return same;
   }
 
   render() {
     const { suggested } = this.state;
+
     const { upvoted } = this.state;
+
+    const isTrue = true;
+
     return (
       <div className="suggested">
-        {suggested.map((suggest) => (
+        {suggested.map((suggest) => ( 
           <div key={suggest.songURI}>
-            <p className="suggested-song">
-              <div className="upvote">
-                {this.checkUpvoted.call(this, suggest, upvoted)}
-                {suggest.upvoteCount}
-                <button
-                  className="upvote"
-                  onClick={() => this.handleIncrementUpvote(suggest)}
-                >
-                  <img
-                    src={this.upvoteImages.displayImg}
-                    alt="Upvote Button"
-                    width="20"
-                  />
-                </button>
+            {this.getPlaylistName(suggest) ?
+            <div>
+              <p className="suggested-song">
+                <div className="upvote">
+                  {this.checkUpvoted.call(this, suggest, upvoted)}
+                  {suggest.upvoteCount}
+                  <button
+                    className="upvote"
+                    onClick={() => this.handleIncrementUpvote(suggest)}
+                  >
+                    <img
+                      src={this.upvoteImages.displayImg}
+                      alt="Upvote Button"
+                      width="20"
+                    />
+                  </button>
+                </div>
+                {suggest.trackName}
+              </p>
+              <p className="suggested-artist"> by {suggest.artistName}</p>
               </div>
-              {suggest.trackName}
-            </p>
-            <p className="suggested-artist"> by {suggest.artistName}</p>
+            : null
+            }
           </div>
         ))}
       </div>
