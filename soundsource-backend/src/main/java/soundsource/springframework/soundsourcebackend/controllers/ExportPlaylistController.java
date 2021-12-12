@@ -20,8 +20,12 @@ public class ExportPlaylistController {
     @GetMapping(value = "exportPlaylist")
     public static void exportingPlaylist(String[] q) {
         String playlistName = "General";
-        if(q == null)
+        if(q == null) {
             q = new String[]{"spotify:track:01iyCAUm8EvOFqVWYJ3dVX"};
+        } else {
+            playlistName = q[q.length - 1];
+            q = Arrays.copyOf(q, q.length-1);
+        }
 
         final String playlistId = CreatePlaylistController.createPlaylist("playlist", playlistName);
 
@@ -45,7 +49,7 @@ public class ExportPlaylistController {
             q = new String[]{"spotify:track:01iyCAUm8EvOFqVWYJ3dVX"};
         } else {
             playlistName = q[q.length - 1];
-            q= Arrays.copyOf(q, q.length-1);
+            q = Arrays.copyOf(q, q.length-1);
         }
 
         final String playlistId = CreatePlaylistController.createPlaylist("suggested", playlistName);
