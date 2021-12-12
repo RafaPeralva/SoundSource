@@ -1,7 +1,6 @@
 .homepage {
   background-color: black;
   color: white;
-  /* color: black; */
 }
 
 h3 {
@@ -62,7 +61,7 @@ h3 {
 }
 
 .homepageCol {
-  width: 30%;
+  width: 33%;
 }
 
 .playlists {
