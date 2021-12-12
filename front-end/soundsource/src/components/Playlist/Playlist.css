@@ -15,6 +15,9 @@
 .playlistList {
 }
 
+.playlistCol {
+  height: 500px;
+}
 .musicNote {
   width: 20px;
   margin-right: 10px;

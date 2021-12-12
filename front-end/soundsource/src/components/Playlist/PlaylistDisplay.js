@@ -15,23 +15,25 @@ export class PlaylistDisplay extends Component {
   render() {
     const { playlist } = this.state;
     return (
-      <div className="playlistList">
-        {playlist.map((play) => (
-          <div key={play.songURI}>
-            <p>
-              <div className="playlistSong">
-                {" "}
-                <img
-                  src="/images/music-note.png"
-                  alt="note"
-                  className="musicNote"
-                />{" "}
-                {play.trackName}
-              </div>
-              <div className="playlistArtist">{play.artistName}</div>
-            </p>
-          </div>
-        ))}
+      <div className="playlistCol">
+        <div className="playlistList">
+          {playlist.map((play) => (
+            <div key={play.songURI}>
+              <p>
+                <div className="playlistSong">
+                  {" "}
+                  <img
+                    src="/images/music-note.png"
+                    alt="note"
+                    className="musicNote"
+                  />{" "}
+                  {play.trackName}
+                </div>
+                <div className="playlistArtist">{play.artistName}</div>
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
