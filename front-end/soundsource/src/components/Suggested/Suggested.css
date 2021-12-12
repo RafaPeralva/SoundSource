@@ -9,7 +9,7 @@
 .suggested {
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 600px;
   overflow-y: auto;
 }
 
