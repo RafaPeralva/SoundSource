@@ -42,15 +42,7 @@ export class Navbar extends Component {
             );
           })}
         </ul>
-        {/* <div className="navMenu"> */}
-        <div className="navLinkDiv">
-          <a className="navLink suggestSearchLink" href="/">
-            Search+Suggest
-          </a>
-          <a className="navLink" href="/playlists">
-            Playlists
-          </a>
-        </div>
+        <div className="navLinkDiv"></div>
         <div className="navButton">
           <Button className="loginbtn" onClick={getSpotifyUserLogin}>
             Login
@@ -60,5 +52,3 @@ export class Navbar extends Component {
     );
   }
 }
-
-// export default Navbar;

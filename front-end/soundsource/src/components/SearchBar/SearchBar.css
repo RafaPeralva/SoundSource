@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 130px;
-  margin-top: 15px;
 }
 .searchBar {
   display: flex;
@@ -30,6 +28,7 @@ p {
 .searchSongs {
   height: 550px;
   overflow-y: scroll;
+  width: 85%;
 }
 .results {
   display: flex;
@@ -73,4 +72,18 @@ p {
 .songSearchList {
   height: 400px;
   overflow-y: scroll;
+}
+
+::-webkit-scrollbar-track {
+  background: #5e5b5b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(1, 66, 10);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(17, 112, 4);
 }

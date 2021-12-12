@@ -29,15 +29,16 @@ export const Playlist = () => {
 
           let songOne = response.data[response.data.length - 1];
           let songOneID = response.data[response.data.length - 1].trackURI;
+          let songId = response.data[response.data.length - 1].id;
 
           if (response.data[response.data.length - 3] != null) {
             thirdTrack = response.data[response.data.length - 3].trackName;
             thirdId = response.data[response.data.length - 3].trackURI;
           }
 
-          console.log("First Voted Song: " + firstTrack + " - " + firstId);
-          console.log("Second Voted Song: " + secondTrack + " - " + secondId);
-          console.log("Third Voted Song: " + thirdTrack + " - " + thirdId);
+          // console.log("First Voted Song: " + firstTrack + " - " + firstId);
+          // console.log("Second Voted Song: " + secondTrack + " - " + secondId);
+          // console.log("Third Voted Song: " + thirdTrack + " - " + thirdId);
 
           songOne = response.data[response.data.length - 1];
 
@@ -52,7 +53,7 @@ export const Playlist = () => {
             });
           });
 
-          fetch("http://localhost:8080/suggested/" + songOneID, {
+          fetch("http://localhost:8080/suggested/" + songId, {
             method: "DELETE",
           })
             .then((res) => res.text()) // or res.json()
@@ -61,7 +62,7 @@ export const Playlist = () => {
           window.location.reload();
         }
       });
-    }, 6000000);
+    }, 60000);
 
     return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
   }, []);

@@ -9,9 +9,9 @@
 .suggested {
   display: flex;
   flex-direction: column;
-  height: 500px;
-  overflow-y: scroll;
-  margin-left: 125px;
+  height: 600px;
+  width: 85%;
+  overflow-y: auto;
 }
 
 .suggested-song {
@@ -34,4 +34,23 @@
   flex-direction: row;
   font-size: x-large;
   align-items: baseline;
+}
+
+/* Customized Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #5e5b5b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(1, 66, 10);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(17, 112, 4);
 }

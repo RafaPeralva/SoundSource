@@ -18,7 +18,7 @@ public class SearchController {
 
         final SearchTracksRequest searchTracksRequest = spotifyApi.searchTracks(q)
                 .q(q)
-                .limit(10)
+                .limit(20)
                 .build();
 
         try {

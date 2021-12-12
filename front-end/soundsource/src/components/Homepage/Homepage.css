@@ -1,34 +1,16 @@
 .homepage {
   background-color: black;
   color: white;
-  /* color: black; */
 }
 
 h3 {
   padding-top: 5%;
   margin-right: 10%;
+  display: flex;
 }
 
 .section {
   font-size: 1em;
-}
-
-.suggestedSongs {
-  height: 600px;
-  overflow-y: scroll;
-}
-
-.suggested {
-  list-style-type: none;
-  font-size: 1.5em;
-  text-align: left;
-  margin-left: 0%;
-}
-
-.suggestedArtist {
-  font-size: 0.6em;
-  padding-left: 6%;
-  text-align: left;
 }
 
 .search {
@@ -37,12 +19,6 @@ h3 {
   text-align: left;
   margin-left: 30%;
   line-height: 1em;
-}
-
-.searchSong:hover {
-  background-color: rgb(70, 70, 70);
-  cursor: pointer;
-  padding: 0.2em;
 }
 
 .counterNum {
@@ -81,10 +57,29 @@ h3 {
 .homepageRow {
   display: flex;
   justify-content: space-evenly;
+  margin-left: 50px;
 }
 
 .homepageCol {
-  width: 50%;
-  margin-left: 100px;
-  margin-right: 100px;
+  width: 33%;
+}
+
+.playlists {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  margin-top: -20px;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  font-family: cursive;
+  color: rgb(19, 184, 74);
+}
+
+.playlistDisplay {
+  display: flex;
 }
