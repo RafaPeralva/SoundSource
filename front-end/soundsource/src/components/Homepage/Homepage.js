@@ -8,7 +8,7 @@ import PlaylistDisplay from "../Playlist/PlaylistDisplay";
 import Playlist from "../Playlist/Playlist";
 
 export const Homepage = () => {
-  const [playlistName, setPlaylistName] = useState('General');
+  const [playlistName, setPlaylistName] = useState("General");
 
   function exportSuggested() {
     axios.get("http://localhost:8080/suggested").then((response) => {
@@ -16,7 +16,7 @@ export const Homepage = () => {
         let count = 0;
         let songString = [];
         for (var i in response.data) {
-          if(response.data[i].playlistName === playlistName) {
+          if (response.data[i].playlistName === playlistName) {
             songString[count] = "spotify:track:" + response.data[i].trackURI;
             count++;
           }
@@ -35,7 +35,7 @@ export const Homepage = () => {
         let count = 0;
         let songString = [];
         for (var i in response.data) {
-          if(response.data[i].playlistName === playlistName) {
+          if (response.data[i].playlistName === playlistName) {
             songString[count] = "spotify:track:" + response.data[i].trackURI;
             count++;
           }
@@ -52,7 +52,7 @@ export const Homepage = () => {
         let count = 0;
         let songString = [];
         for (var i in response.data) {
-          if(response.data[i].playlistName === playlistName) {
+          if (response.data[i].playlistName === playlistName) {
             songString[count] = "spotify:track:" + response.data[i].trackURI;
             count++;
           }
@@ -71,7 +71,7 @@ export const Homepage = () => {
         let count = 0;
         let songString = [];
         for (var i in response.data) {
-          if(response.data[i].playlistName === playlistName) {
+          if (response.data[i].playlistName === playlistName) {
             songString[count] = "spotify:track:" + response.data[i].trackURI;
             count++;
           }
@@ -83,9 +83,9 @@ export const Homepage = () => {
   }
 
   const handleSetPlaylistName = (playlistName) => {
-    console.log(playlistName)
-    setPlaylistName(playlistName)
-  }
+    console.log(playlistName);
+    setPlaylistName(playlistName);
+  };
 
   return (
     <div className="homepage">
@@ -93,10 +93,13 @@ export const Homepage = () => {
         <Container fluid>
           <Row className="homepageRow">
             <Col className="homepageCol">
-              <Row className="title">
+              <Row className="search-title">
                 <h3>Suggest:</h3>
               </Row>
-              <SearchBar playlistName={playlistName} handleSetPlaylistName={handleSetPlaylistName} />
+              <SearchBar
+                playlistName={playlistName}
+                handleSetPlaylistName={handleSetPlaylistName}
+              />
             </Col>
             <Col className="homepageCol">
               <Row className="title">
@@ -143,7 +146,7 @@ export const Homepage = () => {
                 </h3>
               </Row>
               <Row>
-                <PlaylistDisplay playlistName={playlistName}/>
+                <PlaylistDisplay playlistName={playlistName} />
                 <Playlist />
               </Row>
             </Col>
