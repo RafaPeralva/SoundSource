@@ -51,32 +51,37 @@ Terminal may also be used.
 ### Homebrew:
 
 12. Check if installed: brew -v
-    1. if not instal homebrew: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+    1. if not, instal homebrew: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
 ### npm and node
 
 13. Check if npm and node are installed: `npm -v and node -v`
 
-14. If not installed:
+14. If not, install npm and node:
+
     1. make sure brew is up-to-date: `brew update`
     2. install node and npm: `brew install node`
     3. check if node and npm were installed: `node -v` and `npm -v`
 
+15. Check if react-router-dom is installed: `npm -v react-router-dom`
+
+16. If not, install react-router-dom using `npm i react-router-dom`
+
 ## To run project:
 
-15. Install dependencies:
+17. Install dependencies:
 
     1. `npm install`, if errors show you may need to delete **package-lock.json** and then re-run
     2. install axios ` npm install axios`
 
-16. To run project: `npm start`
+18. To run project: `npm start`
 
-17. Frontend runs on `localhost:3000` and backend on `http://localhost:8080/`.
+19. Frontend runs on `localhost:3000` and backend on `http://localhost:8080/`.
 
-18. To login and use our app it is **highly** recommended that you use our spotify credentials or let us know your spotify associated email so we can add it to our dashboard:
+20. To login and use our app it is **highly** recommended that you use our spotify credentials or let us know your spotify associated email so we can add it to our dashboard:
 
     > user: spotifysoundsource@gmail.com
     >
     > pass: ssCS499!
 
-19. Spotify application **must** be open in a device and signed in to same account to export/play songs!
+21. Spotify application **must** be open in a device and signed in to same account to export/play songs!
