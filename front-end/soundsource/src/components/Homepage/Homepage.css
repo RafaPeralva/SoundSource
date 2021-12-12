@@ -62,6 +62,7 @@ h3 {
 
 .homepageCol {
   width: 33%;
+  overflow-x: auto;
 }
 
 .playlists {

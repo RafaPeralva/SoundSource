@@ -9,6 +9,7 @@ import com.wrapper.spotify.requests.data.playlists.AddItemsToPlaylistRequest;
 
 import org.apache.hc.core5.http.ParseException;
 import java.io.IOException;
+import java.util.Arrays;
 
 import static soundsource.springframework.soundsourcebackend.controllers.AuthenticationController.spotifyApi;
 
@@ -18,10 +19,15 @@ public class ExportPlaylistController {
 
     @GetMapping(value = "exportPlaylist")
     public static void exportingPlaylist(String[] q) {
-        if(q == null)
+        String playlistName = "General";
+        if(q == null) {
             q = new String[]{"spotify:track:01iyCAUm8EvOFqVWYJ3dVX"};
+        } else {
+            playlistName = q[q.length - 1];
+            q = Arrays.copyOf(q, q.length-1);
+        }
 
-        final String playlistId = CreatePlaylistController.createPlaylist("playlist");
+        final String playlistId = CreatePlaylistController.createPlaylist("playlist", playlistName);
 
         final AddItemsToPlaylistRequest addItemsToPlaylistRequest = spotifyApi
                 .addItemsToPlaylist(playlistId, q)
@@ -38,10 +44,15 @@ public class ExportPlaylistController {
 
     @GetMapping(value = "exportSuggested")
     public static void exportingSuggested(String[] q) {
-        if(q == null)
+        String playlistName = "General";
+        if(q == null) {
             q = new String[]{"spotify:track:01iyCAUm8EvOFqVWYJ3dVX"};
+        } else {
+            playlistName = q[q.length - 1];
+            q = Arrays.copyOf(q, q.length-1);
+        }
 
-        final String playlistId = CreatePlaylistController.createPlaylist("suggested");
+        final String playlistId = CreatePlaylistController.createPlaylist("suggested", playlistName);
 
         final AddItemsToPlaylistRequest addItemsToPlaylistRequest = spotifyApi
                 .addItemsToPlaylist(playlistId, q)

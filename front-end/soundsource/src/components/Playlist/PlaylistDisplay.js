@@ -12,6 +12,15 @@ export class PlaylistDisplay extends Component {
     this.setState({ playlist: body });
   }
 
+  getPlaylistName(play) {
+    console.log(this.props.playlistName);
+    console.log(play.playlistName);
+    let same = true;
+    play.playlistName === this.props.playlistName ? same = true : same = false;
+
+    return same;
+  }
+
   render() {
     const { playlist } = this.state;
     return (
@@ -19,6 +28,7 @@ export class PlaylistDisplay extends Component {
         <div className="playlistList">
           {playlist.map((play) => (
             <div key={play.songURI}>
+              {this.getPlaylistName(play) ?
               <p>
                 <div className="playlistSong">
                   {" "}
@@ -31,6 +41,8 @@ export class PlaylistDisplay extends Component {
                 </div>
                 <div className="playlistArtist">{play.artistName}</div>
               </p>
+              : null
+            }
             </div>
           ))}
         </div>
