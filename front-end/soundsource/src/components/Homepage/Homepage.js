@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Homepage.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { SearchBar } from "../SearchBar/SearchBar";
@@ -8,15 +8,20 @@ import PlaylistDisplay from "../Playlist/PlaylistDisplay";
 import Playlist from "../Playlist/Playlist";
 
 export const Homepage = () => {
+  const [playlistName, setPlaylistName] = useState('General');
+
   function exportSuggested() {
     axios.get("http://localhost:8080/suggested").then((response) => {
       if (response.data[0] != null) {
         let count = 0;
         let songString = [];
         for (var i in response.data) {
-          songString[count] = "spotify:track:" + response.data[count].trackURI;
-          count++;
+          if(response.data[i].playlistName === playlistName) {
+            songString[count] = "spotify:track:" + response.data[i].trackURI;
+            count++;
+          }
         }
+        songString[count] = playlistName;
         let linkToAPI =
           "http://localhost:8080/api/exportSuggested?q=" + songString;
         axios.get(linkToAPI).then((response) => {});
@@ -30,23 +35,29 @@ export const Homepage = () => {
         let count = 0;
         let songString = [];
         for (var i in response.data) {
-          songString[count] = "spotify:track:" + response.data[count].trackURI;
-          count++;
+          if(response.data[i].playlistName === playlistName) {
+            songString[count] = "spotify:track:" + response.data[i].trackURI;
+            count++;
+          }
         }
         let linkToAPI = "http://localhost:8080/api/play?q=" + songString;
         axios.get(linkToAPI).then((response) => {});
       }
     });
   }
+
   function exportPlaylist() {
     axios.get("http://localhost:8080/playlist").then((response) => {
       if (response.data[0] != null) {
         let count = 0;
         let songString = [];
         for (var i in response.data) {
-          songString[count] = "spotify:track:" + response.data[count].trackURI;
-          count++;
+          if(response.data[i].playlistName === playlistName) {
+            songString[count] = "spotify:track:" + response.data[i].trackURI;
+            count++;
+          }
         }
+        songString[count] = playlistName;
         let linkToAPI =
           "http://localhost:8080/api/exportPlaylist?q=" + songString;
         axios.get(linkToAPI).then((response) => {});
@@ -60,44 +71,22 @@ export const Homepage = () => {
         let count = 0;
         let songString = [];
         for (var i in response.data) {
-          songString[count] = "spotify:track:" + response.data[count].trackURI;
-          count++;
+          if(response.data[i].playlistName === playlistName) {
+            songString[count] = "spotify:track:" + response.data[i].trackURI;
+            count++;
+          }
         }
         let linkToAPI = "http://localhost:8080/api/play?q=" + songString;
-        axios.get(linkToAPI).then((response) => {});
-      }
-    });
-  }
-  function exportPlaylist() {
-    axios.get("http://localhost:8080/playlist").then((response) => {
-      if (response.data[0] != null) {
-        let count = 0;
-        let songString = [];
-        for (var i in response.data) {
-          songString[count] = "spotify:track:" + response.data[count].id;
-          count++;
-        }
-        let linkToAPI =
-          "http://localhost:8080/api/exportPlaylist?q=" + songString;
         axios.get(linkToAPI).then((response) => {});
       }
     });
   }
 
-  function playPlaylist() {
-    axios.get("http://localhost:8080/playlist").then((response) => {
-      if (response.data[0] != null) {
-        let count = 0;
-        let songString = [];
-        for (var i in response.data) {
-          songString[count] = "spotify:track:" + response.data[count].id;
-          count++;
-        }
-        let linkToAPI = "http://localhost:8080/api/play?q=" + songString;
-        axios.get(linkToAPI).then((response) => {});
-      }
-    });
+  const handleSetPlaylistName = (playlistName) => {
+    console.log(playlistName)
+    setPlaylistName(playlistName)
   }
+
   return (
     <div className="homepage">
       <div className="homepage-body">
@@ -107,7 +96,7 @@ export const Homepage = () => {
               <Row className="title">
                 <h3>Suggest:</h3>
               </Row>
-              <SearchBar />
+              <SearchBar playlistName={playlistName} handleSetPlaylistName={handleSetPlaylistName} />
             </Col>
             <Col className="homepageCol">
               <Row className="title">
@@ -130,7 +119,7 @@ export const Homepage = () => {
                 </h3>
               </Row>
               <Row>
-                <Suggested />
+                <Suggested playlistName={playlistName} />
               </Row>
             </Col>
             <Col className="homepageCol">
@@ -154,7 +143,7 @@ export const Homepage = () => {
                 </h3>
               </Row>
               <Row>
-                <PlaylistDisplay />
+                <PlaylistDisplay playlistName={playlistName}/>
                 <Playlist />
               </Row>
             </Col>
