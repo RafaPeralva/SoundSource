@@ -27,23 +27,39 @@ export class Suggested extends Component {
     songURI: "",
   };
 
-  async componentDidMount() {
+  // async componentDidMount() {
+  //   const response = await fetch("http://localhost:8080/suggested");
+  //   const body = await response.json();
+  //   this.setState({ suggested: body });
+
+  //   const response2 = await fetch("http://localhost:8080/suggested");
+  //   const body2 = await response2.json();
+  //   this.setState({ suggested: body2 });
+
+  //   const userIdResponse = await fetch("http://localhost:8080/api/userId");
+  //   const userIdBody = await userIdResponse.json();
+  //   this.userData.userID = userIdBody;
+
+  //   const upvoteResponse = await fetch("http://localhost:8080/user");
+  //   const upvoteBody = await upvoteResponse.json();
+  //   this.setState({ upvoted: upvoteBody });
+  // }
+
+componentDidMount() {
+  this.loadData();
+  setInterval(this.loadData, 1000);
+}
+
+async loadData() {
+  try {
     const response = await fetch("http://localhost:8080/suggested");
     const body = await response.json();
-    this.setState({ suggested: body });
-
-    const response2 = await fetch("http://localhost:8080/suggested");
-    const body2 = await response2.json();
-    this.setState({ suggested: body2 });
-
-    const userIdResponse = await fetch("http://localhost:8080/api/userId");
-    const userIdBody = await userIdResponse.json();
-    this.userData.userID = userIdBody;
-
-    const upvoteResponse = await fetch("http://localhost:8080/user");
-    const upvoteBody = await upvoteResponse.json();
-    this.setState({ upvoted: upvoteBody });
+    this.setState = ({suggested : body});
+    console.log(this.suggested)
+  } catch (e) {
+    console.log(e);
   }
+}
 
   handleIncrementUpvote(suggest) {
     var song = this.songInfo;
