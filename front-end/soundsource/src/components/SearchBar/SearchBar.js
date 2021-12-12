@@ -10,7 +10,7 @@ export class SearchBar extends React.Component {
     artistName: "",
     trackName: "",
     trackURI: "",
-    playlistName: "",
+    playlistName: "GENERAL",
     upvoteCount: 0,
   };
 
@@ -66,7 +66,7 @@ export class SearchBar extends React.Component {
     song.artistName = searchList.artists[0].name;
     song.trackName = searchList.name;
     song.trackURI = searchList.id;
-    song.playlistName = "GENERAL";
+    // song.playlistName = "GENERAL";
 
     let linkToAPI = "http://localhost:8080/playlist";
     axios.get(linkToAPI).then((response) => {
@@ -157,9 +157,28 @@ export class SearchBar extends React.Component {
     return list;
   };
 
+  playlistName()
+  {
+    console.log("pizza man");
+    
+    var myPlaylistList = document.getElementById("playlistList");
+    var value = myPlaylistList.options[myPlaylistList.selectedIndex].value;
+    console.log(value);
+  }
+
   render() {
     return (
       <div className="searchWrapper">
+        <div className = "dropdown">
+          <form>
+            Playlist:
+            <select id = "playlistList" onChange={this.playlistName}>
+              <option> General </option>
+              <option> Party </option>
+              <option> Working Out </option>
+            </select>
+          </form>
+        </div>
         <div className="searchBar">
           <input
             type="text"
