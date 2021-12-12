@@ -13,17 +13,11 @@
 }
 
 .playlistList {
-  height: 500px;
 }
 
 .musicNote {
   width: 20px;
   margin-right: 10px;
-}
-
-/* Customized Scrollbar */
-::-webkit-scrollbar {
-  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
