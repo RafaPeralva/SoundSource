@@ -14,36 +14,12 @@ h3 {
   font-size: 1em;
 }
 
-.suggestedSongs {
-  height: 600px;
-  overflow-y: scroll;
-}
-
-.suggested {
-  list-style-type: none;
-  font-size: 1.5em;
-  text-align: left;
-  margin-left: 0%;
-}
-
-.suggestedArtist {
-  font-size: 0.6em;
-  padding-left: 6%;
-  text-align: left;
-}
-
 .search {
   list-style-type: none;
   font-size: 1.5em;
   text-align: left;
   margin-left: 30%;
   line-height: 1em;
-}
-
-.searchSong:hover {
-  background-color: rgb(70, 70, 70);
-  cursor: pointer;
-  padding: 0.2em;
 }
 
 .counterNum {

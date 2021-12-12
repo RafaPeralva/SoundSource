@@ -32,6 +32,10 @@ export class Suggested extends Component {
     const body = await response.json();
     this.setState({ suggested: body });
 
+    const response2 = await fetch("http://localhost:8080/suggested");
+    const body2 = await response2.json();
+    this.setState({ suggested: body2 });
+
     const userIdResponse = await fetch("http://localhost:8080/api/userId");
     const userIdBody = await userIdResponse.json();
     this.userData.userID = userIdBody;
@@ -86,8 +90,8 @@ export class Suggested extends Component {
           this.upvoteSong(song, user);
         }
 
-        // Reload site
-        window.location.reload();
+        // reloads component
+        this.componentDidMount();
       });
     });
   }
