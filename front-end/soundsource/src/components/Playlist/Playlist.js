@@ -62,7 +62,7 @@ export const Playlist = () => {
           window.location.reload();
         }
       });
-    }, 600000);
+    }, 10000);
 
     return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
   }, []);

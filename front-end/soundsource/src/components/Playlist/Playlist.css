@@ -16,8 +16,9 @@
 }
 
 .playlistCol {
-  height: 500px;
+  height: 600px;
   overflow-y: scroll;
+  width: 95%;
 }
 .musicNote {
   width: 20px;
