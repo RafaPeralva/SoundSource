@@ -52,9 +52,12 @@ export const Homepage = () => {
         let count = 0;
         let songString = [];
         for (var i in response.data) {
-          songString[count] = "spotify:track:" + response.data[count].trackURI;
-          count++;
+          if(response.data[i].playlistName === playlistName) {
+            songString[count] = "spotify:track:" + response.data[i].trackURI;
+            count++;
+          }
         }
+        songString[count] = playlistName;
         let linkToAPI =
           "http://localhost:8080/api/exportPlaylist?q=" + songString;
         axios.get(linkToAPI).then((response) => {});
@@ -68,8 +71,10 @@ export const Homepage = () => {
         let count = 0;
         let songString = [];
         for (var i in response.data) {
-          songString[count] = "spotify:track:" + response.data[count].trackURI;
-          count++;
+          if(response.data[i].playlistName === playlistName) {
+            songString[count] = "spotify:track:" + response.data[i].trackURI;
+            count++;
+          }
         }
         let linkToAPI = "http://localhost:8080/api/play?q=" + songString;
         axios.get(linkToAPI).then((response) => {});
