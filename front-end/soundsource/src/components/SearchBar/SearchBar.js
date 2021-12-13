@@ -69,10 +69,7 @@ export class SearchBar extends React.Component {
 
     let linkToAPI = "http://localhost:8080/playlist";
     axios.get(linkToAPI).then((response) => {
-      console.log("in api call");
-      console.log(response.data);
       var found = false;
-      console.log("is false: " + false);
       if (response.data[0] != null) {
         for (var i in response.data) {
           if (

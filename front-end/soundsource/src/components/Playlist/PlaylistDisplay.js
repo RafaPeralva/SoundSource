@@ -13,8 +13,6 @@ export class PlaylistDisplay extends Component {
   }
 
   getPlaylistName(play) {
-    console.log(this.props.playlistName);
-    console.log(play.playlistName);
     let same = true;
     play.playlistName === this.props.playlistName ? same = true : same = false;
 

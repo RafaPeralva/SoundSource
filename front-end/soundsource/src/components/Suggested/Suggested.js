@@ -159,7 +159,6 @@ export class Suggested extends Component {
   }
 
   getPlaylistName(suggest) {
-    console.log(suggest.playlistName);
     let same = true;
     suggest.playlistName === this.props.playlistName ? same = true : same = false;
 
