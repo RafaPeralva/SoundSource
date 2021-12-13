@@ -23,7 +23,6 @@ export const Playlist = () => {
           //   return a.upvoteCount - b.upvoteCount;
           // });
 
-          // Sloppy Way
           for (var i in response.data) {
             if (
               response.data[i].playlistName === "General" &&
@@ -79,7 +78,7 @@ export const Playlist = () => {
           }
         }
       });
-    }, 60000);
+    }, 6000000);
 
     return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
   }, []);
