@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import axios from "axios";
 import "./Suggested.css";
 
@@ -7,7 +7,6 @@ export class Suggested extends Component {
     suggested: [],
     trackIds: "",
   };
-
   songInfo = {
     id: 1,
     artistName: "",
@@ -27,24 +26,23 @@ export class Suggested extends Component {
     songURI: "",
   };
 
-  async componentDidMount() {
-    const response = await fetch("http://localhost:8080/suggested");
-    const body = await response.json();
-    this.setState({ suggested: body });
-
-    const response2 = await fetch("http://localhost:8080/suggested");
-    const body2 = await response2.json();
-    this.setState({ suggested: body2 });
-
-    const userIdResponse = await fetch("http://localhost:8080/api/userId");
-    const userIdBody = await userIdResponse.json();
-    this.userData.userID = userIdBody;
-
-    const upvoteResponse = await fetch("http://localhost:8080/user");
-    const upvoteBody = await upvoteResponse.json();
-    this.setState({ upvoted: upvoteBody });
+  componentDidMount() {
+    this.loadData();
+    setInterval(this.loadData, 5000);
   }
 
+  loadData() {
+    fetch(`http://localhost:8080/suggested`)
+      .then((response) => response.json())
+      .then((data) =>
+        this.setState({
+          suggested: data,
+        })
+      )
+      .catch((error) => {
+        console.log(error);
+      });
+  }
   handleIncrementUpvote(suggest) {
     var song = this.songInfo;
 
@@ -155,55 +153,58 @@ export class Suggested extends Component {
 
   getImageName(isupvoted) {
     var image = this.upvoteImages;
-    image.displayImg = isupvoted ? '/images/upvote.png' : '/images/upvoted.png';
+    image.displayImg = isupvoted ? "/images/upvote.png" : "/images/upvoted.png";
   }
 
   getPlaylistName(suggest) {
     console.log(suggest.playlistName);
     let same = true;
-    suggest.playlistName === this.props.playlistName ? same = true : same = false;
+    suggest.playlistName === this.props.playlistName
+      ? (same = true)
+      : (same = false);
 
     return same;
   }
 
   render() {
     const { suggested } = this.state;
-
     const { upvoted } = this.state;
-
     const isTrue = true;
-
-    return (
-      <div className="suggested">
-        {suggested.map((suggest) => ( 
-          <div key={suggest.songURI}>
-            {this.getPlaylistName(suggest) ?
-            <div>
-              <p className="suggested-song">
-                <div className="upvote">
-                  {this.checkUpvoted.call(this, suggest, upvoted)}
-                  {suggest.upvoteCount}
-                  <button
-                    className="upvote"
-                    onClick={() => this.handleIncrementUpvote(suggest)}
-                  >
-                    <img
-                      src={this.upvoteImages.displayImg}
-                      alt="Upvote Button"
-                      width="20"
-                    />
-                  </button>
+    if (suggested.length > 0) {
+      return (
+        <div className="suggested">
+          {console.log("suggested in body:" + suggested)}
+          {suggested.map((suggest) => (
+            <div key={suggest.songURI}>
+              {this.getPlaylistName(suggest) ? (
+                <div>
+                  <p className="suggested-song">
+                    <div className="upvote">
+                      {this.checkUpvoted.call(this, suggest, upvoted)}
+                      {suggest.upvoteCount}
+                      <button
+                        className="upvote"
+                        onClick={() => this.handleIncrementUpvote(suggest)}
+                      >
+                        <img
+                          src={this.upvoteImages.displayImg}
+                          alt="Upvote Button"
+                          width="20"
+                        />
+                      </button>
+                    </div>
+                    {suggest.trackName}
+                  </p>
+                  <p className="suggested-artist"> by {suggest.artistName}</p>
                 </div>
-                {suggest.trackName}
-              </p>
-              <p className="suggested-artist"> by {suggest.artistName}</p>
-              </div>
-            : null
-            }
-          </div>
-        ))}
-      </div>
-    );
+              ) : null}
+            </div>
+          ))}
+        </div>
+      );
+    } else {
+      return <div>no suggested songs here</div>;
+    }
   }
 }
 
