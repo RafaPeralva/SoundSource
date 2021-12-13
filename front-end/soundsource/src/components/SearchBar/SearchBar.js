@@ -102,7 +102,7 @@ export class SearchBar extends React.Component {
                   console.warn("res", res);
                 });
               });
-              window.location.reload();
+              // window.location.reload();
             }
           });
         }
@@ -129,7 +129,7 @@ export class SearchBar extends React.Component {
                 console.warn("res", res);
               });
             });
-            window.location.reload();
+            // window.location.reload();
           }
         });
       }
