@@ -16,6 +16,27 @@
   font-size: medium;
 }
 
+.dropdown-title {
+  margin-right: 10px;
+}
+.dropdown {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.dropdown select {
+  background-color: black;
+  color: #15e24b;
+  font-size: large;
+  border: 1px;
+  border-style: dotted;
+  border-radius: 10px;
+  border-color: #15e24b;
+  padding: 3px;
+}
 .searchBtn {
   padding: 2.5px;
 }

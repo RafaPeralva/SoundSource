@@ -10,7 +10,7 @@ export class SearchBar extends React.Component {
     artistName: "",
     trackName: "",
     trackURI: "",
-    upvoteCount: 0
+    upvoteCount: 0,
   };
 
   constructor(props) {
@@ -169,15 +169,15 @@ export class SearchBar extends React.Component {
     var myPlaylistList = document.getElementById("playlistList");
     var value = myPlaylistList.options[myPlaylistList.selectedIndex].value;
     this.props.handleSetPlaylistName(value);
-  }
+  };
 
   render() {
     return (
       <div className="searchWrapper">
-        <div className = "dropdown">
+        <div className="dropdown">
+          <h3 className="dropdown-title">Choose playlist:</h3>
           <form>
-            Playlist:
-            <select id = "playlistList" onChange={this.playlistName}>
+            <select id="playlistList" onChange={this.playlistName}>
               <option> General </option>
               <option> Party </option>
               <option> Working Out </option>
@@ -208,7 +208,7 @@ export class SearchBar extends React.Component {
             <ul>{this.makeList()}</ul>
           </div>
         ) : (
-          <h4>No5 results</h4>
+          <h4>No results</h4>
         )}
       </div>
     );
