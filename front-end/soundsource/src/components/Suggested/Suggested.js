@@ -45,21 +45,22 @@ export class Suggested extends Component {
   //   this.setState({ upvoted: upvoteBody });
   // }
 
-componentDidMount() {
-  this.loadData();
-  setInterval(this.loadData, 1000);
-}
-
-async loadData() {
-  try {
-    const response = await fetch("http://localhost:8080/suggested");
-    const body = await response.json();
-    this.setState = ({suggested : body});
-    console.log(this.suggested)
-  } catch (e) {
-    console.log(e);
+  componentDidMount() {
+    this.loadData();
+    setInterval(this.loadData, 1000);
   }
-}
+
+  async loadData() {
+    try {
+      const response = await fetch("http://localhost:8080/suggested");
+      const body = await response.json();
+      console.log("body: " + body);
+      this.setState = { suggested: body };
+      console.log("suggested " + this.suggested);
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   handleIncrementUpvote(suggest) {
     var song = this.songInfo;
@@ -171,13 +172,15 @@ async loadData() {
 
   getImageName(isupvoted) {
     var image = this.upvoteImages;
-    image.displayImg = isupvoted ? '/images/upvote.png' : '/images/upvoted.png';
+    image.displayImg = isupvoted ? "/images/upvote.png" : "/images/upvoted.png";
   }
 
   getPlaylistName(suggest) {
     console.log(suggest.playlistName);
     let same = true;
-    suggest.playlistName === this.props.playlistName ? same = true : same = false;
+    suggest.playlistName === this.props.playlistName
+      ? (same = true)
+      : (same = false);
 
     return same;
   }
@@ -191,31 +194,30 @@ async loadData() {
 
     return (
       <div className="suggested">
-        {suggested.map((suggest) => ( 
+        {suggested.map((suggest) => (
           <div key={suggest.songURI}>
-            {this.getPlaylistName(suggest) ?
-            <div>
-              <p className="suggested-song">
-                <div className="upvote">
-                  {this.checkUpvoted.call(this, suggest, upvoted)}
-                  {suggest.upvoteCount}
-                  <button
-                    className="upvote"
-                    onClick={() => this.handleIncrementUpvote(suggest)}
-                  >
-                    <img
-                      src={this.upvoteImages.displayImg}
-                      alt="Upvote Button"
-                      width="20"
-                    />
-                  </button>
-                </div>
-                {suggest.trackName}
-              </p>
-              <p className="suggested-artist"> by {suggest.artistName}</p>
+            {this.getPlaylistName(suggest) ? (
+              <div>
+                <p className="suggested-song">
+                  <div className="upvote">
+                    {this.checkUpvoted.call(this, suggest, upvoted)}
+                    {suggest.upvoteCount}
+                    <button
+                      className="upvote"
+                      onClick={() => this.handleIncrementUpvote(suggest)}
+                    >
+                      <img
+                        src={this.upvoteImages.displayImg}
+                        alt="Upvote Button"
+                        width="20"
+                      />
+                    </button>
+                  </div>
+                  {suggest.trackName}
+                </p>
+                <p className="suggested-artist"> by {suggest.artistName}</p>
               </div>
-            : null
-            }
+            ) : null}
           </div>
         ))}
       </div>
