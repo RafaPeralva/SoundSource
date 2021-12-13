@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Playlist.css";
 
-const PlaylistDisplay = () => {
+const PlaylistDisplay = ( {playlistName }) => {
   const [playlist, setPlaylist] = useState([])
 
   const getData = async () => {
@@ -20,20 +20,25 @@ const PlaylistDisplay = () => {
   }),
     [];
 
-  // getPlaylistName(play) {
-  //   let same = true;
-  //   play.playlistName === this.props.playlistName ? same = true : same = false;
+  const getPlaylistName = (play) => {
+    let same = true;
+    play.playlistName === playlistName ? same = true : same = false;
 
-  //   return same;
-  // }
+    return same;
+  }
 
   return (
     <div className="suggested">
       {playlist.map((song) => (
         <div>
-          {" "}
-          <p className="suggested-song"> {song.trackName} </p>{" "}
-          <p className="suggested-artist"> by: {song.artistName}</p>
+        {getPlaylistName(song) ?
+          <div>
+            {" "}
+            <p className="suggested-song"> {song.trackName} </p>{" "}
+            <p className="suggested-artist"> by: {song.artistName}</p>
+          </div>
+        : null
+        } 
         </div>
       ))}
       </div>
