@@ -173,7 +173,6 @@ export class Suggested extends Component {
     if (suggested.length > 0) {
       return (
         <div className="suggested">
-          {console.log("suggested in body:" + suggested)}
           {suggested.map((suggest) => (
             <div key={suggest.songURI}>
               {this.getPlaylistName(suggest) ? (
