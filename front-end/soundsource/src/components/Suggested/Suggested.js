@@ -47,18 +47,19 @@ export class Suggested extends Component {
 
 componentDidMount() {
   this.loadData();
-  setInterval(this.loadData, 1000);
+  setInterval(this.loadData, 5000);
 }
 
-async loadData() {
-  try {
-    const response = await fetch("http://localhost:8080/suggested");
-    const body = await response.json();
-    this.setState = ({suggested : body});
-    console.log(this.suggested)
-  } catch (e) {
-    console.log(e);
-  }
+loadData() {
+  axios.get("http://localhost:8080/suggested")
+ .then(response =>{
+ this.suggested = response.data
+ console.log(this.suggested)
+ })
+ .catch(error =>{
+ console.log(error);
+ })
+  
 }
 
   handleIncrementUpvote(suggest) {
