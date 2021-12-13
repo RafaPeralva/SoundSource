@@ -1,52 +1,43 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./Playlist.css";
 
-export class PlaylistDisplay extends Component {
-  state = {
-    playlist: [],
+const PlaylistDisplay = () => {
+  const [playlist, setPlaylist] = useState([])
+
+  const getData = async () => {
+    try {
+      const songs = await axios.get("http://localhost:8080/playlist");
+      setPlaylist(songs.data);
+
+      // console.log("songsssssssss" + songs.data);
+    } catch (err) {
+      console.error(err.message);
+    }
   };
+  useEffect(() => {
+    getData();
+  }),
+    [];
 
-  async componentDidMount() {
-    const response = await fetch("http://localhost:8080/playlist");
-    const body = await response.json();
-    this.setState({ playlist: body });
-  }
+  // getPlaylistName(play) {
+  //   let same = true;
+  //   play.playlistName === this.props.playlistName ? same = true : same = false;
 
-  getPlaylistName(play) {
-    let same = true;
-    play.playlistName === this.props.playlistName ? same = true : same = false;
+  //   return same;
+  // }
 
-    return same;
-  }
-
-  render() {
-    const { playlist } = this.state;
-    return (
-      <div className="playlistCol">
-        <div className="playlistList">
-          {playlist.map((play) => (
-            <div key={play.songURI}>
-              {this.getPlaylistName(play) ?
-              <p>
-                <div className="playlistSong">
-                  {" "}
-                  <img
-                    src="/images/music-note.png"
-                    alt="note"
-                    className="musicNote"
-                  />{" "}
-                  {play.trackName}
-                </div>
-                <div className="playlistArtist">{play.artistName}</div>
-              </p>
-              : null
-            }
-            </div>
-          ))}
+  return (
+    <div className="suggested">
+      {playlist.map((song) => (
+        <div>
+          {" "}
+          <p className="suggested-song"> {song.trackName} </p>{" "}
+          <p className="suggested-artist"> by: {song.artistName}</p>
         </div>
+      ))}
       </div>
     );
-  }
-}
+  };
 
 export default PlaylistDisplay;
