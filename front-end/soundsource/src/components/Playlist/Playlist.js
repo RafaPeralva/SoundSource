@@ -72,13 +72,11 @@ export const Playlist = () => {
               })
                 .then((res) => res.text()) // or res.json()
                 .then((res) => console.log(res));
-
-              // window.location.reload();
             }
           }
         }
       });
-    }, 6000000);
+    }, 30000);
 
     return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
   }, []);
