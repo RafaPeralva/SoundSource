@@ -38,8 +38,6 @@ const Suggested = ({ playlistName }) => {
         const userId = await axios.get("http://localhost:8080/api/userId");
         setUserID(userId.data);
       }
-
-      // console.log("songsssssssss" + songs.data);
     } catch (err) {
       console.error(err.message);
     }
@@ -94,9 +92,6 @@ const Suggested = ({ playlistName }) => {
       } else {
         upvoteSong(song, user);
       }
-
-      // // reloads component
-      // this.componentDidMount();
     });
   };
 
