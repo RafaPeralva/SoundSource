@@ -34,7 +34,7 @@ const Suggested = ({ playlistName }) => {
       const upvotes = await axios.get("http://localhost:8080/user");
       setUpvoted(upvotes.data);
 
-      if (userID == "") {
+      if (userID === "") {
         const userId = await axios.get("http://localhost:8080/api/userId");
         setUserID(userId.data);
       }
@@ -75,7 +75,7 @@ const Suggested = ({ playlistName }) => {
     // get user id and check if upvoted already
     let linkToAPI = "http://localhost:8080/user";
     axios.get(linkToAPI).then((response) => {
-      if (response.data[0] != null) {
+      if (response.data[0] !== null) {
         let found = false;
         for (var i in response.data) {
           if (
@@ -110,7 +110,7 @@ const Suggested = ({ playlistName }) => {
       });
     });
 
-    var url = "http://localhost:8080/user";
+    url = "http://localhost:8080/user";
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -129,7 +129,7 @@ const Suggested = ({ playlistName }) => {
     var song = songInfo;
     song.trackURI = suggest.trackURI;
 
-    if (upvoted && upvoted.length != 0) {
+    if (upvoted && upvoted.length !== 0) {
       let upvotedData = upvoted;
 
       let found = false;
