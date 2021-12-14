@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+// import pic from "../../../public/images/music-note.png"
 import axios from "axios";
 import "./Playlist.css";
 
-const PlaylistDisplay = ( {playlistName }) => {
-  const [playlist, setPlaylist] = useState([])
+const PlaylistDisplay = ({ playlistName }) => {
+  const [playlist, setPlaylist] = useState([]);
 
   const getData = async () => {
     try {
@@ -22,27 +23,32 @@ const PlaylistDisplay = ( {playlistName }) => {
 
   const getPlaylistName = (play) => {
     let same = true;
-    play.playlistName === playlistName ? same = true : same = false;
+    play.playlistName === playlistName ? (same = true) : (same = false);
 
     return same;
-  }
+  };
 
   return (
     <div className="suggested">
       {playlist.map((song) => (
         <div>
-        {getPlaylistName(song) ?
-          <div>
-            {" "}
-            <p className="suggested-song"> {song.trackName} </p>{" "}
-            <p className="suggested-artist"> by: {song.artistName}</p>
-          </div>
-        : null
-        } 
+          {getPlaylistName(song) ? (
+            <div>
+              <p className="suggested-song">
+                <img
+                  src="/images/music-note.png"
+                  alt="note"
+                  className="musicNote"
+                />
+                {song.trackName}{" "}
+              </p>
+              <p className="suggested-artist"> by: {song.artistName}</p>
+            </div>
+          ) : null}
         </div>
       ))}
-      </div>
-    );
-  };
+    </div>
+  );
+};
 
 export default PlaylistDisplay;
