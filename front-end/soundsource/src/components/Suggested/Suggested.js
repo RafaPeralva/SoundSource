@@ -187,9 +187,9 @@ const Suggested = ({ playlistName }) => {
                     alt="Upvote Button"
                     width="20"
                   />
-                </button>{" "}
-                {song.trackName}{" "}
-              </p>{" "}
+                </button>
+                {song.trackName}
+              </p>
               <p className="suggested-artist"> by {song.artistName}</p>
             </div>
           ) : null}
