@@ -19,10 +19,6 @@ export const Playlist = () => {
           let thirdId = "";
           let thirdArrayIndx = 0;
 
-          // response.data.sort(function (a, b) {
-          //   return a.upvoteCount - b.upvoteCount;
-          // });
-
           for (var i in response.data) {
             if (
               response.data[i].playlistName === "General" &&

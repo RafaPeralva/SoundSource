@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import pic from "../../../public/images/music-note.png"
 import axios from "axios";
 import "./Playlist.css";
 
@@ -10,8 +9,6 @@ const PlaylistDisplay = ({ playlistName }) => {
     try {
       const songs = await axios.get("http://localhost:8080/playlist");
       setPlaylist(songs.data);
-
-      // console.log("songsssssssss" + songs.data);
     } catch (err) {
       console.error(err.message);
     }
@@ -40,7 +37,7 @@ const PlaylistDisplay = ({ playlistName }) => {
                   alt="note"
                   className="musicNote"
                 />
-                {song.trackName}{" "}
+                {song.trackName}
               </p>
               <p className="suggested-artist"> by: {song.artistName}</p>
             </div>
