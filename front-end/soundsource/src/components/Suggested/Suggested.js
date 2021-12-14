@@ -28,14 +28,13 @@ const Suggested = ({ playlistName }) => {
 
   const getData = async () => {
     try {
-
       const songs = await axios.get("http://localhost:8080/suggested");
       setSuggested(songs.data);
 
       const upvotes = await axios.get("http://localhost:8080/user");
       setUpvoted(upvotes.data);
-      
-      if(userID == "") {
+
+      if (userID == "") {
         const userId = await axios.get("http://localhost:8080/api/userId");
         setUserID(userId.data);
       }
@@ -47,14 +46,13 @@ const Suggested = ({ playlistName }) => {
   };
 
   useEffect(() => {
-    
     const interval = setInterval(() => {
       getData();
     }, 1000);
 
-    return() => clearInterval(interval);
-
-  }), [];
+    return () => clearInterval(interval);
+  }),
+    [];
 
   const handleIncrementUpvote = (suggest) => {
     var song = songInfo;
@@ -166,8 +164,8 @@ const Suggested = ({ playlistName }) => {
 
   const getPlaylistName = (suggest) => {
     let same = true;
-    suggest.playlistName === playlistName ? same = true : same = false;
-    
+    suggest.playlistName === playlistName ? (same = true) : (same = false);
+
     return same;
   };
 
@@ -175,19 +173,26 @@ const Suggested = ({ playlistName }) => {
     <div className="suggested">
       {suggested.map((song) => (
         <div>
-        { getPlaylistName(song) ?
-          <div>
-            {" "}
-            {checkUpvoted.call(this, song, upvoted)}
-            {song.upvoteCount}
-            <button className="upvote" onClick={() => handleIncrementUpvote(song)}>
-                <img src={upvoteImages.displayImg} alt="Upvote Button" width="20"/>
-            </button>
-            <p className="suggested-song"> {song.trackName} </p>{" "}
-            <p className="suggested-artist"> by: {song.artistName}</p>
-          </div>
-        : null
-        }
+          {getPlaylistName(song) ? (
+            <div>
+              {checkUpvoted.call(this, song, upvoted)}
+              <p className="suggested-song">
+                {song.upvoteCount}
+                <button
+                  className="upvote"
+                  onClick={() => handleIncrementUpvote(song)}
+                >
+                  <img
+                    src={upvoteImages.displayImg}
+                    alt="Upvote Button"
+                    width="20"
+                  />
+                </button>{" "}
+                {song.trackName}{" "}
+              </p>{" "}
+              <p className="suggested-artist"> by {song.artistName}</p>
+            </div>
+          ) : null}
         </div>
       ))}
     </div>
