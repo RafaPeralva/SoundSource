@@ -71,6 +71,7 @@ const Suggested = ({ playlistName }) => {
     user.userID = userID;
     user.playlistName = song.playlistName;
     user.songURI = song.trackURI;
+    user.id = "";
 
     // get user id and check if upvoted already
     let linkToAPI = "http://localhost:8080/user";
@@ -80,14 +81,18 @@ const Suggested = ({ playlistName }) => {
         for (var i in response.data) {
           if (
             response.data[i].songURI === user.songURI &&
-            response.data[i].userID === user.userID
+            response.data[i].userID === user.userID &&
+            response.data[i].playlistName === user.playlistName
           ) {
             found = true;
+            user.id = response.data[i].id;
           }
         }
 
         if (!found) {
           upvoteSong(song, user);
+        } else {
+          removeUpvote(song, user);
         }
       } else {
         upvoteSong(song, user);
@@ -122,12 +127,36 @@ const Suggested = ({ playlistName }) => {
     });
   };
 
+  const removeUpvote = (song, user) => {
+    console.log("removing upvote on song: " + song.trackName + " user: " + userID);
+
+    song.upvoteCount = song.upvoteCount - 1;
+    // Stores updated upvote count in Suggested DB
+    var url = "http://localhost:8080/suggested/" + song.id;
+    fetch(url, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(song),
+    }).then((result) => {
+      result.json().then((res) => {
+        console.warn("suggested - res", res);
+      });
+    });
+
+    fetch("http://localhost:8080/user/" + user.id, {
+      method: "DELETE",
+    })
+      .then((res) => res.text()) // or res.json()
+      .then((res) => console.log(res));
+}
+
   // checks if song has been stored, if it was, then it was upvoted already
   // if upvoted display upvoted image, else display regular image
   // this function gets called on each row call with the song info
   const checkUpvoted = (suggest, upvoted) => {
     var song = songInfo;
     song.trackURI = suggest.trackURI;
+    song.playlistName = suggest.playlistName;
 
     if (upvoted && upvoted.length != 0) {
       let upvotedData = upvoted;
@@ -136,7 +165,8 @@ const Suggested = ({ playlistName }) => {
       for (var i in upvotedData) {
         if (
           upvotedData[i].songURI === song.trackURI &&
-          upvotedData[i].userID === userID
+          upvotedData[i].userID === userID &&
+          upvotedData[i].playlistName === song.playlistName
         ) {
           found = true;
         }
