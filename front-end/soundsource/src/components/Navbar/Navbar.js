@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import axios from "axios";
-import { MenuItems } from "./MenuItems";
+// import { MenuItems } from "./MenuItems";
 import { Button } from "../Button/Button";
 import "./Navbar.css";
 
@@ -42,27 +42,15 @@ export const Navbar = () => {
 
   return (
     <nav className="NavbarItems">
-      <img src="/images/wave.png" alt="note" className="wave" />
-      <a href="/" className="navbar-logo">
-        SoundSource
-      </a>
-
-      <div className="menu-icon" onClick={this.handleClick}>
-        <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
-      </div>
-      <ul className={clicked ? "nav-menu active" : "nav-menu"}>
-        {MenuItems.map((item, index) => {
-          return (
-            <li key={index}>
-              <a className={item.cName} href={item.url}>
-                {item.title}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-      <div className="navLinkDiv"></div>
-      <div className="navButton">
+      <div className="menu-items">
+        <div>
+          {" "}
+          <img src="/images/wave.png" alt="note" className="wave" />
+          <a href="/" className="navbar-logo">
+            SoundSource
+          </a>
+        </div>
+        {username !== "ERROR" && <p className="username">Hello, {username} </p>}
         {username === "ERROR" && (
           <Button className="loginbtn" onClick={getSpotifyUserLogin}>
             Login

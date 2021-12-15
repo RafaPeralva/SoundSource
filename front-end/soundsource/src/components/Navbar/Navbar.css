@@ -1,14 +1,24 @@
 .NavbarItems {
   background-color: black;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   font-size: 1.2rem;
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: rgb(19, 184, 74);
 }
 
+.menu-items {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.username {
+  color: rgb(19, 184, 74);
+  margin-right: 30px;
+  font-family: cursive;
+  font-size: larger;
+}
 .navbar-logo {
   color: rgb(19, 184, 74);
   justify-self: start;
