@@ -13,8 +13,6 @@ const getSpotifyUserLogin = () => {
 };
 
 export const Navbar = () => {
-  // state = { clicked: false };
-
   const [clicked, setClicked] = useState(false);
   const [username, setUsername] = useState([]);
 
@@ -27,7 +25,7 @@ export const Navbar = () => {
     } catch (err) {
       console.error(err.message);
     }
-  }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
