@@ -34,11 +34,6 @@ export const Navbar = () => {
     return () => clearInterval(interval);
   }),
     [];
-
-  const handleClick = () => {
-    setClicked(true);
-  };
-
   return (
     <nav className="NavbarItems">
       <div className="menu-items">
@@ -49,7 +44,6 @@ export const Navbar = () => {
             SoundSource
           </a>
         </div>
-
         {username !== "ERROR" && <p className="username">Hello, {username} </p>}
         {username === "ERROR" && (
           <Button className="loginbtn" onClick={getSpotifyUserLogin}>
