@@ -44,7 +44,7 @@ export const Navbar = () => {
     <nav className="NavbarItems">
       <img src="/images/wave.png" alt="note" className="wave" />
       <a href="/" className="navbar-logo">
-        SoundSource {username}
+        SoundSource
       </a>
 
       <div className="menu-icon" onClick={this.handleClick}>
@@ -63,9 +63,11 @@ export const Navbar = () => {
       </ul>
       <div className="navLinkDiv"></div>
       <div className="navButton">
-        <Button className="loginbtn" onClick={getSpotifyUserLogin}>
-          Login
-        </Button>
+        {username === "ERROR" && (
+          <Button className="loginbtn" onClick={getSpotifyUserLogin}>
+            Login
+          </Button>
+        )}
       </div>
     </nav>
   );
