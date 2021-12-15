@@ -72,57 +72,60 @@ export const Playlist = () => {
               }
             }
 
-            let p1 = 0, p2 = 0, p3 = 0;
+            let p1 = 0,
+              p2 = 0,
+              p3 = 0;
 
-            let oldestP1 = 200, oldestP2 = 200, oldestP3 = 200;
+            let oldestP1 = 200,
+              oldestP2 = 200,
+              oldestP3 = 200;
 
-            for(var i in playlistInfo.data) {
-              if(playlistInfo.data[i].playlistName == "General") {
+            for (var i in playlistInfo.data) {
+              if (playlistInfo.data[i].playlistName == "General") {
                 p1++;
-                if(playlistInfo.data[i].id < oldestP1) {
+                if (playlistInfo.data[i].id < oldestP1) {
                   oldestP1 = playlistInfo.data[i].id;
                 }
-              } else if(playlistInfo.data[i].playlistName == "Party") {
+              } else if (playlistInfo.data[i].playlistName == "Party") {
                 p2++;
-                if(playlistInfo.data[i].id < oldestP2) {
+                if (playlistInfo.data[i].id < oldestP2) {
                   oldestP2 = playlistInfo.data[i].id;
                 }
-              } else if(playlistInfo.data[i].playlistName == "Working Out") {
+              } else if (playlistInfo.data[i].playlistName == "Working Out") {
                 p3++;
-                if(playlistInfo.data[i].id < oldestP3) {
+                if (playlistInfo.data[i].id < oldestP3) {
                   oldestP3 = playlistInfo.data[i].id;
                 }
               }
             }
 
-
-            if((p1 === 100 && firstId != "") || p1 > 100) {
+            if ((p1 === 100 && firstId != "") || p1 > 100) {
               fetch("http://localhost:8080/playlist/" + oldestP1, {
-                  method: "DELETE",
-                })
-                  .then((res) => res.text()) // or res.json()
-                  .then((res) => console.log(res));
+                method: "DELETE",
+              })
+                .then((res) => res.text()) // or res.json()
+                .then((res) => console.log(res));
             }
 
-            if((p2 === 100 && secondId != "") || p2 > 100) {
+            if ((p2 === 100 && secondId != "") || p2 > 100) {
               fetch("http://localhost:8080/playlist/" + oldestP2, {
-                  method: "DELETE",
-                })
-                  .then((res) => res.text()) // or res.json()
-                  .then((res) => console.log(res));
+                method: "DELETE",
+              })
+                .then((res) => res.text()) // or res.json()
+                .then((res) => console.log(res));
             }
 
-            if((p3 === 100 && thirdId != "") || p3 > 100) {
+            if ((p3 === 100 && thirdId != "") || p3 > 100) {
               fetch("http://localhost:8080/playlist/" + oldestP3, {
-                  method: "DELETE",
-                })
-                  .then((res) => res.text()) // or res.json()
-                  .then((res) => console.log(res));
+                method: "DELETE",
+              })
+                .then((res) => res.text()) // or res.json()
+                .then((res) => console.log(res));
             }
           });
         }
       });
-    }, 30000);
+    }, 120000);
 
     return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
   }, []);
