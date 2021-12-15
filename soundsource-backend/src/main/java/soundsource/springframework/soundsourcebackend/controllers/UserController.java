@@ -24,7 +24,7 @@ public class UserController {
 
         try {
             final User user = getCurrentUsersProfileRequest.execute();
-            System.out.println("Display name: " + user.getDisplayName() + " : " + user.getId());
+
             return user.getId();
         } catch (IOException | SpotifyWebApiException | ParseException e) {
             System.out.println("Error: " + e.getMessage());
@@ -40,7 +40,6 @@ public class UserController {
 
         try {
             final User user = getCurrentUsersProfileRequest.execute();
-            System.out.println("Display name: " + user.getDisplayName() + " : " + user.getId());
 
             String id = "";
 
@@ -48,6 +47,26 @@ public class UserController {
             id = gson.toJson(user.getId());
 
             return id;
+        } catch (IOException | SpotifyWebApiException | ParseException e) {
+            System.out.println("Error: " + e.getMessage());
+            return "ERROR";
+        }
+    }
+    @GetMapping(value = "username")
+    public static String getUsername() {
+
+        final GetCurrentUsersProfileRequest getCurrentUsersProfileRequest = spotifyApi.getCurrentUsersProfile()
+                .build();
+
+        try {
+            final User user = getCurrentUsersProfileRequest.execute();
+
+            String username = "";
+
+            Gson gson = new Gson();
+            username = gson.toJson(user.getDisplayName());
+
+            return username;
         } catch (IOException | SpotifyWebApiException | ParseException e) {
             System.out.println("Error: " + e.getMessage());
             return "ERROR";
