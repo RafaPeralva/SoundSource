@@ -9,13 +9,13 @@
 .menu-items {
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
+  margin-right: 20px;
 }
 
 .username {
   color: rgb(19, 184, 74);
-  margin-right: 30px;
   font-family: cursive;
   font-size: larger;
 }
@@ -30,81 +30,14 @@
   margin-top: 10px;
 }
 
+.loginbtn {
+  margin-bottom: 10px;
+}
 .navbar-logo:hover {
   color: darkolivegreen;
-}
-
-.navButton {
-  margin-right: 10px;
 }
 
 .wave {
   width: 100px;
   margin-left: 10px;
-}
-.navLinkDiv {
-  margin: 20px;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-}
-.navLink {
-  color: rgb(19, 184, 74);
-  text-decoration: none;
-  font-family: cursive;
-  font-size: large;
-  font-weight: 700;
-}
-
-.suggestSearchLink {
-  display: flex;
-  margin-right: 10px;
-}
-
-.navLink:hover {
-  color: darkolivegreen;
-}
-
-.fa-react {
-  margin-left: 0.5rem;
-  font-size: 1.6rem;
-}
-
-.navMenu {
-  margin-left: 20px;
-}
-
-.nav-menu {
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  grid-gap: 10px;
-  list-style: none;
-  text-align: center;
-  width: 70vw;
-  justify-content: end;
-  margin-right: 2rem;
-}
-
-.nav-links {
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-}
-
-.nav-links:hover {
-  background: #6d76f7;
-  border-radius: 4px;
-  transition: all 0.2s ease-out;
-}
-
-.fa-bars {
-  color: #fff;
-}
-
-.nav-links-mobile {
-  display: none;
-}
-
-.menu-icon {
-  display: none;
 }

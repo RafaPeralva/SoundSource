@@ -1,6 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
 import axios from "axios";
-// import { MenuItems } from "./MenuItems";
 import { Button } from "../Button/Button";
 import "./Navbar.css";
 
@@ -50,6 +49,7 @@ export const Navbar = () => {
             SoundSource
           </a>
         </div>
+
         {username !== "ERROR" && <p className="username">Hello, {username} </p>}
         {username === "ERROR" && (
           <Button className="loginbtn" onClick={getSpotifyUserLogin}>
