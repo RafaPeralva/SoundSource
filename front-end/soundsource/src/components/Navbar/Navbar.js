@@ -1,6 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
 import axios from "axios";
-// import { MenuItems } from "./MenuItems";
 import { Button } from "../Button/Button";
 import "./Navbar.css";
 
@@ -35,11 +34,6 @@ export const Navbar = () => {
     return () => clearInterval(interval);
   }),
     [];
-
-  const handleClick = () => {
-    setClicked(true);
-  };
-
   return (
     <nav className="NavbarItems">
       <div className="menu-items">
